@@ -1,0 +1,52 @@
+@import '@/app/variables.scss';
+.container_top{
+    display: flex;
+    flex-flow: column;
+    margin-top: 70px;
+    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+}
+.menuGroup{
+    width: 130px;
+        height: 30px;
+        border: 2px solid #E47611;
+        border-radius: 10px;
+        @include font(#E47611, Inter, 15px, normal, 400, 15px, 0);
+}
+.container_popup{
+    position: relative;
+    width: 270px;
+    min-height: 300px;
+    border: 2px solid #E47611;
+    border-radius: 10px;
+    background-color: rgba(153, 181, 191, 0.5);
+    padding: 5px;
+    left: 20px;
+    top: 15px;
+    margin-bottom: 15px;
+}
+.container_popup2{
+    top: 170px;
+}
+.buyForDay{
+    //color: #E47611;
+    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+    font-size: clamp(15px, 3vw, 20px);
+}
+.handleIngredients{
+    margin: 0 10px;
+    color: #E47611;
+}
+.handleCopy{
+    color: #E47611;
+}
+.tooltip {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #E47611;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  

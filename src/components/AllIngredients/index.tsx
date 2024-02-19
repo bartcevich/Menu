@@ -5,6 +5,7 @@ import MenuGroups from "@/components/MenuGroups";
 import MenuGroupsOpen from "@/components/MenuGroupsOpen";
 
 type UserInput = { [key: string]: string | undefined };
+type UserInput1 = { [key: string]: string | undefined };
 const identifiers = [
   "label2",
   "label3",
@@ -14,16 +15,15 @@ const identifiers = [
   "label7",
 ] as const;
 export default function AllIngredients() {
+  const [buttonPressed, setButtonPressed] = useState(false);
   const [printLabel, setPrintLabel] = useState<{ [key: string]: any }>({});
   const [selectionUser, setSelectionUser] = useState<{ [key: string]: any }>(
     {}
   );
-  //const [selectionUser, setSelectionUser] = useState<any[]>([]);
-  //console.log(selectionUser);
 
   useEffect(() => {
     //localStorage.setItem("ingredientHistory", JSON.stringify([]));
-    console.log("checkTasks=", localStorage.getItem("ingredientHistory"));
+    //console.log("checkTasks=", localStorage.getItem("ingredientHistory"));
     const savedIngredientHistory: string | null =
       localStorage.getItem("ingredientHistory");
     if (savedIngredientHistory) {
@@ -38,10 +38,11 @@ export default function AllIngredients() {
         ...printLabel,
         [identifier]: value,
       };
-      console.log("selectionUser=", selectionUser);
-      console.log("printLabel=", printLabel);
-      console.log("newSelectionUser=", newSelectionUser);
+      //console.log("selectionUser=", selectionUser);
+      //console.log("printLabel=", printLabel);
+      //console.log("newSelectionUser=", newSelectionUser);
       //setSelectionUser(newSelectionUser);
+      setButtonPressed(true);
       localStorage.setItem(
         "ingredientHistory",
         JSON.stringify(newSelectionUser)
@@ -49,6 +50,7 @@ export default function AllIngredients() {
     },
     [printLabel, selectionUser]
   );
+
   const [userInput, setUserInput] = useState<UserInput>({});
   useEffect(() => {
     const savedInputs: string | null = localStorage.getItem("userInputs");
@@ -68,21 +70,105 @@ export default function AllIngredients() {
     setUserInput(newInputs);
     localStorage.setItem("userInputs", JSON.stringify(userInput));
   };
+  const [userInput1, setUserInput1] = useState<UserInput1>({});
+  useEffect(() => {
+    const savedInputs1: string | null = localStorage.getItem("userInputs1");
+    if (savedInputs1) {
+      const parsedInputs1: UserInput1 = JSON.parse(savedInputs1);
+      setUserInput1(parsedInputs1);
+    }
+  }, []);
+  const handleInputChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newInputs1: UserInput1 = {
+      ...userInput1,
+    };
+    newInputs1[e.target.name] = e.target.value;
+    setUserInput1(newInputs1);
+    localStorage.setItem("userInputs1", JSON.stringify(userInput1));
+  };
+
+  const [printLabel2, setPrintLabel2] = useState<{ [key: string]: any }>({});
+  const [selectionUser2, setSelectionUser2] = useState<any[]>([]);
+  useEffect(() => {
+    //localStorage.setItem("ingredientHistory", JSON.stringify([]));
+    //console.log("checkTasks2=", localStorage.getItem("ingredientHistory2"));
+    const savedIngredientHistory2: string | null =
+      localStorage.getItem("ingredientHistory2");
+    if (savedIngredientHistory2) {
+      const parsedIngredientHistory2 = JSON.parse(savedIngredientHistory2);
+      setPrintLabel2(parsedIngredientHistory2);
+    }
+  }, []);
+  const handleChange2 = useCallback(
+    (newSelectionUser2: { [key: string]: any }) => {
+      //console.log("selectionUser=", selectionUser);
+      //console.log("printLabel=", printLabel);
+      //console.log("newSelectionUser=", newSelectionUser2);
+      setButtonPressed(true);
+      localStorage.setItem(
+        "ingredientHistory2",
+        JSON.stringify(newSelectionUser2)
+      );
+    },
+    []
+  );
 
   return (
     <>
       <div className={styles.container_text}>
-        <div>
-          <MenuGroupsOpen />
-        </div>
         <input
           className={styles.container_input}
           type="text"
-          //value={userInput1["input1"] || ""}
+          name="menuText"
+          value={userInput1.menuText || ""}
           maxLength={27}
-          //onChange={(e) => handleInputChange(e, "input1")}
+          onChange={handleInputChange1}
           placeholder="Меню для..."
         />
+        <div>
+          <MenuGroupsOpen setSelectionUser2={setSelectionUser2} />
+          <button
+            className={styles.button_save}
+            value={selectionUser2}
+            onClick={() => handleChange2(selectionUser2)}
+            style={{ color: buttonPressed ? "red" : "green" }}
+          >
+            сохранить меню
+          </button>
+          <div>
+            {printLabel2 && (
+              <div>
+                {Array.isArray(printLabel2) ? (
+                  printLabel2.map((item: any, index: number) => (
+                    <div key={index}>
+                      {item.image && item.image.length > 0 && (
+                        <img src={item.image[0]} alt="Image" />
+                      )}
+                      {item.label && item.label.length > 0 && (
+                        <div className={styles.storage_text}>
+                          {item.numberHuman}
+                          {item.label}
+                        </div>
+                      )}
+                    </div>
+                  ))
+                ) : (
+                  <div className={styles.container_storage}>
+                    {printLabel2.image && printLabel2.image.length > 0 && (
+                      <img src={printLabel2.image[0]} alt="Image" />
+                    )}
+                    {printLabel2.label && printLabel2.label.length > 0 && (
+                      <div className={styles.storage_text}>
+                        {printLabel2.numberHuman}
+                        {printLabel2.label}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
       {identifiers.map((identifier) => (
         <div key={identifier} className={styles.container_text}>
@@ -97,8 +183,10 @@ export default function AllIngredients() {
           <div className={styles.component_button}>
             <MenuGroups setSelectionUser={setSelectionUser} />
             <button
+              className={styles.button_save}
               value={selectionUser[identifier]}
               onClick={() => handleChange(identifier, selectionUser)}
+              style={{ color: buttonPressed ? "red" : "green" }}
             >
               сохранить меню
             </button>
@@ -113,7 +201,7 @@ export default function AllIngredients() {
                         <img src={item.image[0]} alt="Image" />
                       )}
                       {item.label && item.label.length > 0 && (
-                        <div>
+                        <div className={styles.storage_text}>
                           {item.numberHuman}
                           {item.label}
                         </div>
@@ -131,7 +219,7 @@ export default function AllIngredients() {
                       )}
                     {printLabel[identifier].label &&
                       printLabel[identifier].label.length > 0 && (
-                        <div>
+                        <div className={styles.storage_text}>
                           {printLabel[identifier].numberHuman}
                           {printLabel[identifier].label}
                         </div>

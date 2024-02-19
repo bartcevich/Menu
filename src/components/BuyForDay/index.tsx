@@ -6,6 +6,7 @@ import { IIngredients } from "@/types/common";
 import { IngredientsContext } from "@/context/IngredientsContext";
 
 interface BuyForDayProps {
+  day: any;
   ingredients: any[];
   label: any[];
   image: any[];
@@ -20,16 +21,24 @@ const BuyForDay: React.FC<BuyForDayProps> = (props) => {
   const [ingredientHistory, setIngredientHistory] = useState<IIngredients[]>(
     []
   );
-  //const { ingredientHistory, setIngredientHistory } = useContext(IngredientsContext);
-  let updatedHistory: any[] = [];
+  const { userChoice, setUserChoice } = useContext(IngredientsContext);
+  // console.log(ingredientHistory);
+
   useEffect(() => {
     const newIngredient: IIngredients = {
       ingredients: props.ingredients,
       label: props.label[0],
       image: props.label[2] === props.label[0] ? [] : props.label[2],
-      numberHuman: props.label[1],
-      isOpen: false,
+      numberServings: [],
+      comment: [],
+      purposesUse: [],
     };
+    // if (count === 1) {
+    //   setUserChoice(`Для ${count} человека.`);
+    // } else if (count > 1) {
+    //   setUserChoice(`Для ${count} человек.`);
+    // }
+    let updatedHistory: any[] = [];
     setIngredientHistory((prevHistory) => {
       if (props.label[0] !== labelPrev[0]) {
         //проверяю ? для нового блюда ингредиенты
@@ -40,7 +49,7 @@ const BuyForDay: React.FC<BuyForDayProps> = (props) => {
       } else {
         updatedHistory = [...prevPrevHistory, newIngredient]; //только обновляется последнее блюдо
       }
-      if (updatedHistory.length > 6) {
+      if (updatedHistory.length > 5) {
         return updatedHistory.slice(1);
       }
       return updatedHistory;
@@ -76,8 +85,12 @@ const BuyForDay: React.FC<BuyForDayProps> = (props) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  let arrShow: any = userChoice;
+  //console.log("props.day=", props.day);
+
   return (
     <>
+      <div className={styles.label}>{arrShow[props.day]}</div>
       {ingredientHistory.map((ingredient, index) => (
         <div key={index}>
           <div className={styles.container}>
