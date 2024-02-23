@@ -8,6 +8,7 @@ import Desserts from "@/components/Desserts";
 import Starters from "@/components/Starters";
 import SideDish from "@/components/SideDish";
 import ShowMenuDay from "@/components/ShowMenuDay";
+import NameForPartMenu from "@/components/NameForPartMenu";
 
 export default function MenuGroups(props: any) {
   const [ingredients, setIngredients] = useState<any[]>([]);
@@ -23,20 +24,19 @@ export default function MenuGroups(props: any) {
   return (
     <>
       <div className={styles.container_top}>
-        <button
-          type="button"
-          className={styles.menuGroup}
-          onClick={handleClick}
-        >
-          {openMenu ? "Возврат к меню" : "Тип блюда"}
-        </button>
+        <NameForPartMenu day={day} />
+        <div className={styles.container_button}>
+          <button
+            type="button"
+            className={styles.menuGroup}
+            onClick={handleClick}
+          >
+            {openMenu ? "Возврат к меню" : "Тип блюда"}
+          </button>
+        </div>
         {openMenu && (
           <div className={styles.container_popup}>
-            <Starters
-              day={day}
-              //setIngredients={setIngredients}
-              //setLabel={setLabel}
-            />
+            <Starters day={day} />
             <SideDish day={day} />
             <Soup day={day} />
             <Salad day={day} />
@@ -47,7 +47,7 @@ export default function MenuGroups(props: any) {
       <div>
         <ShowMenuDay day={day} />
       </div>
-      <div>
+      {/* <div>
         <BuyForDay
           day={day}
           ingredients={ingredients}
@@ -56,7 +56,7 @@ export default function MenuGroups(props: any) {
           numberHuman={numberHuman}
           isOpen={true}
         />
-      </div>
+      </div> */}
     </>
   );
 }

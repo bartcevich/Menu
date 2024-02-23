@@ -5,7 +5,7 @@ import Authentication from "@/components/Authentication";
 import MenuGroups from "@/components/MenuGroups";
 import ShowSevenAndStorage from "@/components/ShowSevenAndStorage";
 import { MenuProvider } from "@/context/IngredientsContext";
-import bgImage from "@/assets/images/background3.jpg";
+import bgImage from "@/assets/images/background.png";
 
 export default function Home() {
   return (

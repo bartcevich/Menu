@@ -1,15 +1,7 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack-e88ec3ef857fe5f5.js",
-      "static/chunks/bce60fc1-ed9e303a0717dbbe.js",
-      "static/chunks/769-cc7f7903c43eae4b.js",
-      "static/chunks/main-app-007b471a7569b5ba.js",
-      "static/css/436c9eb798e3314e.css",
-      "static/chunks/app/page-477ce7407bc424eb.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-e88ec3ef857fe5f5.js",
+      "static/chunks/webpack-a9ce4813715694fb.js",
       "static/chunks/bce60fc1-ed9e303a0717dbbe.js",
       "static/chunks/769-cc7f7903c43eae4b.js",
       "static/chunks/main-app-007b471a7569b5ba.js",
@@ -19,8 +11,16 @@
       "static/css/7239d232f8347420.css",
       "static/chunks/app/layout-ec91a39a9d745dcd.js"
     ],
+    "/page": [
+      "static/chunks/webpack-a9ce4813715694fb.js",
+      "static/chunks/bce60fc1-ed9e303a0717dbbe.js",
+      "static/chunks/769-cc7f7903c43eae4b.js",
+      "static/chunks/main-app-007b471a7569b5ba.js",
+      "static/css/044c1b81d8869f4c.css",
+      "static/chunks/app/page-f5cc234f8760c438.js"
+    ],
     "/kids/page": [
-      "static/chunks/webpack-e88ec3ef857fe5f5.js",
+      "static/chunks/webpack-a9ce4813715694fb.js",
       "static/chunks/bce60fc1-ed9e303a0717dbbe.js",
       "static/chunks/769-cc7f7903c43eae4b.js",
       "static/chunks/main-app-007b471a7569b5ba.js",
@@ -28,7 +28,7 @@
       "static/chunks/app/kids/page-bfcf274dba2581e7.js"
     ],
     "/programs/page": [
-      "static/chunks/webpack-e88ec3ef857fe5f5.js",
+      "static/chunks/webpack-a9ce4813715694fb.js",
       "static/chunks/bce60fc1-ed9e303a0717dbbe.js",
       "static/chunks/769-cc7f7903c43eae4b.js",
       "static/chunks/main-app-007b471a7569b5ba.js",
@@ -36,7 +36,7 @@
       "static/chunks/app/programs/page-f7c67a2497371547.js"
     ],
     "/teenagers/page": [
-      "static/chunks/webpack-e88ec3ef857fe5f5.js",
+      "static/chunks/webpack-a9ce4813715694fb.js",
       "static/chunks/bce60fc1-ed9e303a0717dbbe.js",
       "static/chunks/769-cc7f7903c43eae4b.js",
       "static/chunks/main-app-007b471a7569b5ba.js",

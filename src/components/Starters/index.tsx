@@ -62,6 +62,7 @@ const Starters: React.FC<MondayProps> = (props) => {
       const values = Object.values(userChoiceForComponent);
       const firstObject: any = values[0];
       const labelDelete = firstObject["label"];
+      //console.log("label1", labelDelete);
       if (values.length > 5 && labelDelete) {
         delete userChoiceForComponent[labelDelete];
       }

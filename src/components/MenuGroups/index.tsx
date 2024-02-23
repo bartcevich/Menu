@@ -8,6 +8,7 @@ import Desserts from "@/components/Desserts";
 import Starters from "@/components/Starters";
 import SideDish from "@/components/SideDish";
 import ShowMenuDay from "@/components/ShowMenuDay";
+import NameForPartMenu from "@/components/NameForPartMenu";
 
 export default function MenuGroups(props: any) {
   const [ingredients, setIngredients] = useState<any[]>([]);
@@ -23,6 +24,7 @@ export default function MenuGroups(props: any) {
   return (
     <>
       <div className={styles.container_top}>
+        <NameForPartMenu day={day} />
         <button
           type="button"
           className={styles.menuGroup}
@@ -47,7 +49,7 @@ export default function MenuGroups(props: any) {
       <div>
         <ShowMenuDay day={day} />
       </div>
-      <div>
+      {/* <div>
         <BuyForDay
           day={day}
           ingredients={ingredients}
@@ -56,7 +58,7 @@ export default function MenuGroups(props: any) {
           numberHuman={numberHuman}
           isOpen={true}
         />
-      </div>
+      </div> */}
     </>
   );
 }

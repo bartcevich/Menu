@@ -245,7 +245,7 @@ __webpack_require__.r(__webpack_exports__);
         '',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 3106)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\page.tsx"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 3951)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\page.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
     apple: [],
@@ -281,16 +281,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 7940:
+/***/ 5086:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7868));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5400));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4700));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2394))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9840))
 
 /***/ }),
 
-/***/ 2394:
+/***/ 5400:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -311,158 +311,6 @@ var IngredientsContext = __webpack_require__(4700);
 // EXTERNAL MODULE: ./src/components/MenuGroupsOpen/styles.module.scss
 var styles_module = __webpack_require__(8043);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
-// EXTERNAL MODULE: ./src/components/BuyForDay/styles.module.scss
-var BuyForDay_styles_module = __webpack_require__(7481);
-var BuyForDay_styles_module_default = /*#__PURE__*/__webpack_require__.n(BuyForDay_styles_module);
-;// CONCATENATED MODULE: ./src/components/BuyForDay/index.tsx
-/* eslint-disable @next/next/no-img-element */ /* __next_internal_client_entry_do_not_use__ default auto */ 
-
-
-
-const BuyForDay = (props)=>{
-    const [labelPrev, setLabelPrev] = (0,react_.useState)([]);
-    const [prevPrevHistory, setPrevPrevHistory] = (0,react_.useState)([]);
-    const [ingredientHistory, setIngredientHistory] = (0,react_.useState)([]);
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
-    // console.log(ingredientHistory);
-    (0,react_.useEffect)(()=>{
-        const newIngredient = {
-            ingredients: props.ingredients,
-            label: props.label[0],
-            image: props.label[2] === props.label[0] ? [] : props.label[2],
-            numberServings: [],
-            comment: [],
-            purposesUse: []
-        };
-        // if (count === 1) {
-        //   setUserChoice(`Для ${count} человека.`);
-        // } else if (count > 1) {
-        //   setUserChoice(`Для ${count} человек.`);
-        // }
-        let updatedHistory = [];
-        setIngredientHistory((prevHistory)=>{
-            if (props.label[0] !== labelPrev[0]) {
-                //проверяю ? для нового блюда ингредиенты
-                setPrevPrevHistory(prevHistory); //сохраняю состояние до изменения ингредиентов
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-                updatedHistory = [
-                    ...prevHistory,
-                    newIngredient
-                ]; //к старым добавляю новое
-                setLabelPrev(props.label); //сохраняю имя последнего блюда
-            } else {
-                updatedHistory = [
-                    ...prevPrevHistory,
-                    newIngredient
-                ]; //только обновляется последнее блюдо
-            }
-            if (updatedHistory.length > 5) {
-                return updatedHistory.slice(1);
-            }
-            return updatedHistory;
-        });
-    }, [
-        props.ingredients,
-        props.label,
-        props.image
-    ]);
-    (0,react_.useEffect)(()=>{
-        if (props.setMenuUser) {
-            props.setMenuUser(ingredientHistory);
-        //console.log(ingredientHistory);
-        }
-    }, [
-        ingredientHistory,
-        props.setMenuUser
-    ]);
-    const handleRemove = (indexToRemove)=>{
-        setIngredientHistory((prev)=>prev.filter((_, index)=>index !== indexToRemove));
-    };
-    const handleViewIngredients = (index)=>{
-        setIngredientHistory((prevHistory)=>{
-            const updatedHistory = prevHistory.map((item, idx)=>{
-                if (idx === index) {
-                    return {
-                        ...item,
-                        isOpen: !item.isOpen
-                    };
-                }
-                return item;
-            });
-            return updatedHistory;
-        });
-    };
-    const [activeIndex, setActiveIndex] = (0,react_.useState)(null);
-    const handleToggle = (index)=>{
-        setActiveIndex(activeIndex === index ? null : index);
-    };
-    let arrShow = userChoice;
-    //console.log("props.day=", props.day);
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: (BuyForDay_styles_module_default()).label,
-                children: arrShow[props.day]
-            }),
-            ingredientHistory.map((ingredient, index)=>/*#__PURE__*/ jsx_runtime_.jsx("div", {
-                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: (BuyForDay_styles_module_default()).container,
-                        children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                className: (BuyForDay_styles_module_default()).image,
-                                children: ingredient.image.join("") !== "" && /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                    src: ingredient.image.join(""),
-                                    alt: "Image"
-                                })
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                children: [
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                        className: (BuyForDay_styles_module_default()).label,
-                                        children: [
-                                            ingredient.numberHuman,
-                                            ingredient.label
-                                        ]
-                                    }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                        className: (BuyForDay_styles_module_default()).button,
-                                        children: activeIndex === index && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                            className: (BuyForDay_styles_module_default()).dropdownContent,
-                                            children: [
-                                                /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                                                    type: "button",
-                                                    onClick: ()=>handleViewIngredients(index),
-                                                    children: ingredient.isOpen ? "Cвернуть.  " : "Смотреть состав.  "
-                                                }),
-                                                /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                                                    type: "button",
-                                                    onClick: ()=>handleRemove(index),
-                                                    children: "Удалить."
-                                                })
-                                            ]
-                                        })
-                                    }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                        className: (BuyForDay_styles_module_default()).dropdownIcon,
-                                        onClick: ()=>handleToggle(index),
-                                        children: "⋮"
-                                    }),
-                                    ingredient.isOpen && /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                        className: (BuyForDay_styles_module_default()).ingredientCourse,
-                                        children: ingredient.ingredients.map((item, idx)=>/*#__PURE__*/ jsx_runtime_.jsx("p", {
-                                                children: item
-                                            }, idx))
-                                    })
-                                ]
-                            })
-                        ]
-                    })
-                }, index))
-        ]
-    });
-};
-/* harmony default export */ const components_BuyForDay = (BuyForDay);
-
 // EXTERNAL MODULE: ./src/components/Soup/styles.module.scss
 var Soup_styles_module = __webpack_require__(1191);
 var Soup_styles_module_default = /*#__PURE__*/__webpack_require__.n(Soup_styles_module);
@@ -963,7 +811,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Масло сливочное гр": 20
         },
-        "Image": "https://https://bartcevich.github.io/letter/image/pilaf_raisins.png"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/bulgur.png"
     },
     {
         "label": "Гречневая каша.",
@@ -972,7 +820,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Масло сливочное гр": 20
         },
-        "Image": "https://https://bartcevich.github.io/letter/image/pilaf_raisins.png"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/buckwheat_porridge.png"
     },
     {
         "label": "Кабачек тушеный.",
@@ -984,7 +832,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/stewed_zucchini.png"
     },
     {
         "label": "Капуста тушеная с кабачком.",
@@ -998,7 +846,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/stewed_cabbage.png"
     },
     {
         "label": "Картофельное пюре.",
@@ -1008,7 +856,7 @@ const SIDE_DISH = [
             "Масло сливочное гр": 5,
             "Соль гр": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/mashed_potatoes.png"
     },
     {
         "label": "Картофель жареный.",
@@ -1019,7 +867,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/fried_potatoes.png"
     },
     {
         "label": "Картофель тушеный в молоке.",
@@ -1033,7 +881,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/baked_milk.png"
     },
     {
         "label": "Картофель запеченный в сметане.",
@@ -1043,7 +891,7 @@ const SIDE_DISH = [
             "Сметана гр": 17,
             "Соль гр": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/baked_sour_cream.png"
     },
     {
         "label": "Макароны отварные.",
@@ -1053,7 +901,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Масло сливочное гр": 20
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/boiled_pasta.png"
     },
     {
         "label": "Манная каша",
@@ -1061,7 +909,7 @@ const SIDE_DISH = [
             "Манка гр": 40,
             "Молоко гр": 200
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/semolina_porridge.png"
     },
     {
         "label": "Овощи тушеные.",
@@ -1077,7 +925,7 @@ const SIDE_DISH = [
             "Специи": 1,
             "Подсолнечное масло гр": 7
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/stewed_vegetables.png"
     },
     {
         "label": "Перловая каша.",
@@ -1086,7 +934,7 @@ const SIDE_DISH = [
             "Соль гр": 2,
             "Масло сливочное гр": 25
         },
-        "Image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/pearl_porridge.png"
     },
     {
         "label": "Пшенная каша",
@@ -1094,7 +942,7 @@ const SIDE_DISH = [
             "Пшено гр": 45,
             "Масло сливочное гр": 10
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/millet_porridge.png"
     },
     {
         "label": "Рассыпчатый рис басмати.",
@@ -1103,7 +951,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Масло сливочное гр": 20
         },
-        "Image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/crumbly_rice.png"
     },
     {
         "label": "Спагетти.",
@@ -1113,7 +961,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Масло сливочное гр": 20
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/boiled_spaghetti.png"
     },
     {
         "label": "Фасоль стручковая со сметаной.",
@@ -1126,7 +974,7 @@ const SIDE_DISH = [
             "Соль гр": 1,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_side_dish/тыквенные_блины.jpg"
     }
 ];
 const CHOOSE_SOUP = [
@@ -1143,7 +991,7 @@ const CHOOSE_SOUP = [
             "Подсолнечное масло гр": 3,
             "Специи": 3
         },
-        "Image": "https://bartcevich.github.io/letter/image/beetroot_hot.png"
+        "Image": "https://bartcevich.github.io/letter/image_soup/beetroot_hot.png"
     },
     {
         "label": "Гороховый суп с грудинкой.",
@@ -1158,7 +1006,7 @@ const CHOOSE_SOUP = [
             "Соль гр": 1,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/smoked_peas.png"
+        "Image": "https://bartcevich.github.io/letter/image_soup/smoked_peas.jpg"
     },
     {
         "label": "Куриный суп с яичной лапшой.",
@@ -1170,7 +1018,7 @@ const CHOOSE_SOUP = [
             "Мука пшеничная гр": 40,
             "Яйца куриные шт": 0.3
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_soup/egg_noodles.png"
     },
     {
         "label": "Овощной суп.",
@@ -1186,7 +1034,7 @@ const CHOOSE_SOUP = [
             "Консервированная фосоль гр": 27,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/vegetable_dumplings.png"
+        "Image": "https://bartcevich.github.io/letter/image_soup/vegetable_soup.png"
     },
     {
         "label": "Овощной суп с пельменями.",
@@ -1197,7 +1045,7 @@ const CHOOSE_SOUP = [
             "Лук зелёный гр": 1,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/vegetable_dumplings.png"
+        "Image": "https://bartcevich.github.io/letter/image_soup/vegetable_dumplings.png"
     },
     {
         "label": "Пшенный суп сяйцом",
@@ -1211,7 +1059,7 @@ const CHOOSE_SOUP = [
             "Специи": 1,
             "Соль гр": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_soup/millet_soup.png"
     },
     {
         "label": "Рассольник.",
@@ -1225,7 +1073,7 @@ const CHOOSE_SOUP = [
             "Специи": 1,
             "Огурец соленый гр": 40
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_soup/pickl_bean.png"
     },
     {
         "label": "Суп пюре из тыквы",
@@ -1237,7 +1085,7 @@ const CHOOSE_SOUP = [
             "Картофель гр": 40,
             "Батон гр": 30
         },
-        "Image": "https://bartcevich.github.io/letter/image/pumpkin_soup.png"
+        "Image": "https://bartcevich.github.io/letter/image_soup/pumpkin_soup.png"
     },
     {
         "label": "Суп с фрикадельками и булгуром.",
@@ -1252,7 +1100,7 @@ const CHOOSE_SOUP = [
             "Соль гр": 1,
             "Подсолнечное масло гр": 15
         },
-        "Image": "https://bartcevich.github.io/letter/image/vegetable_dumplings.png"
+        "Image": "https://bartcevich.github.io/letter/image_soup/meatballs_bulgur.png"
     },
     {
         "label": "Суп харчо.",
@@ -1267,7 +1115,7 @@ const CHOOSE_SOUP = [
             "Соль гр": 2,
             "Специи": 2
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_soup/georgian_soup.png"
     },
     {
         "label": "Уха.",
@@ -1280,7 +1128,7 @@ const CHOOSE_SOUP = [
             "Соль гр": 1,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_soup/fisherman_chowder.png"
     },
     {
         "label": "Холодник.",
@@ -1292,7 +1140,7 @@ const CHOOSE_SOUP = [
             "Сметана гр": 20,
             "Яйца куриные шт": 0.8
         },
-        "Image": "https://bartcevich.github.io/letter/image/beetroot_hot.png"
+        "Image": "https://bartcevich.github.io/letter/image_soup/cold_beetroot.png"
     },
     {
         "label": "Фасолевый суп.",
@@ -1308,7 +1156,7 @@ const CHOOSE_SOUP = [
             "Соль гр": 1,
             "Специи": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_soup/bean_soup.png"
     },
     {
         "label": "Щи из свежей капусты",
@@ -1324,7 +1172,7 @@ const CHOOSE_SOUP = [
             "Специи": 1,
             "Соль гр": 1
         },
-        "Image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        "Image": "https://bartcevich.github.io/letter/image_soup/cabbage_soup.png"
     }
 ];
 const HEARTY_SALAD = [
@@ -2226,6 +2074,7 @@ const Starters_Starters = (props)=>{
             const values = Object.values(userChoiceForComponent);
             const firstObject = values[0];
             const labelDelete = firstObject["label"];
+            //console.log("label1", labelDelete);
             if (values.length > 5 && labelDelete) {
                 delete userChoiceForComponent[labelDelete];
             }
@@ -2516,17 +2365,18 @@ var ShowMenuDay_styles_module_default = /*#__PURE__*/__webpack_require__.n(ShowM
 
 
 const ShowMenuDay = (props)=>{
-    const { userChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [menuData, setMenuData] = (0,react_.useState)([]);
+    //1 отделение от ключа сохраненного выбора пользователя
+    let userChoiceForComponent = {};
+    const dataForComponent = ()=>{
+        const stateFirstUndefined = userChoice;
+        userChoiceForComponent = stateFirstUndefined[`${props.day}_feature`] || {};
+        const values = Object.values(userChoiceForComponent);
+        const lastFiveObjects = values.slice(-5);
+        setMenuData(lastFiveObjects);
+    };
     (0,react_.useEffect)(()=>{
-        let userChoiceForComponent = {};
-        const dataForComponent = ()=>{
-            const stateFirstUndefined = userChoice;
-            userChoiceForComponent = stateFirstUndefined[`${props.day}_feature`] || {};
-            const values = Object.values(userChoiceForComponent);
-            const lastFiveObjects = values.slice(-5);
-            setMenuData(lastFiveObjects);
-        };
         if (typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
             dataForComponent();
         }
@@ -2534,16 +2384,46 @@ const ShowMenuDay = (props)=>{
         userChoice,
         props.day
     ]);
-    // if (count === 1) {
-    //   setUserChoice();
-    // } else if (count > 1) {
-    //   setUserChoice();
-    // }
+    //добавляет запрашиваемые ингридиенты
+    const toggleIngredients = (index)=>{
+        const updatedMenuData = menuData.map((item, i)=>{
+            if (i === index) {
+                return {
+                    ...item,
+                    showIngredients: !item.showIngredients
+                };
+            }
+            return item;
+        });
+        setMenuData(updatedMenuData);
+    };
+    //5 добавление ключа от этого компонента и сохранение
+    const savingToContext = ()=>{
+        setUserChoice((prevUserChoice)=>({
+                ...prevUserChoice,
+                [`${props.day}_feature`]: {
+                    ...userChoiceForComponent
+                }
+            }));
+    };
+    // delete from show
+    const deleteMenuItem = (label)=>{
+        dataForComponent();
+        const labelDelete = label;
+        delete userChoiceForComponent[labelDelete];
+        savingToContext();
+    //console.log("menuDayUserChoice", userChoiceForComponent);
+    //console.log("label2", labelDelete);
+    };
+    const [activeIndex, setActiveIndex] = (0,react_.useState)(null);
+    const handleToggle = (index)=>{
+        setActiveIndex(activeIndex === index ? null : index);
+    };
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-            className: (ShowMenuDay_styles_module_default()).container_top,
-            children: menuData.map((menuItem, index)=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    className: (ShowMenuDay_styles_module_default()).menuItem,
+        children: menuData.map((menuItem, index)=>/*#__PURE__*/ jsx_runtime_.jsx("div", {
+                className: (ShowMenuDay_styles_module_default()).menuItem,
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: (ShowMenuDay_styles_module_default()).container,
                     children: [
                         /*#__PURE__*/ jsx_runtime_.jsx("div", {
                             className: (ShowMenuDay_styles_module_default()).image,
@@ -2552,19 +2432,117 @@ const ShowMenuDay = (props)=>{
                                 alt: "Image"
                             })
                         }),
-                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                            className: (ShowMenuDay_styles_module_default()).label,
-                            children: [
-                                menuItem.label,
-                                menuItem.numberServings === 1 ? `Для ${menuItem.numberServings} человека.` : `Для ${menuItem.numberServings} человек.`
-                            ]
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                className: (ShowMenuDay_styles_module_default()).label,
+                                children: [
+                                    menuItem.label,
+                                    menuItem.numberServings === 1 ? `Для ${menuItem.numberServings} человека.` : `Для ${menuItem.numberServings} человек.`,
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: (ShowMenuDay_styles_module_default()).dropdownIcon,
+                                        onClick: ()=>handleToggle(index),
+                                        children: "⋮"
+                                    }),
+                                    activeIndex === index && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                        className: (ShowMenuDay_styles_module_default()).button,
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                                onClick: ()=>toggleIngredients(index),
+                                                children: menuItem.showIngredients ? "Cвернуть.  " : "Смотреть состав.  "
+                                            }),
+                                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                                onClick: ()=>deleteMenuItem(menuItem.label),
+                                                children: "Удалить."
+                                            })
+                                        ]
+                                    }),
+                                    activeIndex === index && menuItem.showIngredients && /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: (ShowMenuDay_styles_module_default()).ingredientCourse,
+                                        children: /*#__PURE__*/ jsx_runtime_.jsx("ul", {
+                                            children: menuItem.ingredients.map((ingredient, i)=>/*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                                    children: ingredient
+                                                }, i))
+                                        })
+                                    })
+                                ]
+                            })
                         })
                     ]
-                }, index))
-        })
+                })
+            }, index))
     });
 };
 /* harmony default export */ const components_ShowMenuDay = (ShowMenuDay);
+
+// EXTERNAL MODULE: ./src/components/NameForPartMenu/styles.module.scss
+var NameForPartMenu_styles_module = __webpack_require__(5448);
+var NameForPartMenu_styles_module_default = /*#__PURE__*/__webpack_require__.n(NameForPartMenu_styles_module);
+;// CONCATENATED MODULE: ./src/components/NameForPartMenu/index.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+function MenuGroups(props) {
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const [userInput, setUserInput] = (0,react_.useState)({
+        menuText: ""
+    });
+    const [userInput1, setUserInput1] = (0,react_.useState)(false);
+    //1 отделение от ключа сохраненного выбора пользователя
+    const dataForComponent = ()=>{
+        const stateFirstUndefined = userChoice;
+        setUserInput(stateFirstUndefined[`${props.day}_nameMenu`] || {
+            menuText: ""
+        });
+    };
+    (0,react_.useEffect)(()=>{
+        if (userInput1 === false && typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
+            setUserInput1(userChoice);
+            dataForComponent();
+        }
+    }, [
+        userInput1,
+        userChoice
+    ]);
+    //5 добавление ключа от этого компонента и сохранение
+    const savingToContext = ()=>{
+        if (userInput["menuText"] !== "") {
+            setUserChoice((prevUserChoice)=>({
+                    ...prevUserChoice,
+                    [`${props.day}_nameMenu`]: {
+                        ...userInput
+                    }
+                }));
+        }
+    };
+    const handleInputChange = (e)=>{
+        const newInputs = {
+            ...userInput,
+            [e.target.name]: e.target.value
+        };
+        setUserInput(newInputs);
+    };
+    (0,react_.useEffect)(()=>{
+        //setTimeout(savingToContext, 2000);
+        savingToContext();
+    }, [
+        userInput
+    ]);
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            className: (NameForPartMenu_styles_module_default()).container_top,
+            children: /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                className: (NameForPartMenu_styles_module_default()).container_input,
+                type: "text",
+                name: "menuText",
+                value: userInput.menuText || "",
+                maxLength: 27,
+                onChange: handleInputChange,
+                placeholder: "Меню для..."
+            })
+        })
+    });
+}
 
 ;// CONCATENATED MODULE: ./src/components/MenuGroupsOpen/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
@@ -2577,7 +2555,7 @@ const ShowMenuDay = (props)=>{
 
 
 
-function MenuGroups(props) {
+function MenuGroupsOpen_MenuGroups(props) {
     const [ingredients, setIngredients] = (0,react_.useState)([]);
     const [label, setLabel] = (0,react_.useState)([]);
     const [image, setImage] = (0,react_.useState)([]);
@@ -2592,11 +2570,17 @@ function MenuGroups(props) {
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: (styles_module_default()).container_top,
                 children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                        type: "button",
-                        className: (styles_module_default()).menuGroup,
-                        onClick: handleClick,
-                        children: openMenu ? "Возврат к меню" : "Тип блюда"
+                    /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups, {
+                        day: day
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: (styles_module_default()).container_button,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                            type: "button",
+                            className: (styles_module_default()).menuGroup,
+                            onClick: handleClick,
+                            children: openMenu ? "Возврат к меню" : "Тип блюда"
+                        })
                     }),
                     openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: (styles_module_default()).container_popup,
@@ -2623,16 +2607,6 @@ function MenuGroups(props) {
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
                 children: /*#__PURE__*/ jsx_runtime_.jsx(components_ShowMenuDay, {
                     day: day
-                })
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                children: /*#__PURE__*/ jsx_runtime_.jsx(components_BuyForDay, {
-                    day: day,
-                    ingredients: ingredients,
-                    label: label,
-                    image: image,
-                    numberHuman: numberHuman,
-                    isOpen: true
                 })
             })
         ]
@@ -2668,6 +2642,9 @@ function MenuGroups_MenuGroups(props) {
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: (MenuGroups_styles_module_default()).container_top,
                 children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups, {
+                        day: day
+                    }),
                     /*#__PURE__*/ jsx_runtime_.jsx("button", {
                         type: "button",
                         className: (MenuGroups_styles_module_default()).menuGroup,
@@ -2699,16 +2676,6 @@ function MenuGroups_MenuGroups(props) {
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
                 children: /*#__PURE__*/ jsx_runtime_.jsx(components_ShowMenuDay, {
                     day: day
-                })
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                children: /*#__PURE__*/ jsx_runtime_.jsx(components_BuyForDay, {
-                    day: day,
-                    ingredients: ingredients,
-                    label: label,
-                    image: image,
-                    numberHuman: numberHuman,
-                    isOpen: true
                 })
             })
         ]
@@ -2759,7 +2726,7 @@ function ShowSevenAndStorage() {
     // );
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups, {
+            /*#__PURE__*/ jsx_runtime_.jsx(MenuGroupsOpen_MenuGroups, {
                 day: "day1"
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
@@ -2819,29 +2786,6 @@ const MenuProvider = ({ children })=>{
         value: value,
         children: children
     });
-};
-
-
-/***/ }),
-
-/***/ 7481:
-/***/ ((module) => {
-
-// Exports
-module.exports = {
-	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
-	"fontBarlow": "Barlow,sans-serif",
-	"colorRedLight": "#ef233c",
-	"colorRedDark": "#d90429",
-	"container": "styles_container__nrnA9",
-	"label": "styles_label__dgu8L",
-	"dropdownIcon": "styles_dropdownIcon__aAZ6E",
-	"button": "styles_button__JWP3b",
-	"ingredientCourse": "styles_ingredientCourse__5j_2o",
-	"container_text": "styles_container_text__UPp_u",
-	"container_popup": "styles_container_popup__cdyZS",
-	"container_Summarized": "styles_container_Summarized__ZomBW",
-	"handleIngredients": "styles_handleIngredients__W2Wsw"
 };
 
 
@@ -2915,6 +2859,22 @@ module.exports = {
 
 /***/ }),
 
+/***/ 5448:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"container_top": "styles_container_top__B2JW6",
+	"container_input": "styles_container_input__UiKV3"
+};
+
+
+/***/ }),
+
 /***/ 1608:
 /***/ ((module) => {
 
@@ -2948,11 +2908,16 @@ module.exports = {
 	"fontBarlow": "Barlow,sans-serif",
 	"colorRedLight": "#ef233c",
 	"colorRedDark": "#d90429",
-	"container_top": "styles_container_top__Hq6wR",
-	"menuItem": "styles_menuItem__Nco8C",
 	"container": "styles_container__1d0lp",
+	"image": "styles_image__bZbdI",
 	"label": "styles_label__8NWoG",
-	"numberServings": "styles_numberServings___XMUg"
+	"dropdownIcon": "styles_dropdownIcon__VUEcF",
+	"button": "styles_button__SRv5P",
+	"ingredientCourse": "styles_ingredientCourse__zIXMi",
+	"container_text": "styles_container_text__W6BY3",
+	"container_popup": "styles_container_popup__ITUKG",
+	"container_Summarized": "styles_container_Summarized__ZoZ2v",
+	"handleIngredients": "styles_handleIngredients__zE_dE"
 };
 
 
@@ -3030,7 +2995,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3106:
+/***/ 3951:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3076,8 +3041,8 @@ const e0 = IngredientsContext_proxy["IngredientsContext"];
 
 const e1 = IngredientsContext_proxy["MenuProvider"];
 
-;// CONCATENATED MODULE: ./src/assets/images/background3.jpg
-/* harmony default export */ const background3 = ({"src":"/_next/static/media/background3.9cfb429a.jpg","height":1027,"width":1027,"blurDataURL":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIAAgACAMBIgACEQEDEQH/xAAnAAEBAAAAAAAAAAAAAAAAAAAABgEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAAigf/xAAaEAACAgMAAAAAAAAAAAAAAAABAgADEhUh/9oACAEBAAE/ANhQ9OBUDk//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAECAQE/AH//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAEDAQE/AH//2Q==","blurWidth":8,"blurHeight":8});
+;// CONCATENATED MODULE: ./src/assets/images/background.png
+/* harmony default export */ const background = ({"src":"/_next/static/media/background.21449a94.png","height":1028,"width":1028,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAnUlEQVR42h1P2wrFIAyLzt0d6P7/C89eBhNFRT3GQKG0SZoKY0zdtk3s+w6tNc7zxH3fyDkjhNBUB5ZlQSfhOA5Ya2GMhXMO0zRBzfOMdV0Hib2UEtelUUqBEICstY4hQQKLM56jOzeDTbTWhpP3oZPoIKCoJpNKqpjj+74RMsYIRRVBUkqJyxHueX7w3kN1+8aGb77vy+JHdGCW9gcnlU0o+RpQQwAAAABJRU5ErkJggg==","blurWidth":8,"blurHeight":8});
 ;// CONCATENATED MODULE: ./src/app/page.tsx
 //'use client';
 
@@ -3089,7 +3054,7 @@ function Home() {
     return /*#__PURE__*/ jsx_runtime_.jsx(e1, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
             style: {
-                backgroundImage: `url(${background3.src})`,
+                backgroundImage: `url(${background.src})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed",
@@ -3103,7 +3068,7 @@ function Home() {
 
 /***/ }),
 
-/***/ 7868:
+/***/ 9840:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3111,7 +3076,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/background3.9cfb429a.jpg","height":1027,"width":1027,"blurDataURL":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIAAgACAMBIgACEQEDEQH/xAAnAAEBAAAAAAAAAAAAAAAAAAAABgEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAAigf/xAAaEAACAgMAAAAAAAAAAAAAAAABAgADEhUh/9oACAEBAAE/ANhQ9OBUDk//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAECAQE/AH//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAEDAQE/AH//2Q==","blurWidth":8,"blurHeight":8});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/background.21449a94.png","height":1028,"width":1028,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAnUlEQVR42h1P2wrFIAyLzt0d6P7/C89eBhNFRT3GQKG0SZoKY0zdtk3s+w6tNc7zxH3fyDkjhNBUB5ZlQSfhOA5Ya2GMhXMO0zRBzfOMdV0Hib2UEtelUUqBEICstY4hQQKLM56jOzeDTbTWhpP3oZPoIKCoJpNKqpjj+74RMsYIRRVBUkqJyxHueX7w3kN1+8aGb77vy+JHdGCW9gcnlU0o+RpQQwAAAABJRU5ErkJggg==","blurWidth":8,"blurHeight":8});
 
 /***/ })
 

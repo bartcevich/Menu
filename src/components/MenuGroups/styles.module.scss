@@ -2,7 +2,7 @@
 .container_top{
     display: flex;
     flex-flow: column;
-    margin-top: 70px;
+    //margin-top: 70px;
     @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
 }
 .menuGroup{
