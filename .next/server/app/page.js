@@ -281,16 +281,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 5086:
+/***/ 3270:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5400));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9840));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4700));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9840))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6412))
 
 /***/ }),
 
-/***/ 5400:
+/***/ 6412:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -311,6 +311,156 @@ var IngredientsContext = __webpack_require__(4700);
 // EXTERNAL MODULE: ./src/components/MenuGroupsOpen/styles.module.scss
 var styles_module = __webpack_require__(8043);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
+// EXTERNAL MODULE: ./src/components/BuyForDay/styles.module.scss
+var BuyForDay_styles_module = __webpack_require__(7481);
+var BuyForDay_styles_module_default = /*#__PURE__*/__webpack_require__.n(BuyForDay_styles_module);
+// EXTERNAL MODULE: ./node_modules/@fortawesome/react-fontawesome/index.js
+var react_fontawesome = __webpack_require__(8195);
+// EXTERNAL MODULE: ./node_modules/@fortawesome/free-solid-svg-icons/index.mjs
+var free_solid_svg_icons = __webpack_require__(7877);
+;// CONCATENATED MODULE: ./src/components/BuyForDay/index.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+
+
+const BuyForDay = (props)=>{
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const [sumIngredientsPrint, setSumIngredientsPrint] = (0,react_.useState)({});
+    const [userInput, setUserInput] = (0,react_.useState)({
+        menuText: ""
+    });
+    const dataForComponent = ()=>{
+        const stateFirstUndefined = userChoice;
+        setUserInput(stateFirstUndefined[`${props.day}_nameMenu`] || {
+            menuText: ""
+        });
+        const userChoiceForComponent = stateFirstUndefined[`${props.day}_feature`] || {};
+        //отделение от ключа сохраненного выбора пользователя
+        const oneArrIngredients = Object.values(userChoiceForComponent).map((item)=>item.ingredients).flat();
+        //console.log(props.day, userChoiceForComponent);
+        // const uniqueIngredients: any = new Set(
+        //   oneArrIngredients.map((item) => item[0])
+        // ); //коллекция уникальных элементов
+        // const uniqueIngredientsArr = Array.from(uniqueIngredients); // массив уникальных элементов
+        // //console.log(props.day, uniqueIngredientsArr);
+        // //вызов функции поиска для каждого наименования
+        // setSumIngredientsPrint([]); // Clear the sumIngredientsPrint array
+        // for (let i = 0; i < uniqueIngredientsArr.length; i++) {
+        //   typeof uniqueIngredientsArr[i] === "string"
+        //     ? search(uniqueIngredientsArr[i])
+        //     : i;
+        // }
+        // суммирование значений для каждого наименования
+        // function search(ingredients: any) {
+        //   let tempNumber = 0;
+        //   for (let r = 0; r < oneArrIngredients.length; r++) {
+        //     if (ingredients === oneArrIngredients[r][0]) {
+        //       tempNumber += oneArrIngredients[r][1];
+        //     }
+        //   }
+        //   setSumIngredientsPrint((prevSumIngredientsPrint) => [
+        //     ...prevSumIngredientsPrint,
+        //     ${ingredients}: ${tempNumber},
+        //   ]);
+        // }
+        setSumIngredientsPrint(oneArrIngredients.reduce((accumulator, current)=>{
+            const [ingredient, weight] = current;
+            if (accumulator.hasOwnProperty(ingredient)) {
+                accumulator[ingredient] += weight;
+            } else {
+                accumulator[ingredient] = weight;
+            }
+            return accumulator;
+        }, {}));
+    //console.log(sumIngredientsPrint);
+    };
+    //console.log(props.day, sumIngredientsPrint);
+    //запуск компонента при измененниях данных в памяти
+    (0,react_.useEffect)(()=>{
+        if (typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
+            dataForComponent();
+        }
+    }, [
+        userChoice
+    ]);
+    //копирование в буфер данных и подтверждение этого на экране
+    const [showTooltip, setShowTooltip] = (0,react_.useState)(false);
+    const textareaRef = (0,react_.useRef)(null);
+    const handleCopy = ()=>{
+        if (textareaRef.current) {
+            const formattedString = Object.entries(sumIngredientsPrint).map(([ingredient, weight])=>`${ingredient}: ${weight}`).join(",\n");
+            textareaRef.current.value = formattedString;
+            textareaRef.current.select();
+            document.execCommand("copy");
+            setShowTooltip(true);
+            setTimeout(()=>{
+                setShowTooltip(false);
+            }, 5000);
+        }
+    };
+    //включение показа списка покупок
+    const [sumIngredients, setSumIngredients] = (0,react_.useState)(false);
+    const handleIngredients = ()=>{
+        setSumIngredients((prevValue)=>!prevValue);
+    };
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: (BuyForDay_styles_module_default()).container,
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h3", {
+                        children: [
+                            "Cписок ",
+                            Object.values(userInput)
+                        ]
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                        className: (BuyForDay_styles_module_default()).handleIngredients,
+                        onClick: handleIngredients,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                            icon: free_solid_svg_icons/* faCartShopping */.yYj
+                        })
+                    }),
+                    sumIngredients && /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                        className: (BuyForDay_styles_module_default()).handleCopy,
+                        onClick: handleCopy,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                            icon: free_solid_svg_icons/* faCopy */.kZ_
+                        })
+                    }),
+                    showTooltip && /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: (BuyForDay_styles_module_default()).tooltip,
+                        children: "Cписок скопирован!"
+                    })
+                ]
+            }),
+            sumIngredients && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: (BuyForDay_styles_module_default()).buyForDay,
+                children: [
+                    Object.entries(sumIngredientsPrint).map(([ingredient, weight])=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            children: [
+                                ingredient,
+                                ": ",
+                                weight
+                            ]
+                        }, ingredient)),
+                    /*#__PURE__*/ jsx_runtime_.jsx("textarea", {
+                        ref: textareaRef,
+                        style: {
+                            position: "absolute",
+                            left: "-9999px"
+                        },
+                        readOnly: true
+                    })
+                ]
+            })
+        ]
+    });
+};
+/* harmony default export */ const components_BuyForDay = (BuyForDay);
+
 // EXTERNAL MODULE: ./src/components/Soup/styles.module.scss
 var Soup_styles_module = __webpack_require__(1191);
 var Soup_styles_module_default = /*#__PURE__*/__webpack_require__.n(Soup_styles_module);
@@ -1625,7 +1775,10 @@ const Starters = (props)=>{
             [label]: {
                 label: label,
                 numberServings: count,
-                ingredients: value,
+                ingredients: value.map(([key, val])=>[
+                        key,
+                        val * count
+                    ]),
                 image: image
             }
         };
@@ -1777,7 +1930,10 @@ const Salad_Starters = (props)=>{
             [label]: {
                 label: label,
                 numberServings: count,
-                ingredients: value,
+                ingredients: value.map(([key, val])=>[
+                        key,
+                        val * count
+                    ]),
                 image: image
             }
         };
@@ -1929,7 +2085,10 @@ const Desserts_Starters = (props)=>{
             [label]: {
                 label: label,
                 numberServings: count,
-                ingredients: value,
+                ingredients: value.map(([key, val])=>[
+                        key,
+                        val * count
+                    ]),
                 image: image
             }
         };
@@ -2096,7 +2255,10 @@ const Starters_Starters = (props)=>{
             [label]: {
                 label: label,
                 numberServings: count,
-                ingredients: value,
+                ingredients: value.map(([key, val])=>[
+                        key,
+                        val * count
+                    ]),
                 image: image
             }
         };
@@ -2104,7 +2266,7 @@ const Starters_Starters = (props)=>{
             ...userChoiceForComponent,
             ...selectedUser
         };
-    //console.log("f3", newMenuComponent);
+        console.log("f3", newMenuComponent);
     };
     //4 замена последнего при увеличении количества
     //5 добавление ключа от этого компонента и сохранение с !!!!!добавить задержку перед сохранением
@@ -2254,7 +2416,10 @@ const SideDish_Starters = (props)=>{
             [label]: {
                 label: label,
                 numberServings: count,
-                ingredients: value,
+                ingredients: value.map(([key, val])=>[
+                        key,
+                        val * count
+                    ]),
                 image: image
             }
         };
@@ -2437,22 +2602,30 @@ const ShowMenuDay = (props)=>{
                                 className: (ShowMenuDay_styles_module_default()).label,
                                 children: [
                                     menuItem.label,
-                                    menuItem.numberServings === 1 ? `Для ${menuItem.numberServings} человека.` : `Для ${menuItem.numberServings} человек.`,
-                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                        className: (ShowMenuDay_styles_module_default()).dropdownIcon,
-                                        onClick: ()=>handleToggle(index),
-                                        children: "⋮"
+                                    /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                        children: " "
                                     }),
-                                    activeIndex === index && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                        className: (ShowMenuDay_styles_module_default()).button,
+                                    menuItem.numberServings === 1 ? `Для ${menuItem.numberServings} человека.` : `Для ${menuItem.numberServings} человек.`,
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                        className: (ShowMenuDay_styles_module_default()).container_button,
                                         children: [
-                                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                                                onClick: ()=>toggleIngredients(index),
-                                                children: menuItem.showIngredients ? "Cвернуть.  " : "Смотреть состав.  "
+                                            activeIndex === index && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                className: (ShowMenuDay_styles_module_default()).button,
+                                                children: [
+                                                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                                        onClick: ()=>toggleIngredients(index),
+                                                        children: menuItem.showIngredients ? "Cвернуть.  " : "Смотреть состав.  "
+                                                    }),
+                                                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                                        onClick: ()=>deleteMenuItem(menuItem.label),
+                                                        children: "Удалить."
+                                                    })
+                                                ]
                                             }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                                                onClick: ()=>deleteMenuItem(menuItem.label),
-                                                children: "Удалить."
+                                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: (ShowMenuDay_styles_module_default()).dropdownIcon,
+                                                onClick: ()=>handleToggle(index),
+                                                children: "⋮"
                                             })
                                         ]
                                     }),
@@ -2474,10 +2647,10 @@ const ShowMenuDay = (props)=>{
 };
 /* harmony default export */ const components_ShowMenuDay = (ShowMenuDay);
 
-// EXTERNAL MODULE: ./src/components/NameForPartMenu/styles.module.scss
-var NameForPartMenu_styles_module = __webpack_require__(5448);
-var NameForPartMenu_styles_module_default = /*#__PURE__*/__webpack_require__.n(NameForPartMenu_styles_module);
-;// CONCATENATED MODULE: ./src/components/NameForPartMenu/index.tsx
+// EXTERNAL MODULE: ./src/components/PartMenuName/styles.module.scss
+var PartMenuName_styles_module = __webpack_require__(6451);
+var PartMenuName_styles_module_default = /*#__PURE__*/__webpack_require__.n(PartMenuName_styles_module);
+;// CONCATENATED MODULE: ./src/components/PartMenuName/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
@@ -2488,6 +2661,7 @@ function MenuGroups(props) {
         menuText: ""
     });
     const [userInput1, setUserInput1] = (0,react_.useState)(false);
+    const timeoutRef = (0,react_.useRef)();
     //1 отделение от ключа сохраненного выбора пользователя
     const dataForComponent = ()=>{
         const stateFirstUndefined = userChoice;
@@ -2504,41 +2678,138 @@ function MenuGroups(props) {
         userInput1,
         userChoice
     ]);
-    //5 добавление ключа от этого компонента и сохранение
-    const savingToContext = ()=>{
-        if (userInput["menuText"] !== "") {
-            setUserChoice((prevUserChoice)=>({
-                    ...prevUserChoice,
-                    [`${props.day}_nameMenu`]: {
-                        ...userInput
-                    }
-                }));
-        }
-    };
+    // получение данных введенных пользователем
     const handleInputChange = (e)=>{
         const newInputs = {
             ...userInput,
             [e.target.name]: e.target.value
         };
         setUserInput(newInputs);
+        console.log(newInputs);
     };
+    // добавление ключа от этого компонента и сохранение
+    const savingToContext = ()=>{
+        if (userInput["menuText"] !== "") {
+            // Clear previous timeout
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+            // Set a new timeout to save the input after 2 seconds
+            timeoutRef.current = setTimeout(()=>{
+                setUserChoice((prevUserChoice)=>({
+                        ...prevUserChoice,
+                        [`${props.day}_nameMenu`]: {
+                            ...userInput
+                        }
+                    }));
+            }, 1000);
+        }
+    };
+    //вызов через useEffect устранил потерю последнего символа
     (0,react_.useEffect)(()=>{
-        //setTimeout(savingToContext, 2000);
         savingToContext();
+        return ()=>{
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+        };
     }, [
         userInput
     ]);
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-            className: (NameForPartMenu_styles_module_default()).container_top,
+            className: (PartMenuName_styles_module_default()).container_top,
             children: /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                className: (NameForPartMenu_styles_module_default()).container_input,
+                className: (PartMenuName_styles_module_default()).container_input,
                 type: "text",
                 name: "menuText",
                 value: userInput.menuText || "",
                 maxLength: 27,
                 onChange: handleInputChange,
                 placeholder: "Меню для..."
+            })
+        })
+    });
+}
+
+// EXTERNAL MODULE: ./src/components/PartMenuComments/styles.module.scss
+var PartMenuComments_styles_module = __webpack_require__(9677);
+var PartMenuComments_styles_module_default = /*#__PURE__*/__webpack_require__.n(PartMenuComments_styles_module);
+;// CONCATENATED MODULE: ./src/components/PartMenuComments/index.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+function PartMenuComments_MenuGroups(props) {
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const [userInput, setUserInput] = (0,react_.useState)({
+        menuText: ""
+    });
+    const [userInput1, setUserInput1] = (0,react_.useState)(false);
+    const timeoutRef = (0,react_.useRef)();
+    //1 отделение от ключа сохраненного выбора пользователя
+    const dataForComponent = ()=>{
+        const stateFirstUndefined = userChoice;
+        setUserInput(stateFirstUndefined[`${props.day}_comment`] || {
+            menuText: ""
+        });
+    };
+    (0,react_.useEffect)(()=>{
+        if (userInput1 === false && typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
+            setUserInput1(userChoice);
+            dataForComponent();
+        }
+    }, [
+        userInput1,
+        userChoice
+    ]);
+    // получение данных введенных пользователем
+    const handleInputChange = (e)=>{
+        const newInputs = {
+            ...userInput,
+            [e.target.name]: e.target.value
+        };
+        setUserInput(newInputs);
+    //console.log(newInputs);
+    };
+    // добавление ключа от этого компонента и сохранение
+    const savingToContext = ()=>{
+        if (userInput["menuText"] !== "") {
+            // Clear previous timeout
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+            // Set a new timeout to save the input
+            timeoutRef.current = setTimeout(()=>{
+                setUserChoice((prevUserChoice)=>({
+                        ...prevUserChoice,
+                        [`${props.day}_comment`]: {
+                            ...userInput
+                        }
+                    }));
+            }, 1000);
+        }
+    };
+    //вызов через useEffect устранил потерю последнего символа
+    (0,react_.useEffect)(()=>{
+        savingToContext();
+        return ()=>{
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+        };
+    }, [
+        userInput
+    ]);
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            className: (PartMenuComments_styles_module_default()).container_top,
+            children: /*#__PURE__*/ jsx_runtime_.jsx("textarea", {
+                className: (PartMenuComments_styles_module_default()).container_input1,
+                name: "menuText",
+                value: userInput.menuText || "",
+                onChange: handleInputChange,
+                placeholder: "Kомментарий"
             })
         })
     });
@@ -2555,11 +2826,9 @@ function MenuGroups(props) {
 
 
 
+
+
 function MenuGroupsOpen_MenuGroups(props) {
-    const [ingredients, setIngredients] = (0,react_.useState)([]);
-    const [label, setLabel] = (0,react_.useState)([]);
-    const [image, setImage] = (0,react_.useState)([]);
-    const [numberHuman, setNumberHuman] = (0,react_.useState)([]);
     const [openMenu, setOpenMenu] = (0,react_.useState)(true);
     const handleClick = ()=>{
         setOpenMenu((prevValue)=>!prevValue);
@@ -2608,6 +2877,14 @@ function MenuGroupsOpen_MenuGroups(props) {
                 children: /*#__PURE__*/ jsx_runtime_.jsx(components_ShowMenuDay, {
                     day: day
                 })
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(PartMenuComments_MenuGroups, {
+                day: day
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                children: /*#__PURE__*/ jsx_runtime_.jsx(components_BuyForDay, {
+                    day: day
+                })
             })
         ]
     });
@@ -2627,11 +2904,9 @@ var MenuGroups_styles_module_default = /*#__PURE__*/__webpack_require__.n(MenuGr
 
 
 
+
+
 function MenuGroups_MenuGroups(props) {
-    const [ingredients, setIngredients] = (0,react_.useState)([]);
-    const [label, setLabel] = (0,react_.useState)([]);
-    const [image, setImage] = (0,react_.useState)([]);
-    const [numberHuman, setNumberHuman] = (0,react_.useState)([]);
     const [openMenu, setOpenMenu] = (0,react_.useState)(false);
     const handleClick = ()=>{
         setOpenMenu((prevValue)=>!prevValue);
@@ -2677,6 +2952,128 @@ function MenuGroups_MenuGroups(props) {
                 children: /*#__PURE__*/ jsx_runtime_.jsx(components_ShowMenuDay, {
                     day: day
                 })
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(PartMenuComments_MenuGroups, {
+                day: day
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(components_BuyForDay, {
+                day: day
+            })
+        ]
+    });
+}
+
+// EXTERNAL MODULE: ./src/components/BuyForWeek/styles.module.scss
+var BuyForWeek_styles_module = __webpack_require__(8023);
+var BuyForWeek_styles_module_default = /*#__PURE__*/__webpack_require__.n(BuyForWeek_styles_module);
+;// CONCATENATED MODULE: ./src/components/BuyForWeek/index.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+
+
+function BuyForWeek() {
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const [sumIngredientsPrint, setSumIngredientsPrint] = (0,react_.useState)({});
+    const dataForComponent = ()=>{
+        const stateFirstUndefined = userChoice;
+        const userChoiceForComponent = {
+            ...stateFirstUndefined["day1_feature"] || {},
+            ...stateFirstUndefined["day2_feature"] || {},
+            ...stateFirstUndefined["day3_feature"] || {},
+            ...stateFirstUndefined["day4_feature"] || {},
+            ...stateFirstUndefined["day5_feature"] || {},
+            ...stateFirstUndefined["day6_feature"] || {},
+            ...stateFirstUndefined["day7_feature"] || {}
+        };
+        const oneArrIngredients = Object.values(userChoiceForComponent).map((item)=>item.ingredients).flat();
+        //console.log("all day", oneArrIngredients);
+        setSumIngredientsPrint(oneArrIngredients.reduce((accumulator, current)=>{
+            const [ingredient, weight] = current;
+            if (accumulator.hasOwnProperty(ingredient)) {
+                accumulator[ingredient] += weight;
+            } else {
+                accumulator[ingredient] = weight;
+            }
+            return accumulator;
+        }, {}));
+    };
+    //запуск компонента при измененниях данных в памяти
+    (0,react_.useEffect)(()=>{
+        if (typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
+            dataForComponent();
+        }
+    }, [
+        userChoice
+    ]);
+    //копирование в буфер данных и подтверждение этого на экране
+    const [showTooltip, setShowTooltip] = (0,react_.useState)(false);
+    const textareaRef = (0,react_.useRef)(null);
+    const handleCopy = ()=>{
+        if (textareaRef.current) {
+            const formattedString = Object.entries(sumIngredientsPrint).map(([ingredient, weight])=>`${ingredient}: ${weight}`).join(",\n");
+            textareaRef.current.value = formattedString;
+            textareaRef.current.select();
+            document.execCommand("copy");
+            setShowTooltip(true);
+            setTimeout(()=>{
+                setShowTooltip(false);
+            }, 5000);
+        }
+    };
+    //включение показа списка покупок
+    const [sumIngredients, setSumIngredients] = (0,react_.useState)(false);
+    const handleIngredients = ()=>{
+        setSumIngredients((prevValue)=>!prevValue);
+    };
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: (BuyForWeek_styles_module_default()).container,
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("h2", {
+                        children: "Oбщий список:"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                        className: (BuyForWeek_styles_module_default()).handleIngredients,
+                        onClick: handleIngredients,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                            icon: free_solid_svg_icons/* faCartShopping */.yYj
+                        })
+                    }),
+                    sumIngredients && /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                        className: (BuyForWeek_styles_module_default()).handleCopy,
+                        onClick: handleCopy,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                            icon: free_solid_svg_icons/* faCopy */.kZ_
+                        })
+                    }),
+                    showTooltip && /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: (BuyForWeek_styles_module_default()).tooltip,
+                        children: "Cписок скопирован!"
+                    })
+                ]
+            }),
+            sumIngredients && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: (BuyForWeek_styles_module_default()).buyForDay,
+                children: [
+                    Object.entries(sumIngredientsPrint).map(([ingredient, weight])=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            children: [
+                                ingredient,
+                                ": ",
+                                weight
+                            ]
+                        }, ingredient)),
+                    /*#__PURE__*/ jsx_runtime_.jsx("textarea", {
+                        ref: textareaRef,
+                        style: {
+                            position: "absolute",
+                            left: "-9999px"
+                        },
+                        readOnly: true
+                    })
+                ]
             })
         ]
     });
@@ -2688,42 +3085,35 @@ function MenuGroups_MenuGroups(props) {
 
 
 
+
 function ShowSevenAndStorage() {
     const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
-    (0,react_.useEffect)(()=>{
-        //localStorage.setItem("ingredientHistory", JSON.stringify({}));
-        // console.log(
-        //   "userChoiceStorage=",
-        //   localStorage.getItem("ingredientHistory5")
-        // );
-        const savedIngredientHistory5 = localStorage.getItem("ingredientHistory5");
-        if (savedIngredientHistory5) {
-            const parsedIngredientHistory = JSON.parse(savedIngredientHistory5);
-            setUserChoice(parsedIngredientHistory);
-        }
-    }, []);
-    (0,react_.useEffect)(()=>{
-        if (typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
-            localStorage.setItem("ingredientHistory5", JSON.stringify(userChoice));
-        }
+    //useEffect(() => {
+    //localStorage.setItem("ingredientHistory", JSON.stringify({}));
+    // console.log(
+    //   "userChoiceStorage=",
+    //   localStorage.getItem("ingredientHistory5")
+    // );
+    //   const savedIngredientHistory5: string | null =
+    //     localStorage.getItem("ingredientHistory5");
+    //   if (savedIngredientHistory5) {
+    //     const parsedIngredientHistory = JSON.parse(savedIngredientHistory5);
+    //     setUserChoice(parsedIngredientHistory);
+    //   }
+    // }, []);
+    // useEffect(() => {
+    //   if (
+    //     typeof userChoice === "object" &&
+    //     userChoice !== null &&
+    //     Object.keys(userChoice).length > 0
+    //   ) {
+    //     localStorage.setItem("ingredientHistory5", JSON.stringify(userChoice));
+    //   }
     // for (let keysUserChoice of Object.keys(userChoiceStorage)) {
     //   console.log("keys=", keysUserChoice);
     // }
-    }, [
-        userChoice
-    ]);
-    //const [userChoiceStorage, setUserChoiceStorage] = useState<any>({});
-    console.log("userChoice=", userChoice);
-    // const handleChange = useCallback(
-    //   //(identifier: (typeof identifiers)[number], value: any) => {
-    //     (newSelectionUser2: { [key: string]: any }) => {
-    //     localStorage.setItem(
-    //       "ingredientHistory5",
-    //       JSON.stringify(newSelectionUser2)
-    //     );
-    //   },
-    //   [printLabel, selectionUser]
-    // );
+    //}, [userChoice]);
+    //console.log("userChoice=", userChoice);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(MenuGroupsOpen_MenuGroups, {
@@ -2746,7 +3136,8 @@ function ShowSevenAndStorage() {
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
                 day: "day7"
-            })
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(BuyForWeek, {})
         ]
     });
 }
@@ -2782,10 +3173,63 @@ const MenuProvider = ({ children })=>{
         userChoice,
         setUserChoice
     ]);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        const savedIngredientHistory5 = localStorage.getItem("ingredientHistory5");
+        if (savedIngredientHistory5) {
+            const parsedIngredientHistory = JSON.parse(savedIngredientHistory5);
+            setUserChoice(parsedIngredientHistory);
+        }
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        if (typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
+            localStorage.setItem("ingredientHistory5", JSON.stringify(userChoice));
+        }
+    }, [
+        userChoice
+    ]);
+    console.log("userChoice=", userChoice);
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(IngredientsContext.Provider, {
         value: value,
         children: children
     });
+};
+
+
+/***/ }),
+
+/***/ 7481:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"container": "styles_container__nrnA9",
+	"buyForDay": "styles_buyForDay__htWIS",
+	"handleIngredients": "styles_handleIngredients__W2Wsw",
+	"handleCopy": "styles_handleCopy__4aG_E",
+	"tooltip": "styles_tooltip__JH_Xb"
+};
+
+
+/***/ }),
+
+/***/ 8023:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"container": "styles_container__EoMZo",
+	"buyForDay": "styles_buyForDay__UyjW8",
+	"handleIngredients": "styles_handleIngredients__a1jCx",
+	"handleCopy": "styles_handleCopy__tyudG",
+	"tooltip": "styles_tooltip__Ji8II"
 };
 
 
@@ -2859,7 +3303,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 5448:
+/***/ 9677:
 /***/ ((module) => {
 
 // Exports
@@ -2868,8 +3312,23 @@ module.exports = {
 	"fontBarlow": "Barlow,sans-serif",
 	"colorRedLight": "#ef233c",
 	"colorRedDark": "#d90429",
-	"container_top": "styles_container_top__B2JW6",
-	"container_input": "styles_container_input__UiKV3"
+	"container_top": "styles_container_top__mHrQH"
+};
+
+
+/***/ }),
+
+/***/ 6451:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"container_top": "styles_container_top__g3hgh",
+	"container_input": "styles_container_input__YYa9e"
 };
 
 
@@ -2911,8 +3370,9 @@ module.exports = {
 	"container": "styles_container__1d0lp",
 	"image": "styles_image__bZbdI",
 	"label": "styles_label__8NWoG",
-	"dropdownIcon": "styles_dropdownIcon__VUEcF",
+	"container_button": "styles_container_button__iUElW",
 	"button": "styles_button__SRv5P",
+	"dropdownIcon": "styles_dropdownIcon__VUEcF",
 	"ingredientCourse": "styles_ingredientCourse__zIXMi",
 	"container_text": "styles_container_text__W6BY3",
 	"container_popup": "styles_container_popup__ITUKG",
@@ -3087,7 +3547,7 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,610,736], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,610,877,736], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

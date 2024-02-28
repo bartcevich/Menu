@@ -84,7 +84,7 @@ const Starters: React.FC<MondayProps> = (props) => {
       [label]: {
         label: label,
         numberServings: count,
-        ingredients: value,
+        ingredients: value.map(([key, val]) => [key, val * count]),
         image: image,
       },
     };
@@ -92,7 +92,7 @@ const Starters: React.FC<MondayProps> = (props) => {
       ...userChoiceForComponent,
       ...selectedUser,
     };
-    //console.log("f3", newMenuComponent);
+    console.log("f3", newMenuComponent);
   };
   //4 замена последнего при увеличении количества
   //5 добавление ключа от этого компонента и сохранение с !!!!!добавить задержку перед сохранением

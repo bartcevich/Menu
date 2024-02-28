@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import BuyForDay from "@/components/BuyForDay";
 import Soup from "@/components/Soup";
@@ -8,13 +8,10 @@ import Desserts from "@/components/Desserts";
 import Starters from "@/components/Starters";
 import SideDish from "@/components/SideDish";
 import ShowMenuDay from "@/components/ShowMenuDay";
-import NameForPartMenu from "@/components/NameForPartMenu";
+import PartMenuName from "@/components/PartMenuName";
+import PartMenuComments from "@/components/PartMenuComments";
 
 export default function MenuGroups(props: any) {
-  const [ingredients, setIngredients] = useState<any[]>([]);
-  const [label, setLabel] = useState<any[]>([]);
-  const [image, setImage] = useState<any[]>([]);
-  const [numberHuman, setNumberHuman] = useState<any[]>([]);
   const [openMenu, setOpenMenu] = useState(true);
   const handleClick = () => {
     setOpenMenu((prevValue) => !prevValue);
@@ -24,7 +21,7 @@ export default function MenuGroups(props: any) {
   return (
     <>
       <div className={styles.container_top}>
-        <NameForPartMenu day={day} />
+        <PartMenuName day={day} />
         <div className={styles.container_button}>
           <button
             type="button"
@@ -47,16 +44,10 @@ export default function MenuGroups(props: any) {
       <div>
         <ShowMenuDay day={day} />
       </div>
-      {/* <div>
-        <BuyForDay
-          day={day}
-          ingredients={ingredients}
-          label={label}
-          image={image}
-          numberHuman={numberHuman}
-          isOpen={true}
-        />
-      </div> */}
+      <PartMenuComments day={day} />
+      <div>
+        <BuyForDay day={day} />
+      </div>
     </>
   );
 }

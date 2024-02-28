@@ -72,30 +72,31 @@ const ShowMenuDay: React.FC<MondayProps> = (props) => {
             </div>
             <div>
               <div className={styles.label}>
-                {/* <span> */}
                 {menuItem.label}
+                <span> </span>
                 {menuItem.numberServings === 1
                   ? `Для ${menuItem.numberServings} человека.`
                   : `Для ${menuItem.numberServings} человек.`}
-                <div
-                  className={styles.dropdownIcon}
-                  onClick={() => handleToggle(index)}
-                >
-                  &#8942;
-                </div>
-                {/* </span> */}
-                {activeIndex === index && (
-                  <div className={styles.button}>
-                    <button onClick={() => toggleIngredients(index)}>
-                      {menuItem.showIngredients
-                        ? "Cвернуть.  "
-                        : "Смотреть состав.  "}
-                    </button>
-                    <button onClick={() => deleteMenuItem(menuItem.label)}>
-                      Удалить.
-                    </button>
+                <div className={styles.container_button}>
+                  {activeIndex === index && (
+                    <div className={styles.button}>
+                      <button onClick={() => toggleIngredients(index)}>
+                        {menuItem.showIngredients
+                          ? "Cвернуть.  "
+                          : "Смотреть состав.  "}
+                      </button>
+                      <button onClick={() => deleteMenuItem(menuItem.label)}>
+                        Удалить.
+                      </button>
+                    </div>
+                  )}
+                  <div
+                    className={styles.dropdownIcon}
+                    onClick={() => handleToggle(index)}
+                  >
+                    &#8942;
                   </div>
-                )}
+                </div>
 
                 {activeIndex === index && menuItem.showIngredients && (
                   <div className={styles.ingredientCourse}>

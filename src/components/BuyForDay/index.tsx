@@ -1,141 +1,138 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import styles from "./styles.module.scss";
-import { IIngredients } from "@/types/common";
 import { IngredientsContext } from "@/context/IngredientsContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faCopy } from "@fortawesome/free-solid-svg-icons";
 
 interface BuyForDayProps {
   day: any;
-  ingredients: any[];
-  label: any[];
-  image: any[];
-  numberHuman: any[];
-  isOpen: boolean;
-  setMenuUser?: React.Dispatch<React.SetStateAction<any[]>> | undefined;
 }
 
 const BuyForDay: React.FC<BuyForDayProps> = (props) => {
-  const [labelPrev, setLabelPrev] = useState<any[]>([]);
-  const [prevPrevHistory, setPrevPrevHistory] = useState<any[]>([]);
-  const [ingredientHistory, setIngredientHistory] = useState<IIngredients[]>(
-    []
-  );
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
-  // console.log(ingredientHistory);
+  const [sumIngredientsPrint, setSumIngredientsPrint] = useState({});
+  const [userInput, setUserInput] = useState<any>({ menuText: "" });
 
-  useEffect(() => {
-    const newIngredient: IIngredients = {
-      ingredients: props.ingredients,
-      label: props.label[0],
-      image: props.label[2] === props.label[0] ? [] : props.label[2],
-      numberServings: [],
-      comment: [],
-      purposesUse: [],
-    };
-    // if (count === 1) {
-    //   setUserChoice(`Для ${count} человека.`);
-    // } else if (count > 1) {
-    //   setUserChoice(`Для ${count} человек.`);
-    // }
-    let updatedHistory: any[] = [];
-    setIngredientHistory((prevHistory) => {
-      if (props.label[0] !== labelPrev[0]) {
-        //проверяю ? для нового блюда ингредиенты
-        setPrevPrevHistory(prevHistory); //сохраняю состояние до изменения ингредиентов
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        updatedHistory = [...prevHistory, newIngredient]; //к старым добавляю новое
-        setLabelPrev(props.label); //сохраняю имя последнего блюда
-      } else {
-        updatedHistory = [...prevPrevHistory, newIngredient]; //только обновляется последнее блюдо
-      }
-      if (updatedHistory.length > 5) {
-        return updatedHistory.slice(1);
-      }
-      return updatedHistory;
-    });
-  }, [props.ingredients, props.label, props.image]);
-
-  useEffect(() => {
-    if (props.setMenuUser) {
-      props.setMenuUser(ingredientHistory);
-      //console.log(ingredientHistory);
-    }
-  }, [ingredientHistory, props.setMenuUser]);
-
-  const handleRemove = (indexToRemove: number) => {
-    setIngredientHistory((prev) =>
-      prev.filter((_, index) => index !== indexToRemove)
+  const dataForComponent = () => {
+    const stateFirstUndefined: any = userChoice;
+    setUserInput(
+      stateFirstUndefined[`${props.day}_nameMenu`] || { menuText: "" }
     );
-  };
-  const handleViewIngredients = (index: number) => {
-    setIngredientHistory((prevHistory) => {
-      const updatedHistory = prevHistory.map((item, idx) => {
-        if (idx === index) {
-          return { ...item, isOpen: !item.isOpen };
+    const userChoiceForComponent =
+      stateFirstUndefined[`${props.day}_feature`] || {};
+    //отделение от ключа сохраненного выбора пользователя
+    const oneArrIngredients = Object.values(userChoiceForComponent)
+      .map((item: any) => item.ingredients)
+      .flat();
+    //console.log(props.day, userChoiceForComponent);
+
+    // const uniqueIngredients: any = new Set(
+    //   oneArrIngredients.map((item) => item[0])
+    // ); //коллекция уникальных элементов
+    // const uniqueIngredientsArr = Array.from(uniqueIngredients); // массив уникальных элементов
+    // //console.log(props.day, uniqueIngredientsArr);
+    // //вызов функции поиска для каждого наименования
+    // setSumIngredientsPrint([]); // Clear the sumIngredientsPrint array
+    // for (let i = 0; i < uniqueIngredientsArr.length; i++) {
+    //   typeof uniqueIngredientsArr[i] === "string"
+    //     ? search(uniqueIngredientsArr[i])
+    //     : i;
+    // }
+    // суммирование значений для каждого наименования
+    // function search(ingredients: any) {
+    //   let tempNumber = 0;
+    //   for (let r = 0; r < oneArrIngredients.length; r++) {
+    //     if (ingredients === oneArrIngredients[r][0]) {
+    //       tempNumber += oneArrIngredients[r][1];
+    //     }
+    //   }
+    //   setSumIngredientsPrint((prevSumIngredientsPrint) => [
+    //     ...prevSumIngredientsPrint,
+    //     ${ingredients}: ${tempNumber},
+    //   ]);
+    // }
+
+    setSumIngredientsPrint(
+      oneArrIngredients.reduce((accumulator, current) => {
+        const [ingredient, weight] = current;
+        if (accumulator.hasOwnProperty(ingredient)) {
+          accumulator[ingredient] += weight;
+        } else {
+          accumulator[ingredient] = weight;
         }
-        return item;
-      });
-      return updatedHistory;
-    });
+        return accumulator;
+      }, {})
+    );
+    //console.log(sumIngredientsPrint);
   };
-
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const handleToggle = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
+  //console.log(props.day, sumIngredientsPrint);
+  //запуск компонента при измененниях данных в памяти
+  useEffect(() => {
+    if (
+      typeof userChoice === "object" &&
+      userChoice !== null &&
+      Object.keys(userChoice).length > 0
+    ) {
+      dataForComponent();
+    }
+  }, [userChoice]);
+  //копирование в буфер данных и подтверждение этого на экране
+  const [showTooltip, setShowTooltip] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const handleCopy = () => {
+    if (textareaRef.current) {
+      const formattedString = Object.entries(sumIngredientsPrint)
+        .map(([ingredient, weight]) => `${ingredient}: ${weight}`)
+        .join(",\n");
+      textareaRef.current.value = formattedString;
+      textareaRef.current.select();
+      document.execCommand("copy");
+      setShowTooltip(true);
+      setTimeout(() => {
+        setShowTooltip(false);
+      }, 5000);
+    }
   };
-
-  let arrShow: any = userChoice;
-  //console.log("props.day=", props.day);
+  //включение показа списка покупок
+  const [sumIngredients, setSumIngredients] = useState(false);
+  const handleIngredients = () => {
+    setSumIngredients((prevValue) => !prevValue);
+  };
 
   return (
     <>
-      <div className={styles.label}>{arrShow[props.day]}</div>
-      {ingredientHistory.map((ingredient, index) => (
-        <div key={index}>
-          <div className={styles.container}>
-            <div className={styles.image}>
-              {ingredient.image.join("") !== "" && (
-                <img src={ingredient.image.join("")} alt="Image" />
-              )}
+      <div className={styles.container}>
+        <h3>Cписок {Object.values(userInput)}</h3>
+        <button
+          className={styles.handleIngredients}
+          onClick={handleIngredients}
+        >
+          <FontAwesomeIcon icon={faCartShopping} />
+        </button>
+        {sumIngredients && (
+          <button className={styles.handleCopy} onClick={handleCopy}>
+            <FontAwesomeIcon icon={faCopy} />
+          </button>
+        )}
+        {showTooltip && (
+          <div className={styles.tooltip}>Cписок скопирован!</div>
+        )}
+      </div>
+      {sumIngredients && (
+        <div className={styles.buyForDay}>
+          {Object.entries(sumIngredientsPrint).map(([ingredient, weight]) => (
+            <div key={ingredient}>
+              {ingredient}: {weight as number}
             </div>
-            <div>
-              <div className={styles.label}>
-                {ingredient.numberHuman}
-                {ingredient.label}
-              </div>
-              <div className={styles.button}>
-                {activeIndex === index && (
-                  <div className={styles.dropdownContent}>
-                    <button
-                      type="button"
-                      onClick={() => handleViewIngredients(index)}
-                    >
-                      {ingredient.isOpen ? "Cвернуть.  " : "Смотреть состав.  "}
-                    </button>
-                    <button type="button" onClick={() => handleRemove(index)}>
-                      Удалить.
-                    </button>
-                  </div>
-                )}
-              </div>
-              <div
-                className={styles.dropdownIcon}
-                onClick={() => handleToggle(index)}
-              >
-                &#8942;
-              </div>
-              {ingredient.isOpen && (
-                <div className={styles.ingredientCourse}>
-                  {ingredient.ingredients.map((item, idx) => (
-                    <p key={idx}>{item}</p>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
+          ))}
+          <textarea
+            ref={textareaRef}
+            style={{ position: "absolute", left: "-9999px" }} // Hide the textarea off-screen
+            readOnly
+          />
         </div>
-      ))}
+      )}
     </>
   );
 };

@@ -15,15 +15,18 @@
     @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
     font-size: clamp(18px, 3vw, 20px);
 }
-.dropdownIcon{
-    position: absolute;
-    margin-left: 10em;
-    color: #fff;
-    font-size: 18px;
+.container_button{
+    display: flex;
 }
 .button{
-    @include font(#E47611, Inter, 20px, normal, 600, 20px, 0);
-    font-size: clamp(12px, 3vw, 20px);
+    @include font(#E47611, Inter, 19px, normal, 600, 25px, 0);
+    font-size: clamp(16px, 3vw, 19px);
+}
+.dropdownIcon{
+    //position: absolute;
+    margin-left: 15px;
+    color: #fff;
+    font-size: 18px;
 }
 .dropdownIcon:hover{
     cursor: pointer;

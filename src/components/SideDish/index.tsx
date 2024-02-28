@@ -63,7 +63,7 @@ const Starters: React.FC<MondayProps> = (props) => {
       [label]: {
         label: label,
         numberServings: count,
-        ingredients: value,
+        ingredients: value.map(([key, val]) => [key, val * count]),
         image: image,
       },
     };
