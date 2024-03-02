@@ -30,6 +30,9 @@
       .siteName {
         @include font(#000, Inter, 20px, normal, 400, 25px, 0);
       }
+      .readyMenu{
+        @include font(#008000, Inter, 20px, normal, 400, 25px, 0);
+      }
       .dropdownTitle{
         @include font(#000, Inter, 20px, normal, 400, 25px, 0);        
       }

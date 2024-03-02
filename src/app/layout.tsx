@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Inter } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { MenuProvider } from "@/context/IngredientsContext";
+import bgImage from "@/assets/images/background.png";
 
 //import "~slick-carousel/slick/slick.css";
 //import "~slick-carousel/slick/slick-theme.css";
@@ -21,10 +23,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navigation />
-        {children}
-        <Footer />
+      <body
+        className={inter.className}
+        style={{
+          backgroundImage: `url(${bgImage.src})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh",
+        }}
+      >
+        <MenuProvider>
+          <Navigation />
+          {children}
+          <Footer />
+        </MenuProvider>
       </body>
     </html>
   );

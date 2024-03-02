@@ -53,13 +53,61 @@ const ShowMenuDay: React.FC<MondayProps> = (props) => {
     const labelDelete = label;
     delete userChoiceForComponent[labelDelete];
     savingToContext();
-    //console.log("menuDayUserChoice", userChoiceForComponent);
     //console.log("label2", labelDelete);
   };
-
+  //close the ingredient show when opening a new show ingredient
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const handleToggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
+  };
+  // вызов сохранения обновленного блюда
+  const challengeSaving = (
+    menuItem: any,
+    newIngredients: any,
+    newNumber: any
+  ) => {
+    const selectedUser = {
+      [menuItem.label]: {
+        label: menuItem.label,
+        numberServings: newNumber,
+        ingredients: newIngredients,
+        image: menuItem.image,
+      },
+    };
+    dataForComponent();
+    userChoiceForComponent = {
+      ...userChoiceForComponent,
+      ...selectedUser,
+    };
+    savingToContext();
+    //console.log(props.day, menuItem);
+  };
+  // уменьшение количества ингредиентов
+  const countMinus = (menuItem: any) => {
+    const number = menuItem.numberServings;
+    const ingredients = menuItem.ingredients;
+    const startIngredients = ingredients.map(([key, val]: [string, number]) => [
+      key,
+      val / number,
+    ]);
+    const newIngredients = startIngredients.map(
+      ([key, val]: [string, number]) => [key, val * (number - 1)]
+    );
+    const newNumber = number < 2 ? 1 : number - 1;
+    challengeSaving(menuItem, newIngredients, newNumber);
+  };
+  const countPlus = (menuItem: any) => {
+    const number = menuItem.numberServings;
+    const ingredients = menuItem.ingredients;
+    const startIngredients = ingredients.map(([key, val]: [string, number]) => [
+      key,
+      val / number,
+    ]);
+    const newIngredients = startIngredients.map(
+      ([key, val]: [string, number]) => [key, val * (number + 1)]
+    );
+    const newNumber = number > 99 ? 100 : number + 1;
+    challengeSaving(menuItem, newIngredients, newNumber);
   };
 
   return (
@@ -72,11 +120,14 @@ const ShowMenuDay: React.FC<MondayProps> = (props) => {
             </div>
             <div>
               <div className={styles.label}>
-                {menuItem.label}
-                <span> </span>
-                {menuItem.numberServings === 1
-                  ? `Для ${menuItem.numberServings} человека.`
-                  : `Для ${menuItem.numberServings} человек.`}
+                <span>{menuItem.label}</span>
+                <span> Для </span>
+                <span className={styles.numberServings}>
+                  <button onClick={() => countMinus(menuItem)}>-</button>
+                  {menuItem.numberServings}
+                  <button onClick={() => countPlus(menuItem)}>+</button>
+                </span>
+                {menuItem.numberServings === 1 ? `человека.` : `человек.`}
                 <div className={styles.container_button}>
                   {activeIndex === index && (
                     <div className={styles.button}>

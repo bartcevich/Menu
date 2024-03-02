@@ -11,6 +11,7 @@ const Navigation: React.FC = () => {
   const [isTop, setIsTop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showFirstLink, setShowFirstLink] = useState(true);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -43,6 +44,15 @@ const Navigation: React.FC = () => {
     };
   }, [isTop]);
 
+  useEffect(() => {
+    if (isMobile) {
+      const timer = setInterval(() => {
+        setShowFirstLink((prevValue) => !prevValue);
+      }, 2000);
+      return () => clearInterval(timer);
+    }
+  }, [isMobile]);
+
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -67,10 +77,22 @@ const Navigation: React.FC = () => {
           <div className={styles.logo}>
             <Image src={logo} alt="image" />
           </div>
-          <a className={styles.siteName} href="/">
-            Список продуктов
-            <br />в пару кликов
-          </a>
+          {(!isMobile || showFirstLink) && (
+            <a className={styles.siteName} href="/">
+              Список продуктов
+              <br />в пару кликов
+            </a>
+          )}
+          {(!isMobile || !showFirstLink) && (
+            <Link
+              className={`${styles.siteName} ${styles.readyMenu}`}
+              href="/favoriteMenu"
+            >
+              Готовые варианты
+              <br />
+              меню для вас
+            </Link>
+          )}
         </div>
         {(!isMobile || isMenuOpen) && (
           <div className={styles.mobileMenu}>

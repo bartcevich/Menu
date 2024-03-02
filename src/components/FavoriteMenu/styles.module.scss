@@ -1,0 +1,6 @@
+@import '@/app/variables.scss';
+.wrapper{
+    margin-top: 75px;
+    @include font(#E47611, Inter, 20px, normal, 600, 25px, 0);
+    font-size: clamp(15px, 3vw, 20px);
+}

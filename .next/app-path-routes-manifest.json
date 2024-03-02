@@ -1,7 +1,7 @@
 {
   "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
+  "/favoriteMenu/page": "/favoriteMenu",
   "/kids/page": "/kids",
-  "/programs/page": "/programs",
-  "/teenagers/page": "/teenagers"
+  "/programs/page": "/programs"
 }

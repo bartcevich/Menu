@@ -15,6 +15,12 @@
     @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
     font-size: clamp(18px, 3vw, 20px);
 }
+.numberServings {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px;
+  }
+  
 .container_button{
     display: flex;
 }

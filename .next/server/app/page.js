@@ -245,7 +245,7 @@ __webpack_require__.r(__webpack_exports__);
         '',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 3951)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\page.tsx"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7150)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\page.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
     apple: [],
@@ -256,7 +256,7 @@ __webpack_require__.r(__webpack_exports__);
         }]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7801)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
+          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2088)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
     apple: [],
@@ -281,11 +281,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 3270:
+/***/ 998:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9840));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4700));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6412))
 
 /***/ }),
@@ -2266,7 +2265,7 @@ const Starters_Starters = (props)=>{
             ...userChoiceForComponent,
             ...selectedUser
         };
-        console.log("f3", newMenuComponent);
+    //console.log("f3", newMenuComponent);
     };
     //4 замена последнего при увеличении количества
     //5 добавление ключа от этого компонента и сохранение с !!!!!добавить задержку перед сохранением
@@ -2577,12 +2576,59 @@ const ShowMenuDay = (props)=>{
         const labelDelete = label;
         delete userChoiceForComponent[labelDelete];
         savingToContext();
-    //console.log("menuDayUserChoice", userChoiceForComponent);
     //console.log("label2", labelDelete);
     };
+    //close the ingredient show when opening a new show ingredient
     const [activeIndex, setActiveIndex] = (0,react_.useState)(null);
     const handleToggle = (index)=>{
         setActiveIndex(activeIndex === index ? null : index);
+    };
+    // вызов сохранения обновленного блюда
+    const challengeSaving = (menuItem, newIngredients, newNumber)=>{
+        const selectedUser = {
+            [menuItem.label]: {
+                label: menuItem.label,
+                numberServings: newNumber,
+                ingredients: newIngredients,
+                image: menuItem.image
+            }
+        };
+        dataForComponent();
+        userChoiceForComponent = {
+            ...userChoiceForComponent,
+            ...selectedUser
+        };
+        savingToContext();
+    //console.log(props.day, menuItem);
+    };
+    // уменьшение количества ингредиентов
+    const countMinus = (menuItem)=>{
+        const number = menuItem.numberServings;
+        const ingredients = menuItem.ingredients;
+        const startIngredients = ingredients.map(([key, val])=>[
+                key,
+                val / number
+            ]);
+        const newIngredients = startIngredients.map(([key, val])=>[
+                key,
+                val * (number - 1)
+            ]);
+        const newNumber = number < 2 ? 1 : number - 1;
+        challengeSaving(menuItem, newIngredients, newNumber);
+    };
+    const countPlus = (menuItem)=>{
+        const number = menuItem.numberServings;
+        const ingredients = menuItem.ingredients;
+        const startIngredients = ingredients.map(([key, val])=>[
+                key,
+                val / number
+            ]);
+        const newIngredients = startIngredients.map(([key, val])=>[
+                key,
+                val * (number + 1)
+            ]);
+        const newNumber = number > 99 ? 100 : number + 1;
+        challengeSaving(menuItem, newIngredients, newNumber);
     };
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: menuData.map((menuItem, index)=>/*#__PURE__*/ jsx_runtime_.jsx("div", {
@@ -2601,11 +2647,27 @@ const ShowMenuDay = (props)=>{
                             children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                 className: (ShowMenuDay_styles_module_default()).label,
                                 children: [
-                                    menuItem.label,
                                     /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                        children: " "
+                                        children: menuItem.label
                                     }),
-                                    menuItem.numberServings === 1 ? `Для ${menuItem.numberServings} человека.` : `Для ${menuItem.numberServings} человек.`,
+                                    /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                        children: " Для "
+                                    }),
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
+                                        className: (ShowMenuDay_styles_module_default()).numberServings,
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                                onClick: ()=>countMinus(menuItem),
+                                                children: "-"
+                                            }),
+                                            menuItem.numberServings,
+                                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                                onClick: ()=>countPlus(menuItem),
+                                                children: "+"
+                                            })
+                                        ]
+                                    }),
+                                    menuItem.numberServings === 1 ? `человека.` : `человек.`,
                                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                         className: (ShowMenuDay_styles_module_default()).container_button,
                                         children: [
@@ -3145,58 +3207,6 @@ function ShowSevenAndStorage() {
 
 /***/ }),
 
-/***/ 4700:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   IngredientsContext: () => (/* binding */ IngredientsContext),
-/* harmony export */   MenuProvider: () => (/* binding */ MenuProvider)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8038);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* __next_internal_client_entry_do_not_use__ IngredientsContext,MenuProvider auto */ 
-
-const IngredientsContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)({
-    userChoice: {},
-    setUserChoice: ()=>{}
-});
-const MenuProvider = ({ children })=>{
-    const [userChoice, setUserChoice] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({});
-    const value = (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(()=>({
-            userChoice,
-            setUserChoice
-        }), [
-        userChoice,
-        setUserChoice
-    ]);
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        const savedIngredientHistory5 = localStorage.getItem("ingredientHistory5");
-        if (savedIngredientHistory5) {
-            const parsedIngredientHistory = JSON.parse(savedIngredientHistory5);
-            setUserChoice(parsedIngredientHistory);
-        }
-    }, []);
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        if (typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
-            localStorage.setItem("ingredientHistory5", JSON.stringify(userChoice));
-        }
-    }, [
-        userChoice
-    ]);
-    console.log("userChoice=", userChoice);
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(IngredientsContext.Provider, {
-        value: value,
-        children: children
-    });
-};
-
-
-/***/ }),
-
 /***/ 7481:
 /***/ ((module) => {
 
@@ -3370,6 +3380,7 @@ module.exports = {
 	"container": "styles_container__1d0lp",
 	"image": "styles_image__bZbdI",
 	"label": "styles_label__8NWoG",
+	"numberServings": "styles_numberServings___XMUg",
 	"container_button": "styles_container_button__iUElW",
 	"button": "styles_button__SRv5P",
 	"dropdownIcon": "styles_dropdownIcon__VUEcF",
@@ -3455,7 +3466,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3951:
+/***/ 7150:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3486,35 +3497,20 @@ const __default__ = proxy.default;
 
 
 /* harmony default export */ const ShowSevenAndStorage = (__default__);
-;// CONCATENATED MODULE: ./src/context/IngredientsContext.tsx
-
-const IngredientsContext_proxy = (0,module_proxy.createProxy)(String.raw`D:\andrei\work\codewars\shoppingCart2\Menu\src\context\IngredientsContext.tsx`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule: IngredientsContext_esModule, $$typeof: IngredientsContext_$$typeof } = IngredientsContext_proxy;
-const IngredientsContext_default_ = IngredientsContext_proxy.default;
-
-const e0 = IngredientsContext_proxy["IngredientsContext"];
-
-const e1 = IngredientsContext_proxy["MenuProvider"];
-
-;// CONCATENATED MODULE: ./src/assets/images/background.png
-/* harmony default export */ const background = ({"src":"/_next/static/media/background.21449a94.png","height":1028,"width":1028,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAnUlEQVR42h1P2wrFIAyLzt0d6P7/C89eBhNFRT3GQKG0SZoKY0zdtk3s+w6tNc7zxH3fyDkjhNBUB5ZlQSfhOA5Ya2GMhXMO0zRBzfOMdV0Hib2UEtelUUqBEICstY4hQQKLM56jOzeDTbTWhpP3oZPoIKCoJpNKqpjj+74RMsYIRRVBUkqJyxHueX7w3kN1+8aGb77vy+JHdGCW9gcnlU0o+RpQQwAAAABJRU5ErkJggg==","blurWidth":8,"blurHeight":8});
+// EXTERNAL MODULE: ./src/assets/images/background.png
+var background = __webpack_require__(2253);
 ;// CONCATENATED MODULE: ./src/app/page.tsx
 //'use client';
 
 
 
-
+//import { MenuProvider } from "@/context/IngredientsContext";
 
 function Home() {
-    return /*#__PURE__*/ jsx_runtime_.jsx(e1, {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
             style: {
-                backgroundImage: `url(${background.src})`,
+                backgroundImage: `url(${background/* default */.Z.src})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed",
@@ -3526,18 +3522,6 @@ function Home() {
 }
 
 
-/***/ }),
-
-/***/ 9840:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/background.21449a94.png","height":1028,"width":1028,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAnUlEQVR42h1P2wrFIAyLzt0d6P7/C89eBhNFRT3GQKG0SZoKY0zdtk3s+w6tNc7zxH3fyDkjhNBUB5ZlQSfhOA5Ya2GMhXMO0zRBzfOMdV0Hib2UEtelUUqBEICstY4hQQKLM56jOzeDTbTWhpP3oZPoIKCoJpNKqpjj+74RMsYIRRVBUkqJyxHueX7w3kN1+8aGb77vy+JHdGCW9gcnlU0o+RpQQwAAAABJRU5ErkJggg==","blurWidth":8,"blurHeight":8});
-
 /***/ })
 
 };
@@ -3547,7 +3531,7 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,610,877,736], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,610,877,294], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();
