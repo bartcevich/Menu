@@ -245,7 +245,7 @@ __webpack_require__.r(__webpack_exports__);
         '',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7150)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\page.tsx"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6571)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\page.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
     apple: [],
@@ -281,15 +281,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 998:
+/***/ 4574:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9840));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6412))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 8364))
 
 /***/ }),
 
-/***/ 6412:
+/***/ 8364:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -298,18 +298,21 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ ShowSevenAndStorage)
+  "default": () => (/* binding */ components_LoginForm)
 });
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(8038);
+// EXTERNAL MODULE: ./src/components/LoginForm/styles.module.scss
+var styles_module = __webpack_require__(712);
+var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
 // EXTERNAL MODULE: ./src/context/IngredientsContext.tsx
 var IngredientsContext = __webpack_require__(4700);
 // EXTERNAL MODULE: ./src/components/MenuGroupsOpen/styles.module.scss
-var styles_module = __webpack_require__(8043);
-var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
+var MenuGroupsOpen_styles_module = __webpack_require__(8043);
+var MenuGroupsOpen_styles_module_default = /*#__PURE__*/__webpack_require__.n(MenuGroupsOpen_styles_module);
 // EXTERNAL MODULE: ./src/components/BuyForDay/styles.module.scss
 var BuyForDay_styles_module = __webpack_require__(7481);
 var BuyForDay_styles_module_default = /*#__PURE__*/__webpack_require__.n(BuyForDay_styles_module);
@@ -2899,22 +2902,22 @@ function MenuGroupsOpen_MenuGroups(props) {
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: (styles_module_default()).container_top,
+                className: (MenuGroupsOpen_styles_module_default()).container_top,
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups, {
                         day: day
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: (styles_module_default()).container_button,
+                        className: (MenuGroupsOpen_styles_module_default()).container_button,
                         children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
                             type: "button",
-                            className: (styles_module_default()).menuGroup,
+                            className: (MenuGroupsOpen_styles_module_default()).menuGroup,
                             onClick: handleClick,
                             children: openMenu ? "Возврат к меню" : "Тип блюда"
                         })
                     }),
                     openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: (styles_module_default()).container_popup,
+                        className: (MenuGroupsOpen_styles_module_default()).container_popup,
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx(components_Starters, {
                                 day: day
@@ -3204,6 +3207,160 @@ function ShowSevenAndStorage() {
     });
 }
 
+// EXTERNAL MODULE: ./node_modules/next/image.js
+var next_image = __webpack_require__(8421);
+var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
+;// CONCATENATED MODULE: ./src/assets/images/test.jpg
+/* harmony default export */ const test = ({"src":"/_next/static/media/test.55747cbe.jpg","height":158,"width":309,"blurDataURL":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIAAQACAMBIgACEQEDEQH/xAAoAAEBAAAAAAAAAAAAAAAAAAAABwEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAKuCv//EABwQAAICAgMAAAAAAAAAAAAAAAEDAhEAEiJxof/aAAgBAQABPwCCTuwlzTzEqvzrP//EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oACAECAQE/AI//xAAWEQADAAAAAAAAAAAAAAAAAAAAAjL/2gAIAQMBAT8Aaj//2Q==","blurWidth":8,"blurHeight":4});
+;// CONCATENATED MODULE: ./src/components/LoginForm/index.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+
+
+const RIGHT_ANSWER = [
+    {
+        value: "Enter your answer",
+        label: "Enter your answer"
+    },
+    {
+        value: "голубь",
+        label: "голубь"
+    },
+    {
+        value: "сорока",
+        label: "сорока"
+    },
+    {
+        value: "ворона",
+        label: "ворона"
+    }
+];
+const LoginForm = ()=>{
+    const [email, setEmail] = (0,react_.useState)("");
+    const [password, setPassword] = (0,react_.useState)("");
+    const [isValidEmail, setIsValidEmail] = (0,react_.useState)(false);
+    const [isValidPassword, setIsValidPassword] = (0,react_.useState)(false);
+    const [isLoggedIn, setIsLoggedIn] = (0,react_.useState)(false);
+    const [answer, setAnswer] = (0,react_.useState)("");
+    const handleEmailChange = (e)=>{
+        const enteredEmail = e.target.value;
+        setEmail(enteredEmail);
+        setIsValidEmail(validateEmail(enteredEmail));
+    };
+    const handlePasswordChange = (e)=>{
+        const enteredPassword = e.target.value;
+        setPassword(enteredPassword);
+        setIsValidPassword(validatePassword(enteredPassword));
+    };
+    const handleAnswerChange = (e)=>{
+        const enteredAnswer = e.target.value;
+        setAnswer(enteredAnswer);
+    };
+    const validateEmail = (email)=>{
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+    const validatePassword = (password)=>{
+        //const passwordRegex = /^[A-Za-z\s]{0,20}$/;
+        const passwordRegex = /^[^\s]{0,20}$/;
+        return passwordRegex.test(password);
+    };
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log("state Answer1", answer, isValidEmail, isValidPassword);
+        if (isValidEmail && isValidPassword && answer === "сорока") {
+            setIsLoggedIn(true);
+            console.log("Logged in successfully");
+        } else {
+            console.log("Invalid email or password");
+        }
+    };
+    const handleButtonText = ()=>{
+        if (isValidEmail || isValidPassword || answer === "сорока") {
+            return "Пробовать снова";
+        } else {
+            return "Войти";
+        }
+    };
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: !isLoggedIn ? /*#__PURE__*/ (0,jsx_runtime_.jsxs)("form", {
+            onSubmit: handleSubmit,
+            className: `${(styles_module_default()).containerForm} ${isLoggedIn ? "animate-slide" : ""}`,
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                    children: "Регистрация."
+                }),
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                            children: "Введите адрес вашей электронной почты"
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                            type: "email",
+                            value: email,
+                            onChange: handleEmailChange,
+                            required: true,
+                            placeholder: "Enter a valid email address"
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                            children: "Введите ваш пароль"
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                            type: "password",
+                            value: password,
+                            onChange: handlePasswordChange,
+                            required: true,
+                            placeholder: `${password === "" ? "Enter your password" : "password"}`
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
+                /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                    children: "Выберите правильный ответ"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: (styles_module_default()).imageTest,
+                    children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
+                        src: test,
+                        alt: "image"
+                    })
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("select", {
+                    className: `formControl ${answer ? "formError" : ""}`,
+                    // onFocus={() => {
+                    //   handleInputFocus(setAnswer);
+                    // }}
+                    onChange: handleAnswerChange,
+                    value: answer,
+                    id: "contactAnswer",
+                    name: "answer",
+                    placeholder: answer === "" ? "Enter your answer" : "",
+                    children: RIGHT_ANSWER.map((option)=>/*#__PURE__*/ jsx_runtime_.jsx("option", {
+                            value: option.value,
+                            children: option.label
+                        }, option.value))
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                    type: "submit",
+                    disabled: !isValidEmail || !isValidPassword,
+                    children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: (styles_module_default()).button,
+                        children: handleButtonText()
+                    })
+                })
+            ]
+        }) : /*#__PURE__*/ jsx_runtime_.jsx(ShowSevenAndStorage, {})
+    });
+};
+/* harmony default export */ const components_LoginForm = (LoginForm);
+
 
 /***/ }),
 
@@ -3264,6 +3421,24 @@ module.exports = {
 	"container_ingredients": "styles_container_ingredients__RstTp",
 	"container_popup": "styles_container_popup__hX5bV",
 	"container_Summarized": "styles_container_Summarized__7JT5I"
+};
+
+
+/***/ }),
+
+/***/ 712:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"animate-slide": "styles_animate-slide__4XcFj",
+	"slideIn": "styles_slideIn__8_QdL",
+	"containerForm": "styles_containerForm__3HubK",
+	"imageTest": "styles_imageTest__Ae7cL"
 };
 
 
@@ -3466,7 +3641,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 7150:
+/***/ 6571:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3484,9 +3659,9 @@ var jsx_runtime_ = __webpack_require__(6786);
 var react_shared_subset = __webpack_require__(7887);
 // EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
 var module_proxy = __webpack_require__(1313);
-;// CONCATENATED MODULE: ./src/components/ShowSevenAndStorage/index.tsx
+;// CONCATENATED MODULE: ./src/components/LoginForm/index.tsx
 
-const proxy = (0,module_proxy.createProxy)(String.raw`D:\andrei\work\codewars\shoppingCart2\Menu\src\components\ShowSevenAndStorage\index.tsx`)
+const proxy = (0,module_proxy.createProxy)(String.raw`D:\andrei\work\codewars\shoppingCart2\Menu\src\components\LoginForm\index.tsx`)
 
 // Accessing the __esModule property and exporting $$typeof are required here.
 // The __esModule getter forces the proxy target to create the default export
@@ -3496,7 +3671,7 @@ const { __esModule, $$typeof } = proxy;
 const __default__ = proxy.default;
 
 
-/* harmony default export */ const ShowSevenAndStorage = (__default__);
+/* harmony default export */ const LoginForm = (__default__);
 // EXTERNAL MODULE: ./src/assets/images/background.png
 var background = __webpack_require__(2253);
 ;// CONCATENATED MODULE: ./src/app/page.tsx
@@ -3516,7 +3691,7 @@ function Home() {
                 backgroundAttachment: "fixed",
                 minHeight: "100vh"
             },
-            children: /*#__PURE__*/ jsx_runtime_.jsx(ShowSevenAndStorage, {})
+            children: /*#__PURE__*/ jsx_runtime_.jsx(LoginForm, {})
         })
     });
 }

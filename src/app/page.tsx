@@ -1,9 +1,10 @@
 //'use client';
 import React, { useState, useEffect } from "react";
 import AllIngredients from "@/components/AllIngredients";
+
 import Authentication from "@/components/Authentication";
-import MenuGroups from "@/components/MenuGroups";
 import ShowSevenAndStorage from "@/components/ShowSevenAndStorage";
+import LoginForm from "@/components/LoginForm";
 //import { MenuProvider } from "@/context/IngredientsContext";
 import bgImage from "@/assets/images/background.png";
 
@@ -21,9 +22,9 @@ export default function Home() {
           minHeight: "100vh",
         }}
       >
-        {/* <MenuGroups /> */}
-        <ShowSevenAndStorage />
         {/* <Authentication /> */}
+        <LoginForm />
+        {/* <ShowSevenAndStorage /> */}
         {/* <AllIngredients /> */}
       </div>
       {/* </MenuProvider> */}

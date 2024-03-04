@@ -4,12 +4,12 @@ import styles from "./styles.module.scss";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import validator from "email-validator";
-import AllIngredients from "@/components/AllIngredients";
+import ShowSevenAndStorage from "@/components/ShowSevenAndStorage";
 import Image from "next/image";
 import test from "@/assets/images/test.jpg";
 
 const RIGHT_ANSWER = [
-  { value: "", label: "" },
+  { value: "Enter your answer", label: "Enter your answer" },
   { value: "голубь", label: "голубь" },
   { value: "сорока", label: "сорока" },
   { value: "ворона", label: "ворона" },
@@ -97,9 +97,10 @@ const Form = () => {
     ) {
       setAnswer(true);
       return;
-    } else {
-      setShow(true);
     }
+    // else {
+    //   setShow(true);
+    // }
     setSending(true);
 
     formData["today"] = today;
@@ -108,36 +109,37 @@ const Form = () => {
 
     const data = JSON.stringify(formData);
     //console.log("data=", JSON.stringify(formData), data);
-    fetch("https://api.web3forms.com/submit", {
-      //fetch("", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("promise=", data);
-        setSending(false);
-        setSuccess(true);
-        setFailed(false);
-        setFormData({
-          ...formData,
-          email: "",
-          key: "",
-          answer: "",
-        });
-        setTimeout(() => {
-          setSuccess(false);
-        }, 3000);
-      })
-      .catch((err) => {
-        console.log(err);
-        setSending(false);
-        setFailed(true);
-      });
+    // fetch("https://api.web3forms.com/submit", {
+    //   //fetch("", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json",
+    //   },
+    //   body: data,
+    // })
+    //   .then((res) => res.json())
+    // .then((data) => {
+    console.log("promise=", data);
+    setSending(false);
+    setSuccess(true);
+    setFailed(false);
+    setFormData({
+      ...formData,
+      email: "",
+      key: "",
+      answer: "",
+    });
+    setShow(true);
+    // setTimeout(() => {
+    //   setSuccess(false);
+    // }, 3000);
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    //   setSending(false);
+    //   setFailed(true);
+    // });
   };
 
   const handleButtonText = () => {
@@ -236,7 +238,7 @@ const Form = () => {
           show ? styles["image-appear"] : ""
         }`}
       >
-        {show && <AllIngredients />}
+        {show && <ShowSevenAndStorage />}
       </div>
     </>
   );
