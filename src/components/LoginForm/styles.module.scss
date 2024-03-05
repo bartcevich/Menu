@@ -29,12 +29,18 @@
   border-radius: 10px;
   background-color: rgba(153, 181, 191, 0.5);
   display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
+  flex-flow: column;
+  align-items: center;
 }
 .imageTest{
   width: 60px;
+}
+.button{
+  border: 3px solid #E47611;
+  border-radius: 10px;
+}
+.button:hover{
+  background-color: rgba(153, 181, 191, 0.9);
 }
 // input[id="contactEmail"]{
 //   accent-color: rgba(153, 181, 191, 0.5);

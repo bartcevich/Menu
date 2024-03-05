@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { IngredientsContext } from "@/context/IngredientsContext";
 import styles from "./styles.module.scss";
 import ShowSevenAndStorage from "@/components/ShowSevenAndStorage";
 import Image from "next/image";
@@ -13,12 +14,27 @@ const RIGHT_ANSWER = [
 ];
 
 const LoginForm = () => {
+  const { userChoice, setUserChoice } = useContext(IngredientsContext);
+  const [today, setToday] = useState(new Date().toDateString());
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [answer, setAnswer] = useState("");
+  //1 проверка регистрации в этом дне
+  useEffect(() => {
+    if (
+      typeof userChoice === "object" &&
+      userChoice !== null &&
+      Object.keys(userChoice).length > 0
+    ) {
+      const stateFirstUndefined: any = userChoice;
+      const dataForComponent = stateFirstUndefined["formData"] || {};
+      setIsLoggedIn(dataForComponent["today"] === today);
+      //console.log("formData", dataForComponent["today"]);
+    }
+  }, [userChoice]);
 
   const handleEmailChange = (e: any) => {
     const enteredEmail = e.target.value;
@@ -47,21 +63,39 @@ const LoginForm = () => {
     const passwordRegex = /^[^\s]{0,20}$/;
     return passwordRegex.test(password);
   };
+  //5 добавление ключа от этого компонента и сохранение
+  const savingToContext = () => {
+    setUserChoice((prevUserChoice) => ({
+      ...prevUserChoice,
+      ["formData"]: {
+        email: email,
+        key: password,
+        answer: answer,
+        access_key: "60829245-4068-4083-bc62-2704f53261e7",
+        today: today,
+      },
+    }));
+    //console.log("f3", formData);
+  };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("state Answer1", answer, isValidEmail, isValidPassword);
     if (isValidEmail && isValidPassword && answer === "сорока") {
+      savingToContext();
       setIsLoggedIn(true);
-      console.log("Logged in successfully");
     } else {
-      console.log("Invalid email or password");
+      console.log("Invalid answer, email or password");
     }
   };
 
   const handleButtonText = () => {
-    if (isValidEmail || isValidPassword || answer === "сорока") {
-      return "Пробовать снова";
+    if (!isValidEmail) {
+      return "Введите вашу почту";
+    } else if (!isValidPassword) {
+      return "Создайте пароль";
+    } else if (answer !== "сорока") {
+      return "Выберите ответ";
     } else {
       return "Войти";
     }
@@ -82,7 +116,7 @@ const LoginForm = () => {
             <input
               type="email"
               value={email}
-              onChange={handleEmailChange}
+              onInput={handleEmailChange}
               required
               placeholder="Enter a valid email address"
             />
@@ -93,7 +127,7 @@ const LoginForm = () => {
             <input
               type="password"
               value={password}
-              onChange={handlePasswordChange}
+              onInput={handlePasswordChange}
               required
               placeholder={`${
                 password === "" ? "Enter your password" : "password"
@@ -122,7 +156,8 @@ const LoginForm = () => {
               </option>
             ))}
           </select>
-          <button type="submit" disabled={!isValidEmail || !isValidPassword}>
+          {/* <button type="submit" disabled={!isValidEmail || !isValidPassword}> */}
+          <button type="submit">
             <div className={styles.button}>{handleButtonText()}</div>
           </button>
         </form>

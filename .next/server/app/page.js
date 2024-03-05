@@ -305,11 +305,11 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(8038);
+// EXTERNAL MODULE: ./src/context/IngredientsContext.tsx
+var IngredientsContext = __webpack_require__(4700);
 // EXTERNAL MODULE: ./src/components/LoginForm/styles.module.scss
 var styles_module = __webpack_require__(712);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
-// EXTERNAL MODULE: ./src/context/IngredientsContext.tsx
-var IngredientsContext = __webpack_require__(4700);
 // EXTERNAL MODULE: ./src/components/MenuGroupsOpen/styles.module.scss
 var MenuGroupsOpen_styles_module = __webpack_require__(8043);
 var MenuGroupsOpen_styles_module_default = /*#__PURE__*/__webpack_require__.n(MenuGroupsOpen_styles_module);
@@ -3219,6 +3219,7 @@ var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 
 
 
+
 const RIGHT_ANSWER = [
     {
         value: "Enter your answer",
@@ -3238,12 +3239,25 @@ const RIGHT_ANSWER = [
     }
 ];
 const LoginForm = ()=>{
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const [today, setToday] = (0,react_.useState)(new Date().toDateString());
     const [email, setEmail] = (0,react_.useState)("");
     const [password, setPassword] = (0,react_.useState)("");
     const [isValidEmail, setIsValidEmail] = (0,react_.useState)(false);
     const [isValidPassword, setIsValidPassword] = (0,react_.useState)(false);
     const [isLoggedIn, setIsLoggedIn] = (0,react_.useState)(false);
     const [answer, setAnswer] = (0,react_.useState)("");
+    //1 проверка регистрации в этом дне
+    (0,react_.useEffect)(()=>{
+        if (typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
+            const stateFirstUndefined = userChoice;
+            const dataForComponent = stateFirstUndefined["formData"] || {};
+            setIsLoggedIn(dataForComponent["today"] === today);
+        //console.log("formData", dataForComponent["today"]);
+        }
+    }, [
+        userChoice
+    ]);
     const handleEmailChange = (e)=>{
         const enteredEmail = e.target.value;
         setEmail(enteredEmail);
@@ -3267,19 +3281,37 @@ const LoginForm = ()=>{
         const passwordRegex = /^[^\s]{0,20}$/;
         return passwordRegex.test(password);
     };
+    //5 добавление ключа от этого компонента и сохранение
+    const savingToContext = ()=>{
+        setUserChoice((prevUserChoice)=>({
+                ...prevUserChoice,
+                ["formData"]: {
+                    email: email,
+                    key: password,
+                    answer: answer,
+                    access_key: "60829245-4068-4083-bc62-2704f53261e7",
+                    today: today
+                }
+            }));
+    //console.log("f3", formData);
+    };
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log("state Answer1", answer, isValidEmail, isValidPassword);
         if (isValidEmail && isValidPassword && answer === "сорока") {
+            savingToContext();
             setIsLoggedIn(true);
-            console.log("Logged in successfully");
         } else {
-            console.log("Invalid email or password");
+            console.log("Invalid answer, email or password");
         }
     };
     const handleButtonText = ()=>{
-        if (isValidEmail || isValidPassword || answer === "сорока") {
-            return "Пробовать снова";
+        if (!isValidEmail) {
+            return "Введите вашу почту";
+        } else if (!isValidPassword) {
+            return "Создайте пароль";
+        } else if (answer !== "сорока") {
+            return "Выберите ответ";
         } else {
             return "Войти";
         }
@@ -3300,7 +3332,7 @@ const LoginForm = ()=>{
                         /*#__PURE__*/ jsx_runtime_.jsx("input", {
                             type: "email",
                             value: email,
-                            onChange: handleEmailChange,
+                            onInput: handleEmailChange,
                             required: true,
                             placeholder: "Enter a valid email address"
                         })
@@ -3315,7 +3347,7 @@ const LoginForm = ()=>{
                         /*#__PURE__*/ jsx_runtime_.jsx("input", {
                             type: "password",
                             value: password,
-                            onChange: handlePasswordChange,
+                            onInput: handlePasswordChange,
                             required: true,
                             placeholder: `${password === "" ? "Enter your password" : "password"}`
                         })
@@ -3349,7 +3381,6 @@ const LoginForm = ()=>{
                 }),
                 /*#__PURE__*/ jsx_runtime_.jsx("button", {
                     type: "submit",
-                    disabled: !isValidEmail || !isValidPassword,
                     children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
                         className: (styles_module_default()).button,
                         children: handleButtonText()
@@ -3438,7 +3469,8 @@ module.exports = {
 	"animate-slide": "styles_animate-slide__4XcFj",
 	"slideIn": "styles_slideIn__8_QdL",
 	"containerForm": "styles_containerForm__3HubK",
-	"imageTest": "styles_imageTest__Ae7cL"
+	"imageTest": "styles_imageTest__Ae7cL",
+	"button": "styles_button__ox83s"
 };
 
 
