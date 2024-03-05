@@ -108,38 +108,38 @@ const Form = () => {
     localStorage.setItem("formData", JSON.stringify(formData));
 
     const data = JSON.stringify(formData);
-    //console.log("data=", JSON.stringify(formData), data);
-    // fetch("https://api.web3forms.com/submit", {
-    //   //fetch("", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json",
-    //   },
-    //   body: data,
-    // })
-    //   .then((res) => res.json())
-    // .then((data) => {
-    console.log("promise=", data);
-    setSending(false);
-    setSuccess(true);
-    setFailed(false);
-    setFormData({
-      ...formData,
-      email: "",
-      key: "",
-      answer: "",
-    });
-    setShow(true);
-    // setTimeout(() => {
-    //   setSuccess(false);
-    // }, 3000);
-    // })
-    // .catch((err) => {
-    //   console.log(err);
-    //   setSending(false);
-    //   setFailed(true);
-    // });
+    console.log("data=", JSON.stringify(formData), data);
+    fetch("https://api.web3forms.com/submit", {
+      //fetch("", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("promise=", data);
+        setSending(false);
+        setSuccess(true);
+        setFailed(false);
+        setFormData({
+          ...formData,
+          email: "",
+          key: "",
+          answer: "",
+        });
+        setShow(true);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 3000);
+      })
+      .catch((err) => {
+        console.log(err);
+        setSending(false);
+        setFailed(true);
+      });
   };
 
   const handleButtonText = () => {
@@ -238,7 +238,7 @@ const Form = () => {
           show ? styles["image-appear"] : ""
         }`}
       >
-        {show && <ShowSevenAndStorage />}
+        {/* {show && <ShowSevenAndStorage />} */}
       </div>
     </>
   );

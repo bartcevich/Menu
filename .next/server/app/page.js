@@ -3153,32 +3153,53 @@ function BuyForWeek() {
 
 function ShowSevenAndStorage() {
     const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
-    //useEffect(() => {
-    //localStorage.setItem("ingredientHistory", JSON.stringify({}));
-    // console.log(
-    //   "userChoiceStorage=",
-    //   localStorage.getItem("ingredientHistory5")
-    // );
-    //   const savedIngredientHistory5: string | null =
-    //     localStorage.getItem("ingredientHistory5");
-    //   if (savedIngredientHistory5) {
-    //     const parsedIngredientHistory = JSON.parse(savedIngredientHistory5);
-    //     setUserChoice(parsedIngredientHistory);
-    //   }
-    // }, []);
-    // useEffect(() => {
-    //   if (
-    //     typeof userChoice === "object" &&
-    //     userChoice !== null &&
-    //     Object.keys(userChoice).length > 0
-    //   ) {
-    //     localStorage.setItem("ingredientHistory5", JSON.stringify(userChoice));
-    //   }
-    // for (let keysUserChoice of Object.keys(userChoiceStorage)) {
-    //   console.log("keys=", keysUserChoice);
-    // }
-    //}, [userChoice]);
-    //console.log("userChoice=", userChoice);
+    const [messageSent, setMessageSent] = (0,react_.useState)(0);
+    const letterInMail = (0,react_.useCallback)(()=>{
+        // Use useCallback to avoid unnecessary re-renders
+        //console.log("ShowSevenAndStorage", messageSent);
+        const stateFirstUndefined = userChoice;
+        const dataForComponent = stateFirstUndefined["letterInMail"] || {};
+        const dataForm = stateFirstUndefined["formData"] || {};
+        if (dataForComponent["mail"] !== "true" && messageSent === 1) {
+            const data = JSON.stringify(dataForm);
+            //console.log("data=", data);
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: data
+            }).then((res)=>res.json()).then((data)=>{
+                console.log("promise=", data);
+                if (data["success"] === true) {
+                    setMessageSent(2);
+                    setUserChoice((prevUserChoice)=>({
+                            ...prevUserChoice,
+                            ["letterInMail"]: {
+                                mail: "true"
+                            }
+                        }));
+                } else {
+                    setMessageSent(1);
+                }
+            }).catch((err)=>{
+                console.log(err);
+            });
+        }
+    }, [
+        userChoice,
+        messageSent,
+        setUserChoice
+    ]);
+    (0,react_.useEffect)(()=>{
+        if (typeof userChoice === "object" && userChoice !== null && Object.keys(userChoice).length > 0) {
+            setMessageSent(1);
+            letterInMail();
+        }
+    }, [
+        messageSent
+    ]);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(MenuGroupsOpen_MenuGroups, {
@@ -3297,7 +3318,7 @@ const LoginForm = ()=>{
     };
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log("state Answer1", answer, isValidEmail, isValidPassword);
+        //console.log("state Answer1", answer, isValidEmail, isValidPassword);
         if (isValidEmail && isValidPassword && answer === "сорока") {
             savingToContext();
             setIsLoggedIn(true);
@@ -3738,7 +3759,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,610,877,294], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,610,877,827], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

@@ -80,7 +80,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log("state Answer1", answer, isValidEmail, isValidPassword);
+    //console.log("state Answer1", answer, isValidEmail, isValidPassword);
     if (isValidEmail && isValidPassword && answer === "сорока") {
       savingToContext();
       setIsLoggedIn(true);
