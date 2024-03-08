@@ -293,11 +293,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 9332:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 3757))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5290))
 
 /***/ }),
 
-/***/ 3757:
+/***/ 5290:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1603,8 +1603,1116 @@ function getHistory2() {
     return savedIngredientHistory2;
 }
 
+;// CONCATENATED MODULE: ./src/services/getDataMenu3.ts
+const savedIngredientHistory3 = {
+    day1_feature: {
+        "Жаренный рис.": {
+            "label": "Жаренный рис.",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Куриное филе гр",
+                    798
+                ],
+                [
+                    "Лук репчатый гр",
+                    210
+                ],
+                [
+                    "Лук зелёный гр",
+                    30
+                ],
+                [
+                    "Чеснок гр",
+                    18
+                ],
+                [
+                    "Белый рис гр",
+                    300
+                ],
+                [
+                    "Консервированная кукуруза гр",
+                    300
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    60
+                ],
+                [
+                    "Соль гр",
+                    6
+                ],
+                [
+                    "Яйца куриные шт",
+                    3
+                ],
+                [
+                    "Соевый соус гр",
+                    30
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png"
+        },
+        "Суп пюре из тыквы": {
+            "label": "Суп пюре из тыквы",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Куриное филе гр",
+                    360
+                ],
+                [
+                    "Тыква гр",
+                    720
+                ],
+                [
+                    "Морковь гр",
+                    240
+                ],
+                [
+                    "Лук репчатый гр",
+                    240
+                ],
+                [
+                    "Картофель гр",
+                    240
+                ],
+                [
+                    "Батон гр",
+                    180
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_soup/pumpkin_soup.png"
+        },
+        "Капуста тушеная с мясом.": {
+            "label": "Капуста тушеная с мясом.",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Свинина гр",
+                    390
+                ],
+                [
+                    "Капуста белокачанная гр",
+                    750
+                ],
+                [
+                    "Морковь гр",
+                    240
+                ],
+                [
+                    "Лук репчатый гр",
+                    240
+                ],
+                [
+                    "Соус томатный гр",
+                    60
+                ],
+                [
+                    "Специи",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        }
+    },
+    day3_feature: {
+        "Торфяной пирог": {
+            "label": "Торфяной пирог",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Маргарин гр",
+                    180
+                ],
+                [
+                    "Творог гр",
+                    600
+                ],
+                [
+                    "Масло сливочное гр",
+                    60
+                ],
+                [
+                    "Мука пшеничная гр",
+                    324
+                ],
+                [
+                    "Какао гр",
+                    36
+                ],
+                [
+                    "Сахар гр",
+                    264
+                ],
+                [
+                    "Яйца куриные шт",
+                    3.5999999999999996
+                ],
+                [
+                    "Разрыхлитель гр",
+                    6
+                ],
+                [
+                    "Сахар ванильный гр",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/cottage_cheese_black.png"
+        },
+        "Суп с фрикадельками и булгуром.": {
+            "label": "Суп с фрикадельками и булгуром.",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Свиной фарш гр",
+                    450
+                ],
+                [
+                    "Морковь гр",
+                    240
+                ],
+                [
+                    "Картофель гр",
+                    480
+                ],
+                [
+                    "Помидоры гр",
+                    300
+                ],
+                [
+                    "Лук репчатый гр",
+                    210
+                ],
+                [
+                    "Булгур гр",
+                    90
+                ],
+                [
+                    "Специи",
+                    6
+                ],
+                [
+                    "Соль гр",
+                    6
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    90
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_soup/meatballs_bulgur.png"
+        },
+        "Плов.": {
+            "label": "Плов.",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Свинина гр",
+                    600
+                ],
+                [
+                    "Лук репчатый гр",
+                    420
+                ],
+                [
+                    "Морковь гр",
+                    504
+                ],
+                [
+                    "Изюм гр",
+                    150
+                ],
+                [
+                    "Чеснок гр",
+                    60
+                ],
+                [
+                    "Белый рис гр",
+                    300
+                ],
+                [
+                    "Соль гр",
+                    6
+                ],
+                [
+                    "Специи",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png"
+        },
+        "Салат из моркови с изюмом.": {
+            "label": "Салат из моркови с изюмом.",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Морковь гр",
+                    450
+                ],
+                [
+                    "Изюм гр",
+                    72
+                ],
+                [
+                    "Лимон гр",
+                    30
+                ],
+                [
+                    "Сахар гр",
+                    36
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    42
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        }
+    },
+    day5_feature: {
+        "Гречневая каша с грибами": {
+            "label": "Гречневая каша с грибами",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Грибы гр",
+                    450
+                ],
+                [
+                    "Гречка гр",
+                    300
+                ],
+                [
+                    "Лук репчатый гр",
+                    240
+                ],
+                [
+                    "Масло сливочное гр",
+                    60
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    45
+                ],
+                [
+                    "Соль гр",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png"
+        },
+        "Фасолевый суп.": {
+            "label": "Фасолевый суп.",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Грудинка гр",
+                    360
+                ],
+                [
+                    "Фасоль гр",
+                    108
+                ],
+                [
+                    "Картофель гр",
+                    480
+                ],
+                [
+                    "Морковь гр",
+                    300
+                ],
+                [
+                    "Лук репчатый гр",
+                    180
+                ],
+                [
+                    "Чеснок гр",
+                    30
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    120
+                ],
+                [
+                    "Соус томатный гр",
+                    60
+                ],
+                [
+                    "Соль гр",
+                    6
+                ],
+                [
+                    "Специи",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_soup/bean_soup.png"
+        },
+        "Картошка с колбасой и зеленью.": {
+            "label": "Картошка с колбасой и зеленью.",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Сосиски гр",
+                    600
+                ],
+                [
+                    "Картофель гр",
+                    900
+                ],
+                [
+                    "Лук зелёный гр",
+                    30
+                ],
+                [
+                    "Укроп гр",
+                    30
+                ],
+                [
+                    "Майонез гр",
+                    120
+                ],
+                [
+                    "Соль гр",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        },
+        "Салат с морской капустой.": {
+            "label": "Салат с морской капустой.",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Морская капуста гр",
+                    480
+                ],
+                [
+                    "Крабовые палочки гр",
+                    300
+                ],
+                [
+                    "Яйца куриные шт",
+                    3.5999999999999996
+                ],
+                [
+                    "Консервированная кукуруза гр",
+                    420
+                ],
+                [
+                    "Майонез гр",
+                    120
+                ],
+                [
+                    "Соль гр",
+                    6
+                ],
+                [
+                    "Специи",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        }
+    }
+};
+function getHistory3() {
+    return savedIngredientHistory3;
+}
+
+;// CONCATENATED MODULE: ./src/services/getDataMenu4.ts
+const savedIngredientHistory4 = {
+    day1_feature: {
+        "Овсяная каша.": {
+            "label": "Овсяная каша.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Овсяные хлопья гр",
+                    180
+                ],
+                [
+                    "Соль гр",
+                    3
+                ],
+                [
+                    "Бананы гр",
+                    150
+                ],
+                [
+                    "Мёд гр",
+                    60
+                ],
+                [
+                    "Сыры гр",
+                    60
+                ],
+                [
+                    "Молоко гр",
+                    600
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        },
+        "Пшенный суп сяйцом": {
+            "label": "Пшенный суп сяйцом",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Лук репчатый гр",
+                    105
+                ],
+                [
+                    "Картофель гр",
+                    180
+                ],
+                [
+                    "Морковь гр",
+                    120
+                ],
+                [
+                    "Яйца куриные шт",
+                    1.5
+                ],
+                [
+                    "Пшено гр",
+                    45
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    30
+                ],
+                [
+                    "Специи",
+                    3
+                ],
+                [
+                    "Соль гр",
+                    3
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_soup/millet_soup.png"
+        },
+        "Голубцы.": {
+            "label": "Голубцы.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Капуста белокачанная гр",
+                    300
+                ],
+                [
+                    "Морковь гр",
+                    75
+                ],
+                [
+                    "Лук репчатый гр",
+                    90
+                ],
+                [
+                    "Свиной фарш гр",
+                    195
+                ],
+                [
+                    "Соус томатный гр",
+                    45
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    15
+                ],
+                [
+                    "Белый рис гр",
+                    45
+                ],
+                [
+                    "Соль гр",
+                    3
+                ],
+                [
+                    "Специи",
+                    3
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/lazy _cabbage.png"
+        }
+    },
+    day2_feature: {
+        "Блины тонкие.": {
+            "label": "Блины тонкие.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Молоко гр",
+                    399
+                ],
+                [
+                    "Мука пшеничная гр",
+                    219
+                ],
+                [
+                    "Яйца куриные шт",
+                    2.0999999999999996
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    24
+                ],
+                [
+                    "Соль гр",
+                    3
+                ],
+                [
+                    "Сахар гр",
+                    18
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/fried_eggs.jpg"
+        },
+        "Пшенный суп сяйцом": {
+            "label": "Пшенный суп сяйцом",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Лук репчатый гр",
+                    105
+                ],
+                [
+                    "Картофель гр",
+                    180
+                ],
+                [
+                    "Морковь гр",
+                    120
+                ],
+                [
+                    "Яйца куриные шт",
+                    1.5
+                ],
+                [
+                    "Пшено гр",
+                    45
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    30
+                ],
+                [
+                    "Специи",
+                    3
+                ],
+                [
+                    "Соль гр",
+                    3
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_soup/millet_soup.png"
+        },
+        "Голубцы.": {
+            "label": "Голубцы.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Капуста белокачанная гр",
+                    300
+                ],
+                [
+                    "Морковь гр",
+                    75
+                ],
+                [
+                    "Лук репчатый гр",
+                    90
+                ],
+                [
+                    "Свиной фарш гр",
+                    195
+                ],
+                [
+                    "Соус томатный гр",
+                    45
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    15
+                ],
+                [
+                    "Белый рис гр",
+                    45
+                ],
+                [
+                    "Соль гр",
+                    3
+                ],
+                [
+                    "Специи",
+                    3
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/lazy _cabbage.png"
+        }
+    },
+    day3_feature: {
+        "Ватрушка с творогом": {
+            "label": "Ватрушка с творогом",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Творог гр",
+                    300
+                ],
+                [
+                    "Молоко гр",
+                    180
+                ],
+                [
+                    "Масло сливочное гр",
+                    60
+                ],
+                [
+                    "Сметана гр",
+                    54
+                ],
+                [
+                    "Мука пшеничная гр",
+                    300
+                ],
+                [
+                    "Сахар гр",
+                    60
+                ],
+                [
+                    "Яйца куриные шт",
+                    2.4000000000000004
+                ],
+                [
+                    "Дрожжи сухие гр",
+                    7.800000000000001
+                ],
+                [
+                    "Сахар ванильный гр",
+                    12
+                ],
+                [
+                    "Соль гр",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/bun_cottage_cheese.png"
+        },
+        "Щи из свежей капусты": {
+            "label": "Щи из свежей капусты",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Говядина гр",
+                    600
+                ],
+                [
+                    "Капуста белокачанная гр",
+                    600
+                ],
+                [
+                    "Лук репчатый гр",
+                    198
+                ],
+                [
+                    "Морковь гр",
+                    150
+                ],
+                [
+                    "Помидоры гр",
+                    300
+                ],
+                [
+                    "Картофель гр",
+                    360
+                ],
+                [
+                    "Чеснок гр",
+                    18
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    60
+                ],
+                [
+                    "Специи",
+                    6
+                ],
+                [
+                    "Соль гр",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_soup/cabbage_soup.png"
+        },
+        "Картофельные колдуны с мясом.": {
+            "label": "Картофельные колдуны с мясом.",
+            "numberServings": 6,
+            "ingredients": [
+                [
+                    "Картофель гр",
+                    480
+                ],
+                [
+                    "Лук репчатый гр",
+                    120
+                ],
+                [
+                    "Свинина гр",
+                    240
+                ],
+                [
+                    "Яйца куриные шт",
+                    0.6000000000000001
+                ],
+                [
+                    "Мука пшеничная гр",
+                    42
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    60
+                ],
+                [
+                    "Соль гр",
+                    6
+                ],
+                [
+                    "Специи",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        }
+    },
+    day5_feature: {
+        "Омлет.": {
+            "label": "Омлет.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Молоко гр",
+                    75
+                ],
+                [
+                    "Сыры гр",
+                    60
+                ],
+                [
+                    "Сосиски гр",
+                    150
+                ],
+                [
+                    "Яйца куриные шт",
+                    4.5
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    30
+                ],
+                [
+                    "Помидоры гр",
+                    150
+                ],
+                [
+                    "Лук репчатый гр",
+                    150
+                ],
+                [
+                    "Лук зелёный гр",
+                    15
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/fried_eggs.jpg"
+        },
+        "Суп харчо.": {
+            "label": "Суп харчо.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Говядина гр",
+                    375
+                ],
+                [
+                    "Лук репчатый гр",
+                    90
+                ],
+                [
+                    "Помидоры гр",
+                    90
+                ],
+                [
+                    "Чеснок гр",
+                    15
+                ],
+                [
+                    "Петрушка гр",
+                    6
+                ],
+                [
+                    "Белый рис гр",
+                    60
+                ],
+                [
+                    "Соус томатный гр",
+                    6
+                ],
+                [
+                    "Соль гр",
+                    6
+                ],
+                [
+                    "Специи",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_soup/georgian_soup.png"
+        },
+        "Мясной хлеб.": {
+            "label": "Мясной хлеб.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Свиной фарш гр",
+                    351
+                ],
+                [
+                    "Сметана гр",
+                    99
+                ],
+                [
+                    "Свёкла гр",
+                    150
+                ],
+                [
+                    "Яйца куриные шт",
+                    2.4000000000000004
+                ],
+                [
+                    "Сухари панировочные гр",
+                    51
+                ],
+                [
+                    "Соль гр",
+                    3
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    6
+                ],
+                [
+                    "Специи",
+                    3
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        },
+        "Овощи тушеные.": {
+            "label": "Овощи тушеные.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Кабачки гр",
+                    270
+                ],
+                [
+                    "Картофель гр",
+                    270
+                ],
+                [
+                    "Перец сладкий гр",
+                    135
+                ],
+                [
+                    "Капуста белокачанная гр",
+                    99
+                ],
+                [
+                    "Морковь гр",
+                    75
+                ],
+                [
+                    "Лук репчатый гр",
+                    90
+                ],
+                [
+                    "Помидоры гр",
+                    120
+                ],
+                [
+                    "Соль гр",
+                    3
+                ],
+                [
+                    "Специи",
+                    3
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    21
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_side_dish/stewed_vegetables.png"
+        }
+    },
+    day6_feature: {
+        "Манная каша": {
+            "label": "Манная каша",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Манка гр",
+                    120
+                ],
+                [
+                    "Молоко гр",
+                    600
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_side_dish/semolina_porridge.png"
+        },
+        "Суп харчо.": {
+            "label": "Суп харчо.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Говядина гр",
+                    375
+                ],
+                [
+                    "Лук репчатый гр",
+                    90
+                ],
+                [
+                    "Помидоры гр",
+                    90
+                ],
+                [
+                    "Чеснок гр",
+                    15
+                ],
+                [
+                    "Петрушка гр",
+                    6
+                ],
+                [
+                    "Белый рис гр",
+                    60
+                ],
+                [
+                    "Соус томатный гр",
+                    6
+                ],
+                [
+                    "Соль гр",
+                    6
+                ],
+                [
+                    "Специи",
+                    6
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_soup/georgian_soup.png"
+        },
+        "Мясной хлеб.": {
+            "label": "Мясной хлеб.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Свиной фарш гр",
+                    351
+                ],
+                [
+                    "Сметана гр",
+                    99
+                ],
+                [
+                    "Свёкла гр",
+                    150
+                ],
+                [
+                    "Яйца куриные шт",
+                    2.4000000000000004
+                ],
+                [
+                    "Сухари панировочные гр",
+                    51
+                ],
+                [
+                    "Соль гр",
+                    3
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    6
+                ],
+                [
+                    "Специи",
+                    3
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+        },
+        "Овощи тушеные.": {
+            "label": "Овощи тушеные.",
+            "numberServings": 3,
+            "ingredients": [
+                [
+                    "Кабачки гр",
+                    270
+                ],
+                [
+                    "Картофель гр",
+                    270
+                ],
+                [
+                    "Перец сладкий гр",
+                    135
+                ],
+                [
+                    "Капуста белокачанная гр",
+                    99
+                ],
+                [
+                    "Морковь гр",
+                    75
+                ],
+                [
+                    "Лук репчатый гр",
+                    90
+                ],
+                [
+                    "Помидоры гр",
+                    120
+                ],
+                [
+                    "Соль гр",
+                    3
+                ],
+                [
+                    "Специи",
+                    3
+                ],
+                [
+                    "Подсолнечное масло гр",
+                    21
+                ]
+            ],
+            "image": "https://bartcevich.github.io/letter/image_side_dish/stewed_vegetables.png"
+        }
+    }
+};
+function getHistory4() {
+    return savedIngredientHistory4;
+}
+
 ;// CONCATENATED MODULE: ./src/components/FavoriteMenu/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
 
 
 
@@ -1615,6 +2723,8 @@ function FavoriteMenu() {
     const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const History1 = getHistory1();
     const History2 = getHistory2();
+    const History3 = getHistory3();
+    const History4 = getHistory4();
     const [dataString, setDataString] = (0,react_.useState)("");
     //const history = useHistory();
     // useEffect(() => {
@@ -1627,33 +2737,61 @@ function FavoriteMenu() {
     //     setDataString(JSON.stringify(stateFirstUndefined));
     //   }
     // }, [userChoice]);
-    const loadMenu1 = ()=>{
-        setUserChoice((prevUserChoice)=>({
-                ...prevUserChoice,
-                ...History1
-            }));
-        //console.log("label2", History1);
-        //history.push("/");
-        window.location.href = "/";
+    const deleteMenu = ()=>{
+        for(let i = 1; i <= 7; i++){
+            const key = `day${i}_feature`;
+            if (key in userChoice) {
+                delete userChoice[key]; // Type assertion here as 'any'
+            }
+        }
+        setUserChoice({
+            ...userChoice
+        });
     };
-    const loadMenu2 = ()=>{
+    const loadMenu = (history)=>{
+        deleteMenu();
         setUserChoice((prevUserChoice)=>({
                 ...prevUserChoice,
-                ...History2
+                ...history
             }));
+        //
+        //history.push("/");
         window.location.href = "/";
     };
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
             className: (styles_module_default()).wrapper,
             children: [
-                /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                    onClick: ()=>loadMenu1(),
-                    children: "загрузить меню1."
+                /*#__PURE__*/ jsx_runtime_.jsx("h2", {
+                    children: "Недорогое меню для семьи на месяц"
                 }),
-                /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                    onClick: ()=>loadMenu2(),
-                    children: "загрузить меню2."
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("ul", {
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                onClick: ()=>loadMenu(History1),
+                                children: "загрузить меню 1."
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                onClick: ()=>loadMenu(History2),
+                                children: "загрузить меню 2."
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                onClick: ()=>loadMenu(History3),
+                                children: "загрузить меню 3."
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                onClick: ()=>loadMenu(History4),
+                                children: "загрузить меню 4."
+                            })
+                        })
+                    ]
                 }),
                 dataString
             ]

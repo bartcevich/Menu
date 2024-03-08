@@ -321,7 +321,7 @@ const Navigation = ()=>{
                     children: [
                         /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                             className: (styles_module_default()).dropdownTitle,
-                            href: "/kids",
+                            href: "/cookFromAvailable",
                             children: "О сайте"
                         }),
                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {

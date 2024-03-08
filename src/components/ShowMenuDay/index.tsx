@@ -124,7 +124,9 @@ const ShowMenuDay: React.FC<MondayProps> = (props) => {
                 <span> Для </span>
                 <span className={styles.numberServings}>
                   <button onClick={() => countMinus(menuItem)}>-</button>
+                  <span> </span>
                   {menuItem.numberServings}
+                  <span> </span>
                   <button onClick={() => countPlus(menuItem)}>+</button>
                 </span>
                 {menuItem.numberServings === 1 ? `человека.` : `человек.`}

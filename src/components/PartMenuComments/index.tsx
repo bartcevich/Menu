@@ -45,9 +45,9 @@ export default function MenuGroups(props: MondayProps) {
     if (userInput["menuText"] !== "") {
       // Clear previous timeout
       if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
+        clearTimeout(timeoutRef.current); // Отменяет выполнение
       }
-      // Set a new timeout to save the input
+      // let timeoutID = setTimeout(function[, delay, arg1, arg2, ...]);
       timeoutRef.current = setTimeout(() => {
         setUserChoice((prevUserChoice) => ({
           ...prevUserChoice,

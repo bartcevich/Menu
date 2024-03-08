@@ -4,13 +4,7 @@
     flex-flow: column;
     margin-top: 65px;
 }
-.menuGroup{
-    width: 130px;
-        height: 30px;
-        border: 2px solid #E47611;
-        border-radius: 10px;
-        @include font(#E47611, Inter, 15px, normal, 400, 15px, 0);
-}
+
 .container_popup{
     position: relative;
     width: 270px;
@@ -47,4 +41,21 @@
     color: #E47611;
     padding: 4px 8px;
     border-radius: 4px;
-  }
+}
+.menuGroup{
+    width: 130px;
+        height: 30px;
+        border: 2px solid #E47611;
+        border-radius: 10px;
+        @include font(#E47611, Inter, 15px, normal, 400, 15px, 0);
+}
+@media (hover: hover)  {
+    .menuGroup:hover{
+        background-color: rgba(153, 181, 191, 0.5);
+    }
+}
+@media (hover: none)  {
+    .menuGroup:active{
+        background-color: rgba(153, 181, 191, 0.5);
+    }
+}

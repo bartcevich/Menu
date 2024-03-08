@@ -4,12 +4,16 @@ import { IngredientsContext } from "@/context/IngredientsContext";
 import styles from "./styles.module.scss";
 import { getHistory1 } from "@/services/getDataMenu1";
 import { getHistory2 } from "@/services/getDataMenu2";
+import { getHistory3 } from "@/services/getDataMenu3";
+import { getHistory4 } from "@/services/getDataMenu4";
 //import { useHistory } from "react-router-dom";
 
 export default function FavoriteMenu() {
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const History1 = getHistory1();
   const History2 = getHistory2();
+  const History3 = getHistory3();
+  const History4 = getHistory4();
   const [dataString, setDataString] = useState("");
   //const history = useHistory();
 
@@ -24,28 +28,53 @@ export default function FavoriteMenu() {
   //   }
   // }, [userChoice]);
 
-  const loadMenu1 = () => {
-    setUserChoice((prevUserChoice) => ({
-      ...prevUserChoice,
-      ...History1,
-    }));
-    //console.log("label2", History1);
-    //history.push("/");
-    window.location.href = "/";
+  const deleteMenu = () => {
+    for (let i = 1; i <= 7; i++) {
+      const key = `day${i}_feature`;
+      if (key in userChoice) {
+        delete (userChoice as any)[key]; // Type assertion here as 'any'
+      }
+    }
+    setUserChoice({ ...userChoice });
   };
-  const loadMenu2 = () => {
+
+  const loadMenu = (history: any) => {
+    deleteMenu();
     setUserChoice((prevUserChoice) => ({
       ...prevUserChoice,
-      ...History2,
+      ...history,
     }));
+    //
+    //history.push("/");
     window.location.href = "/";
   };
 
   return (
     <>
       <div className={styles.wrapper}>
-        <button onClick={() => loadMenu1()}>загрузить меню1.</button>
-        <button onClick={() => loadMenu2()}>загрузить меню2.</button>
+        <h2>Недорогое меню для семьи на месяц</h2>
+        <ul>
+          <li>
+            <button onClick={() => loadMenu(History1)}>
+              загрузить меню 1.
+            </button>
+          </li>
+          <li>
+            <button onClick={() => loadMenu(History2)}>
+              загрузить меню 2.
+            </button>
+          </li>
+          <li>
+            <button onClick={() => loadMenu(History3)}>
+              загрузить меню 3.
+            </button>
+          </li>
+          <li>
+            <button onClick={() => loadMenu(History4)}>
+              загрузить меню 4.
+            </button>
+          </li>
+        </ul>
         {dataString}
       </div>
     </>

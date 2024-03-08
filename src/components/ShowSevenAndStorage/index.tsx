@@ -15,9 +15,9 @@ export default function ShowSevenAndStorage() {
     //console.log("ShowSevenAndStorage", messageSent);
     const stateFirstUndefined: any = userChoice;
     const dataForComponent = stateFirstUndefined["letterInMail"] || {};
-    const dataForm = stateFirstUndefined["formData"] || {};
+    const dataAuthentication = stateFirstUndefined["formData"] || {};
     if (dataForComponent["mail"] !== "true" && messageSent === 1) {
-      const data = JSON.stringify(dataForm);
+      const data = JSON.stringify(dataAuthentication);
       //console.log("data=", data);
       fetch("https://api.web3forms.com/submit", {
         method: "POST",

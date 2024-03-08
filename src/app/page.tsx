@@ -1,8 +1,5 @@
 //'use client';
 import React, { useState, useEffect } from "react";
-import AllIngredients from "@/components/AllIngredients";
-
-import Authentication from "@/components/Authentication";
 import ShowSevenAndStorage from "@/components/ShowSevenAndStorage";
 import LoginForm from "@/components/LoginForm";
 //import { MenuProvider } from "@/context/IngredientsContext";

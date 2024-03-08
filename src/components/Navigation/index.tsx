@@ -96,7 +96,7 @@ const Navigation: React.FC = () => {
         </div>
         {(!isMobile || isMenuOpen) && (
           <div className={styles.mobileMenu}>
-            <Link className={styles.dropdownTitle} href="/kids">
+            <Link className={styles.dropdownTitle} href="/cookFromAvailable">
               О сайте
             </Link>
             <div className={styles.dropdown}>

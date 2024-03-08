@@ -74,6 +74,9 @@ const LoginForm = () => {
         access_key: "60829245-4068-4083-bc62-2704f53261e7",
         today: today,
       },
+      ["letterInMail"]: {
+        mail: "false",
+      },
     }));
     //console.log("f3", formData);
   };
