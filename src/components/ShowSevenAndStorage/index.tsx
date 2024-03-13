@@ -61,14 +61,36 @@ export default function ShowSevenAndStorage() {
 
   return (
     <>
-      <MenuGroupsOpen day={"day1"} />
-      <MenuGroups day={"day2"} />
-      <MenuGroups day={"day3"} />
-      <MenuGroups day={"day4"} />
-      <MenuGroups day={"day5"} />
-      <MenuGroups day={"day6"} />
-      <MenuGroups day={"day7"} />
-      <BuyForWeek />
+      <div className={styles.container}>
+        <div className={styles.column1}>
+          <div className={styles.menuGroups1}>
+            <MenuGroupsOpen day={"day1"} />
+          </div>
+          <div className={styles.menuGroups2}>
+            <MenuGroups day={"day2"} />
+          </div>
+          <div className={styles.menuGroups3}>
+            <MenuGroups day={"day3"} />
+          </div>
+          <div className={styles.menuGroups4}>
+            <MenuGroups day={"day4"} />
+          </div>
+          <div className={styles.menuGroups5}>
+            <MenuGroups day={"day5"} />
+          </div>
+          <div className={styles.menuGroups6}>
+            <MenuGroups day={"day6"} />
+          </div>
+          <div className={styles.menuGroups7}>
+            <MenuGroups day={"day7"} />
+          </div>
+        </div>
+        <div className={styles.column2}>
+          <div className={styles.menuGroups8}>
+            <BuyForWeek />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

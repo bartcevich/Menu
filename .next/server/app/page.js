@@ -310,6 +310,9 @@ var IngredientsContext = __webpack_require__(4700);
 // EXTERNAL MODULE: ./src/components/LoginForm/styles.module.scss
 var styles_module = __webpack_require__(712);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
+// EXTERNAL MODULE: ./src/components/ShowSevenAndStorage/styles.module.scss
+var ShowSevenAndStorage_styles_module = __webpack_require__(6292);
+var ShowSevenAndStorage_styles_module_default = /*#__PURE__*/__webpack_require__.n(ShowSevenAndStorage_styles_module);
 // EXTERNAL MODULE: ./src/components/MenuGroupsOpen/styles.module.scss
 var MenuGroupsOpen_styles_module = __webpack_require__(8043);
 var MenuGroupsOpen_styles_module_default = /*#__PURE__*/__webpack_require__.n(MenuGroupsOpen_styles_module);
@@ -1895,6 +1898,7 @@ function BuyForWeek() {
 
 
 
+
 function ShowSevenAndStorage() {
     const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [messageSent, setMessageSent] = (0,react_.useState)(0);
@@ -1944,31 +1948,66 @@ function ShowSevenAndStorage() {
     }, [
         messageSent
     ]);
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(MenuGroupsOpen_MenuGroups, {
-                day: "day1"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                day: "day2"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                day: "day3"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                day: "day4"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                day: "day5"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                day: "day6"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                day: "day7"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(BuyForWeek, {})
-        ]
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+            className: (ShowSevenAndStorage_styles_module_default()).container,
+            children: [
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: (ShowSevenAndStorage_styles_module_default()).column1,
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups1,
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroupsOpen_MenuGroups, {
+                                day: "day1"
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups2,
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                day: "day2"
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups3,
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                day: "day3"
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups4,
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                day: "day4"
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups5,
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                day: "day5"
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups6,
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                day: "day6"
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups7,
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                day: "day7"
+                            })
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: (ShowSevenAndStorage_styles_module_default()).column2,
+                    children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: (ShowSevenAndStorage_styles_module_default()).menuGroups8,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(BuyForWeek, {})
+                    })
+                })
+            ]
+        })
     });
 }
 
@@ -2102,7 +2141,9 @@ const LoginForm = ()=>{
                             value: email,
                             onInput: handleEmailChange,
                             required: true,
-                            placeholder: "Enter a valid email address"
+                            id: "email",
+                            placeholder: "Enter a valid email address",
+                            autoComplete: "email"
                         })
                     ]
                 }),
@@ -2117,7 +2158,9 @@ const LoginForm = ()=>{
                             value: password,
                             onInput: handlePasswordChange,
                             required: true,
-                            placeholder: `${password === "" ? "Enter your password" : "password"}`
+                            id: "password",
+                            placeholder: `${password === "" ? "Enter your password" : "password"}`,
+                            autoComplete: "current-password"
                         })
                     ]
                 }),
@@ -2369,6 +2412,24 @@ module.exports = {
 
 /***/ }),
 
+/***/ 6292:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"container": "styles_container__2CT7I",
+	"column2": "styles_column2__Rg7EV",
+	"column1": "styles_column1__kjk3k",
+	"column3": "styles_column3__GOo7d"
+};
+
+
+/***/ }),
+
 /***/ 4154:
 /***/ ((module) => {
 
@@ -2506,7 +2567,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,610,877,827,245], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,610,877,988,245], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

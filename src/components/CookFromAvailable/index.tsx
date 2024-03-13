@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect, useState, useContext } from "react";
-import { IngredientsContext } from "@/context/IngredientsContext";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import {
   getDinnerData,
@@ -43,14 +42,13 @@ const RIGHT_ANSWER = [
 ];
 
 export default function CookFromAvailable() {
-  const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const DinnerData = getDinnerData();
   const BreakfastData = getBreakfastData();
   const LunchData = getLunchData();
   const SaladData = getSalad();
   const PastriesDesserts = getPastriesDesserts();
-  const [dataString, setDataString] = useState("");
   const [answer, setAnswer] = useState("");
+  const [allFound, setAllFound] = useState<any[]>([]);
 
   useEffect(() => {
     const foundDinner = DinnerData.filter((item) =>
@@ -68,24 +66,23 @@ export default function CookFromAvailable() {
     const foundPastries = PastriesDesserts.filter((item) =>
       item.value.hasOwnProperty(answer)
     );
-
-    //if (foundDinner.length > 0) {
-    //console.log(foundDinner);
-    const labelsDinner = foundDinner.map((item) => item.label);
-    const labelsBreakfast = foundBreakfast.map((item) => item.label);
-    const labelsLunch = foundLunch.map((item) => item.label);
-    const labelsSalads = foundSalad.map((item) => item.label);
-    const labelsPastries = foundPastries.map((item) => item.label);
-    setDataString(
-      `Из "${answer}" можно приготовить: 
-        ${labelsDinner.join(", ")}
-        ${labelsBreakfast.join(", ")}
-        ${labelsLunch.join(", ")}
-        ${labelsSalads.join(", ")}
-        ${labelsPastries.join(", ")}`
-    );
-    //}
-  }, [DinnerData, answer]);
+    const allFoundItems = [
+      ...foundDinner,
+      ...foundBreakfast,
+      ...foundLunch,
+      ...foundSalad,
+      ...foundPastries,
+    ];
+    setAllFound(allFoundItems);
+    console.log(foundSalad);
+    // const labelsDinner = foundDinner.map((item) => item.label);
+    // const labelsPastries = foundPastries.map((item) => item.label);
+    // setDataString(
+    //   `Из "${answer}" можно приготовить:
+    //     ${labelsDinner.join(", ")}
+    //     ${labelsPastries.join(", ")}`
+    // );
+  }, [answer]);
 
   const handleAnswerChange = (e: any) => {
     const enteredAnswer = e.target.value;
@@ -97,7 +94,7 @@ export default function CookFromAvailable() {
       <div className={styles.wrapper}>
         <h2>Выберите главный ингридиент для приготовления</h2>
         <select
-          className={`formControl ${answer ? "formError" : ""}`}
+          className={styles.form}
           onChange={handleAnswerChange}
           value={answer}
           id="contactAnswer"
@@ -109,8 +106,26 @@ export default function CookFromAvailable() {
             </option>
           ))}
         </select>
-
-        {dataString}
+        {allFound.length > 0 && <h2>Вы можете приготовить: </h2>}
+        {allFound.map((menuItem, index) => (
+          <div key={index} className={styles.menuItem}>
+            <div className={styles.container}>
+              <div className={styles.labelImage}>
+                <div className={styles.label}>{menuItem.label}</div>
+                <div className={styles.image}>
+                  <img src={menuItem.Image} alt="Image" />
+                </div>
+              </div>
+              <div>
+                {Object.entries(menuItem.value).map(([name, quantity]) => (
+                  <span className={styles.ingredientCourse} key={name}>
+                    {name}:{quantity as number},<span> </span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );

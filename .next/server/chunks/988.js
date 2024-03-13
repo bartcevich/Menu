@@ -1,5 +1,5 @@
-exports.id = 827;
-exports.ids = [827];
+exports.id = 988;
+exports.ids = [988];
 exports.modules = {
 
 /***/ 7496:
@@ -13,13 +13,13 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_
 
 /***/ }),
 
-/***/ 4704:
+/***/ 7915:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9840));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4494));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6473));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4700))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4700));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4494))
 
 /***/ }),
 
@@ -248,7 +248,7 @@ const Navigation = ()=>{
             lastScrollY = currentScrollY;
         };
         const handleResize = ()=>{
-            setIsMobile(window.innerWidth < 700);
+            setIsMobile(window.innerWidth < 730);
         };
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", handleResize);

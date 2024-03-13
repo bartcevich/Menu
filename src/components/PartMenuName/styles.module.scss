@@ -7,11 +7,11 @@
     }
 }
 .container_input{
-    position: absolute;
+    position: relative;
     max-width: 230px;
     height: 30px;
     left: 140px;
-    //top: 67px;
+    top: 30px;
     background-color: transparent;
     @include font(#008000, Inter, 15px, normal, 400, 15px, 0);
     

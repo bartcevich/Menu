@@ -6,7 +6,7 @@
 }
 .buyForDay{
     //color: #E47611;
-    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+    @include font(#adb5bdce, Inter, 20px, normal, 400, 20px, 0);
     font-size: clamp(15px, 3vw, 20px);
 }
 .handleIngredients{

@@ -9,5 +9,14 @@
     li{
         margin: 15px 0;
     }
-
+    @media (hover: hover)  {
+    button:hover{
+        background-color: rgba(153, 181, 191, 0.5);
+    }
+}
+@media (hover: none)  {
+    button:active{
+        background-color: rgba(153, 181, 191, 0.5);
+    }
+}
 }

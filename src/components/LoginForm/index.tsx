@@ -121,7 +121,9 @@ const LoginForm = () => {
               value={email}
               onInput={handleEmailChange}
               required
+              id="email"
               placeholder="Enter a valid email address"
+              autoComplete="email"
             />
           </label>
           <br />
@@ -132,9 +134,11 @@ const LoginForm = () => {
               value={password}
               onInput={handlePasswordChange}
               required
+              id="password"
               placeholder={`${
                 password === "" ? "Enter your password" : "password"
               }`}
+              autoComplete="current-password"
             />
           </label>
           <br />

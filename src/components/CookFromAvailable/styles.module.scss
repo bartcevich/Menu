@@ -2,8 +2,9 @@
 .wrapper{
     display: flex;
     flex-flow: column;
+    align-items: center;
     //height: 21em;
-    height: 70vh;
+    min-height: 70vh;
     margin: 75px 0 30px 10px;
     @include font(#E47611, Inter, 20px, normal, 600, 25px, 0);
     font-size: clamp(18px, 3vw, 20px);
@@ -11,5 +12,39 @@
     li{
         margin: 15px 0;
     }
-
+}
+.form{
+    margin-bottom: 30px;
+    max-width: 300px;
+}
+.container{
+    display: flex;
+}
+.image{
+    height: 60px;
+    max-width: 100px;
+    width: 100%;
+    padding-right: 5px;
+    display: flex;
+    // justify-content: flex-end;
+}
+.label{
+    width: 200px;
+    margin-bottom: 10px;
+    text-align: start
+    // @include font(#E47611, Inter, 20px, normal, 400, 17px, 0);
+    // font-size: clamp(18px, 3vw, 20px);
+}
+.ingredientCourse{
+    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+    font-size: clamp(15px, 3vw, 20px);
+}
+@media (max-width: 550px){
+    .container{
+        flex-flow: column;
+    }
+    .labelImage{
+        display: flex;
+        flex-flow: row-reverse;
+    }
 }

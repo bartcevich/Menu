@@ -11,7 +11,7 @@
     justify-content: flex-end;
 }
 .label{
-    max-width: 250px;
+    max-width: 200px;
     @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
     font-size: clamp(18px, 3vw, 20px);
 }

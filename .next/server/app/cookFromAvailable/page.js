@@ -309,12 +309,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8038);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _context_IngredientsContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4700);
-/* harmony import */ var _styles_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1278);
-/* harmony import */ var _styles_module_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_module_scss__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1245);
+/* harmony import */ var _styles_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1278);
+/* harmony import */ var _styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_module_scss__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1245);
 /* __next_internal_client_entry_do_not_use__ default auto */ 
-
 
 
 
@@ -399,36 +397,36 @@ const RIGHT_ANSWER = [
     }
 ];
 function CookFromAvailable() {
-    const { userChoice, setUserChoice } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context_IngredientsContext__WEBPACK_IMPORTED_MODULE_2__.IngredientsContext);
-    const DinnerData = (0,_services_getData__WEBPACK_IMPORTED_MODULE_3__/* .getDinnerData */ .GQ)();
-    const BreakfastData = (0,_services_getData__WEBPACK_IMPORTED_MODULE_3__/* .getBreakfastData */ .aR)();
-    const LunchData = (0,_services_getData__WEBPACK_IMPORTED_MODULE_3__/* .getLunchData */ .C2)();
-    const SaladData = (0,_services_getData__WEBPACK_IMPORTED_MODULE_3__/* .getSalad */ .R7)();
-    const PastriesDesserts = (0,_services_getData__WEBPACK_IMPORTED_MODULE_3__/* .getPastriesDesserts */ .Gk)();
-    const [dataString, setDataString] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+    const DinnerData = (0,_services_getData__WEBPACK_IMPORTED_MODULE_2__/* .getDinnerData */ .GQ)();
+    const BreakfastData = (0,_services_getData__WEBPACK_IMPORTED_MODULE_2__/* .getBreakfastData */ .aR)();
+    const LunchData = (0,_services_getData__WEBPACK_IMPORTED_MODULE_2__/* .getLunchData */ .C2)();
+    const SaladData = (0,_services_getData__WEBPACK_IMPORTED_MODULE_2__/* .getSalad */ .R7)();
+    const PastriesDesserts = (0,_services_getData__WEBPACK_IMPORTED_MODULE_2__/* .getPastriesDesserts */ .Gk)();
     const [answer, setAnswer] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+    const [allFound, setAllFound] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
         const foundDinner = DinnerData.filter((item)=>item.value.hasOwnProperty(answer));
         const foundBreakfast = BreakfastData.filter((item)=>item.value.hasOwnProperty(answer));
         const foundLunch = LunchData.filter((item)=>item.value.hasOwnProperty(answer));
         const foundSalad = SaladData.filter((item)=>item.value.hasOwnProperty(answer));
         const foundPastries = PastriesDesserts.filter((item)=>item.value.hasOwnProperty(answer));
-        //if (foundDinner.length > 0) {
-        //console.log(foundDinner);
-        const labelsDinner = foundDinner.map((item)=>item.label);
-        const labelsBreakfast = foundBreakfast.map((item)=>item.label);
-        const labelsLunch = foundLunch.map((item)=>item.label);
-        const labelsSalads = foundSalad.map((item)=>item.label);
-        const labelsPastries = foundPastries.map((item)=>item.label);
-        setDataString(`Из "${answer}" можно приготовить: 
-        ${labelsDinner.join(", ")}
-        ${labelsBreakfast.join(", ")}
-        ${labelsLunch.join(", ")}
-        ${labelsSalads.join(", ")}
-        ${labelsPastries.join(", ")}`);
-    //}
+        const allFoundItems = [
+            ...foundDinner,
+            ...foundBreakfast,
+            ...foundLunch,
+            ...foundSalad,
+            ...foundPastries
+        ];
+        setAllFound(allFoundItems);
+        console.log(foundSalad);
+    // const labelsDinner = foundDinner.map((item) => item.label);
+    // const labelsPastries = foundPastries.map((item) => item.label);
+    // setDataString(
+    //   `Из "${answer}" можно приготовить:
+    //     ${labelsDinner.join(", ")}
+    //     ${labelsPastries.join(", ")}`
+    // );
     }, [
-        DinnerData,
         answer
     ]);
     const handleAnswerChange = (e)=>{
@@ -437,13 +435,13 @@ function CookFromAvailable() {
     };
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_4___default().wrapper),
+            className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default().wrapper),
             children: [
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
                     children: "Выберите главный ингридиент для приготовления"
                 }),
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("select", {
-                    className: `formControl ${answer ? "formError" : ""}`,
+                    className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default().form),
                     onChange: handleAnswerChange,
                     value: answer,
                     id: "contactAnswer",
@@ -453,7 +451,47 @@ function CookFromAvailable() {
                             children: option.label
                         }, option.value))
                 }),
-                dataString
+                allFound.length > 0 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                    children: "Вы можете приготовить: "
+                }),
+                allFound.map((menuItem, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                        className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default().menuItem),
+                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                            className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default().container),
+                            children: [
+                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                    className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default().labelImage),
+                                    children: [
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                            className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default().label),
+                                            children: menuItem.label
+                                        }),
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                            className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default().image),
+                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                                                src: menuItem.Image,
+                                                alt: "Image"
+                                            })
+                                        })
+                                    ]
+                                }),
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                    children: Object.entries(menuItem.value).map(([name, quantity])=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+                                            className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default().ingredientCourse),
+                                            children: [
+                                                name,
+                                                ":",
+                                                quantity,
+                                                ",",
+                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                                    children: " "
+                                                })
+                                            ]
+                                        }, name))
+                                })
+                            ]
+                        })
+                    }, index))
             ]
         })
     });
@@ -471,7 +509,13 @@ module.exports = {
 	"fontBarlow": "Barlow,sans-serif",
 	"colorRedLight": "#ef233c",
 	"colorRedDark": "#d90429",
-	"wrapper": "styles_wrapper__AFFql"
+	"wrapper": "styles_wrapper__AFFql",
+	"form": "styles_form__Oc9cV",
+	"container": "styles_container__2cu7t",
+	"image": "styles_image__FmKQD",
+	"label": "styles_label__I6qHV",
+	"ingredientCourse": "styles_ingredientCourse__xUcuQ",
+	"labelImage": "styles_labelImage__t2JBf"
 };
 
 
@@ -525,7 +569,7 @@ function CookFromPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,610,827,245], () => (__webpack_exec__(757)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,610,988,245], () => (__webpack_exec__(757)));
 module.exports = __webpack_exports__;
 
 })();

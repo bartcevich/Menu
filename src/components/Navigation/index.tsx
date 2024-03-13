@@ -29,7 +29,7 @@ const Navigation: React.FC = () => {
     };
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 700);
+      setIsMobile(window.innerWidth < 730);
     };
 
     window.addEventListener("scroll", handleScroll);
