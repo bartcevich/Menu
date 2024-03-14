@@ -360,7 +360,7 @@ const savedIngredientHistory1 = {
                     12
                 ]
             ],
-            image: "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            image: "https://bartcevich.github.io/letter/image_dinner/eggs_fried_meat.png"
         },
         "Борщ.": {
             label: "Борщ.",
@@ -442,7 +442,7 @@ const savedIngredientHistory1 = {
                     6
                 ]
             ],
-            image: "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            image: "https://bartcevich.github.io/letter/image_dinner/goulash_chicken_gravy.png"
         },
         "Картофельное пюре.": {
             label: "Картофельное пюре.",
@@ -492,7 +492,7 @@ const savedIngredientHistory1 = {
                     42
                 ]
             ],
-            image: "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            image: "https://bartcevich.github.io/letter/image_salad/carrots_raisins.png"
         }
     },
     day3_feature: {
@@ -537,7 +537,7 @@ const savedIngredientHistory1 = {
                     120
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/cottage_cheese_pancakes.png"
         },
         "Уха.": {
             "label": "Уха.",
@@ -623,7 +623,7 @@ const savedIngredientHistory1 = {
                     6
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/lazy_peppers.png"
         },
         "Булгур.": {
             "label": "Булгур.",
@@ -673,7 +673,7 @@ const savedIngredientHistory1 = {
                     6
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_salad/beetroot_garlic.png"
         }
     },
     day5_feature: {
@@ -780,7 +780,7 @@ const savedIngredientHistory1 = {
                     3
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/stewed_cabbage_meat.png"
         }
     },
     day6_feature: {
@@ -867,7 +867,7 @@ const savedIngredientHistory1 = {
                     3
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/stewed_cabbage_meat.png"
         }
     }
 };
@@ -1036,7 +1036,7 @@ const savedIngredientHistory2 = {
                     12
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_salad/cabbage_apple.png"
         }
     },
     day3_feature: {
@@ -1171,7 +1171,7 @@ const savedIngredientHistory2 = {
                     6
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/cutlets_sticking_rice.png"
         },
         "Макароны отварные.": {
             "label": "Макароны отварные.",
@@ -1229,7 +1229,7 @@ const savedIngredientHistory2 = {
                     114
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_salad/herring_fur_coat.png"
         }
     },
     day5_feature: {
@@ -1356,7 +1356,7 @@ const savedIngredientHistory2 = {
                     3
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/chopped_cutlets.png"
         },
         "Рассыпчатый рис басмати.": {
             "label": "Рассыпчатый рис басмати.",
@@ -1410,7 +1410,7 @@ const savedIngredientHistory2 = {
                     3
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_salad/carrots_korean.png"
         }
     },
     day6_feature: {
@@ -1541,7 +1541,7 @@ const savedIngredientHistory2 = {
                     3
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/chopped_cutlets.png"
         },
         "Рассыпчатый рис басмати.": {
             "label": "Рассыпчатый рис басмати.",
@@ -1595,7 +1595,7 @@ const savedIngredientHistory2 = {
                     3
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_salad/carrots_korean.png"
         }
     }
 };
@@ -1713,7 +1713,7 @@ const savedIngredientHistory3 = {
                     6
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/stewed_cabbage_meat.png"
         }
     },
     day3_feature: {
@@ -1867,7 +1867,7 @@ const savedIngredientHistory3 = {
                     42
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_salad/carrots_raisins.png"
         }
     },
     day5_feature: {
@@ -1978,7 +1978,7 @@ const savedIngredientHistory3 = {
                     6
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/potatoes_sausage_herbs.png"
         },
         "Салат с морской капустой.": {
             "label": "Салат с морской капустой.",
@@ -2013,7 +2013,7 @@ const savedIngredientHistory3 = {
                     6
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_salad/seaweed_salad.png"
         }
     }
 };
@@ -2053,7 +2053,7 @@ const savedIngredientHistory4 = {
                     600
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_side_dish/oatmeal_porridge.png"
         },
         "Пшенный суп сяйцом": {
             "label": "Пшенный суп сяйцом",
@@ -2385,7 +2385,7 @@ const savedIngredientHistory4 = {
                     6
                 ]
             ],
-            "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"
+            "image": "https://bartcevich.github.io/letter/image_dinner/potato_pancakes_meat.png"
         }
     },
     day5_feature: {

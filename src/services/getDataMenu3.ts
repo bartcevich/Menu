@@ -36,7 +36,7 @@ const savedIngredientHistory3 = {
         ["Лук репчатый гр",240],
         ["Соус томатный гр",60],
         ["Специи",6]],
-        "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+        "image":"https://bartcevich.github.io/letter/image_dinner/stewed_cabbage_meat.png"}},
   day3_feature:{
     "Торфяной пирог":{
       "label":"Торфяной пирог",
@@ -88,7 +88,7 @@ const savedIngredientHistory3 = {
         ["Лимон гр",30],
         ["Сахар гр",36],
         ["Подсолнечное масло гр",42]],
-        "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+        "image":"https://bartcevich.github.io/letter/image_salad/carrots_raisins.png"}},
   day5_feature:{
     "Гречневая каша с грибами":{
       "label":"Гречневая каша с грибами",
@@ -126,7 +126,7 @@ const savedIngredientHistory3 = {
         ["Укроп гр",30],
         ["Майонез гр",120],
         ["Соль гр",6]],
-        "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"},
+        "image":"https://bartcevich.github.io/letter/image_dinner/potatoes_sausage_herbs.png"},
     "Салат с морской капустой.":{
       "label":"Салат с морской капустой.",
       "numberServings":6,
@@ -138,7 +138,7 @@ const savedIngredientHistory3 = {
         ["Майонез гр",120],
         ["Соль гр",6],
         ["Специи",6]],
-        "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+        "image":"https://bartcevich.github.io/letter/image_salad/seaweed_salad.png"}},
 
     };
   export function getHistory3() {

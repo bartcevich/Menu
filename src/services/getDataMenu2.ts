@@ -46,7 +46,7 @@ const savedIngredientHistory2 = {
           ["Уксус гр",36],
           ["Сахар гр",36],
           ["Соль гр",12]],
-          "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+          "image":"https://bartcevich.github.io/letter/image_salad/cabbage_apple.png"}},
     day3_feature:{
       "Ватрушка с творогом":{
         "label":"Ватрушка с творогом",
@@ -89,7 +89,7 @@ const savedIngredientHistory2 = {
           ["Мука пшеничная гр",36],
           ["Соль гр",6],
           ["Сахар гр",6]],
-          "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"},
+          "image":"https://bartcevich.github.io/letter/image_dinner/cutlets_sticking_rice.png"},
       "Макароны отварные.":{
         "label":"Макароны отварные.",
         "numberServings":6,
@@ -110,7 +110,7 @@ const savedIngredientHistory2 = {
           ["Соль гр",6],
           ["Специи",6],
           ["Селедка соленая гр",114]],
-          "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+          "image":"https://bartcevich.github.io/letter/image_salad/herring_fur_coat.png"}},
     day5_feature:{
       "Оладьи на кефире.":{
         "label":"Оладьи на кефире.",
@@ -152,7 +152,7 @@ const savedIngredientHistory2 = {
           ["Подсолнечное масло гр",60],
           ["Соль гр",3],
           ["Специи",3]],
-          "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"},
+          "image":"https://bartcevich.github.io/letter/image_dinner/chopped_cutlets.png"},
       "Рассыпчатый рис басмати.":{
         "label":"Рассыпчатый рис басмати.",
         "numberServings":3,
@@ -172,7 +172,7 @@ const savedIngredientHistory2 = {
           ["Сахар гр",30],
           ["Подсолнечное масло гр",51],
           ["Соль гр",3]],
-          "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+          "image":"https://bartcevich.github.io/letter/image_salad/carrots_korean.png"}},
     day6_feature:{
       "Омлет.":{
         "label":"Омлет.",
@@ -215,7 +215,7 @@ const savedIngredientHistory2 = {
           ["Подсолнечное масло гр",60],
           ["Соль гр",3],
           ["Специи",3]],
-          "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"},
+          "image":"https://bartcevich.github.io/letter/image_dinner/chopped_cutlets.png"},
       "Рассыпчатый рис басмати.":{
         "label":"Рассыпчатый рис басмати.",
         "numberServings":3,
@@ -235,7 +235,7 @@ const savedIngredientHistory2 = {
           ["Сахар гр",30],
           ["Подсолнечное масло гр",51],
           ["Соль гр",3]],
-          "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}}
+          "image":"https://bartcevich.github.io/letter/image_salad/carrots_korean.png"}}
     };
   export function getHistory2() {
     return savedIngredientHistory2;

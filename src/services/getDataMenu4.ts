@@ -10,7 +10,7 @@ const savedIngredientHistory4 = {
         ["Мёд гр",60],
         ["Сыры гр",60],
         ["Молоко гр",600]],
-        "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"},
+        "image":"https://bartcevich.github.io/letter/image_side_dish/oatmeal_porridge.png"},
     "Пшенный суп сяйцом":{
       "label":"Пшенный суп сяйцом",
       "numberServings":3,
@@ -118,7 +118,7 @@ const savedIngredientHistory4 = {
         ["Подсолнечное масло гр",60],
         ["Соль гр",6],
         ["Специи",6]],
-        "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+        "image":"https://bartcevich.github.io/letter/image_dinner/potato_pancakes_meat.png"}},
   day5_feature:{
     "Омлет.":{
       "label":"Омлет.",

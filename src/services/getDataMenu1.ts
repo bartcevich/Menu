@@ -15,7 +15,7 @@ const savedIngredientHistory1 = {
           ["Подсолнечное масло гр", 120],
           ["Специи", 12],
         ],
-        image: "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg",
+        image: "https://bartcevich.github.io/letter/image_dinner/eggs_fried_meat.png",
       },
       "Борщ.": {
         label: "Борщ.",
@@ -47,7 +47,7 @@ const savedIngredientHistory1 = {
           ["Соль гр", 6],
           ["Специи", 6],
         ],
-        image: "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg",
+        image: "https://bartcevich.github.io/letter/image_dinner/goulash_chicken_gravy.png",
       },
       "Картофельное пюре.": {
         label: "Картофельное пюре.",
@@ -71,7 +71,7 @@ const savedIngredientHistory1 = {
           ["Сахар гр", 36],
           ["Подсолнечное масло гр", 42],
         ],
-        image: "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg",
+        image: "https://bartcevich.github.io/letter/image_salad/carrots_raisins.png",
       },
     },
     day3_feature:{
@@ -88,7 +88,7 @@ const savedIngredientHistory1 = {
                 ["Яйца куриные шт",3],
                 ["Соль гр",6],
                 ["Подсолнечное масло гр",120]],
-                "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"},
+                "image":"https://bartcevich.github.io/letter/image_dinner/cottage_cheese_pancakes.png"},
         "Уха.":{
             "label":"Уха.",
             "numberServings":6,
@@ -115,7 +115,7 @@ const savedIngredientHistory1 = {
                 ["Майонез гр",78],
                 ["Подсолнечное масло гр",45],
                 ["Специи",6],["Соль гр",6]],
-                "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"},
+                "image":"https://bartcevich.github.io/letter/image_dinner/lazy_peppers.png"},
         "Булгур.":{
             "label":"Булгур.",
             "numberServings":6,
@@ -134,7 +134,7 @@ const savedIngredientHistory1 = {
                 ["Изюм гр",60],
                 ["Майонез гр",120],
                 ["Соль гр",6]],
-                "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+                "image":"https://bartcevich.github.io/letter/image_salad/beetroot_garlic.png"}},
     day5_feature:{
         "Блины бахиры":{
             "label":"Блины бахиры",
@@ -171,7 +171,7 @@ const savedIngredientHistory1 = {
                 ["Лук репчатый гр",120],
                 ["Соус томатный гр",30],
                 ["Специи",3]],
-                "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+                "image":"https://bartcevich.github.io/letter/image_dinner/stewed_cabbage_meat.png"}},
     day6_feature:{
         "Манная каша":{
             "label":"Манная каша",
@@ -203,7 +203,7 @@ const savedIngredientHistory1 = {
                         ["Лук репчатый гр",120],
                         ["Соус томатный гр",30],
                         ["Специи",3]],
-                        "image":"https://bartcevich.github.io/letter/image/тыквенные_блины.jpg"}},
+                        "image":"https://bartcevich.github.io/letter/image_dinner/stewed_cabbage_meat.png"}},
     };
   export function getHistory1() {
     return savedIngredientHistory1;
