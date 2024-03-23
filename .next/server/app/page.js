@@ -491,7 +491,7 @@ const Starters = (props)=>{
         const selectedOption = First_courses_soup.find((option)=>option.label === selectedLabel);
         if (selectedOption) {
             setLabel(selectedLabel);
-            setImage(selectedOption.Image);
+            setImage(selectedOption.image);
             setValue(Object.entries(selectedOption.value));
         }
     };
@@ -646,7 +646,7 @@ const Salad_Starters = (props)=>{
         const selectedOption = Salad_courses.find((option)=>option.label === selectedLabel);
         if (selectedOption) {
             setLabel(selectedLabel);
-            setImage(selectedOption.Image);
+            setImage(selectedOption.image);
             setValue(Object.entries(selectedOption.value));
         }
     };
@@ -801,7 +801,7 @@ const Desserts_Starters = (props)=>{
         const selectedOption = PastriesDesserts.find((option)=>option.label === selectedLabel);
         if (selectedOption) {
             setLabel(selectedLabel);
-            setImage(selectedOption.Image);
+            setImage(selectedOption.image);
             setValue(Object.entries(selectedOption.value));
         }
     };
@@ -958,7 +958,7 @@ const Starters_Starters = (props)=>{
         const selectedOption = Starters_dessert.find((option)=>option.label === selectedLabel);
         if (selectedOption) {
             setLabel(selectedLabel);
-            setImage(selectedOption.Image);
+            setImage(selectedOption.image);
             //setSundayLabel(selectedOption.label);
             setValue(Object.entries(selectedOption.value));
         //props.setIngredients(Object.entries(selectedOption.value));
@@ -1132,7 +1132,7 @@ const SideDish_Starters = (props)=>{
         const selectedOption = SideDish.find((option)=>option.label === selectedLabel);
         if (selectedOption) {
             setLabel(selectedLabel);
-            setImage(selectedOption.Image);
+            setImage(selectedOption.image);
             setValue(Object.entries(selectedOption.value));
         }
     };
@@ -1844,22 +1844,29 @@ function BuyForWeek() {
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: (BuyForWeek_styles_module_default()).container,
                 children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx("h2", {
-                        children: "Oбщий список:"
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                        className: (BuyForWeek_styles_module_default()).handleIngredients,
-                        onClick: handleIngredients,
-                        children: /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
-                            icon: free_solid_svg_icons/* faCartShopping */.yYj
-                        })
-                    }),
-                    sumIngredients && /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                        className: (BuyForWeek_styles_module_default()).handleCopy,
-                        onClick: handleCopy,
-                        children: /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
-                            icon: free_solid_svg_icons/* faCopy */.kZ_
-                        })
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("details", {
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("summary", {
+                                children: "Oбщий список:"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                className: (BuyForWeek_styles_module_default()).handleCopy,
+                                onClick: handleCopy,
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                                    icon: free_solid_svg_icons/* faCopy */.kZ_
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (BuyForWeek_styles_module_default()).buyForDay,
+                                children: Object.entries(sumIngredientsPrint).map(([ingredient, weight])=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                        children: [
+                                            ingredient,
+                                            ": ",
+                                            weight
+                                        ]
+                                    }, ingredient))
+                            })
+                        ]
                     }),
                     showTooltip && /*#__PURE__*/ jsx_runtime_.jsx("div", {
                         className: (BuyForWeek_styles_module_default()).tooltip,
@@ -1867,25 +1874,13 @@ function BuyForWeek() {
                     })
                 ]
             }),
-            sumIngredients && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: (BuyForWeek_styles_module_default()).buyForDay,
-                children: [
-                    Object.entries(sumIngredientsPrint).map(([ingredient, weight])=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                            children: [
-                                ingredient,
-                                ": ",
-                                weight
-                            ]
-                        }, ingredient)),
-                    /*#__PURE__*/ jsx_runtime_.jsx("textarea", {
-                        ref: textareaRef,
-                        style: {
-                            position: "absolute",
-                            left: "-9999px"
-                        },
-                        readOnly: true
-                    })
-                ]
+            /*#__PURE__*/ jsx_runtime_.jsx("textarea", {
+                ref: textareaRef,
+                style: {
+                    position: "absolute",
+                    left: "-9999px"
+                },
+                readOnly: true
             })
         ]
     });

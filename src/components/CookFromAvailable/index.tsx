@@ -74,7 +74,7 @@ export default function CookFromAvailable() {
       ...foundPastries,
     ];
     setAllFound(allFoundItems);
-    console.log(foundSalad);
+    //console.log(foundSalad);
     // const labelsDinner = foundDinner.map((item) => item.label);
     // const labelsPastries = foundPastries.map((item) => item.label);
     // setDataString(
@@ -113,7 +113,8 @@ export default function CookFromAvailable() {
               <div className={styles.labelImage}>
                 <div className={styles.label}>{menuItem.label}</div>
                 <div className={styles.image}>
-                  <img src={menuItem.Image} alt="Image" />
+                  <img src={menuItem.image} alt="Image" />
+                  {/* befor Image afto  image */}
                 </div>
               </div>
               <div>

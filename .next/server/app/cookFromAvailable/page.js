@@ -418,7 +418,7 @@ function CookFromAvailable() {
             ...foundPastries
         ];
         setAllFound(allFoundItems);
-        console.log(foundSalad);
+    //console.log(foundSalad);
     // const labelsDinner = foundDinner.map((item) => item.label);
     // const labelsPastries = foundPastries.map((item) => item.label);
     // setDataString(
@@ -469,7 +469,7 @@ function CookFromAvailable() {
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                             className: (_styles_module_scss__WEBPACK_IMPORTED_MODULE_3___default().image),
                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                                src: menuItem.Image,
+                                                src: menuItem.image,
                                                 alt: "Image"
                                             })
                                         })

@@ -16,7 +16,7 @@ interface MondayProps {
 interface MealData {
   value: { [key: string]: number | undefined };
   label: string;
-  Image: any;
+  image: any;
 }
 
 const Starters: React.FC<MondayProps> = (props) => {
@@ -39,7 +39,7 @@ const Starters: React.FC<MondayProps> = (props) => {
 
     if (selectedOption) {
       setLabel(selectedLabel);
-      setImage(selectedOption.Image);
+      setImage(selectedOption.image);
       //setSundayLabel(selectedOption.label);
       setValue(Object.entries(selectedOption.value));
       //props.setIngredients(Object.entries(selectedOption.value));

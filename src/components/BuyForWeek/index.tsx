@@ -73,36 +73,28 @@ export default function BuyForWeek() {
   return (
     <>
       <div className={styles.container}>
-        <h2>Oбщий список:</h2>
-        <button
-          className={styles.handleIngredients}
-          onClick={handleIngredients}
-        >
-          <FontAwesomeIcon icon={faCartShopping} />
-        </button>
-        {sumIngredients && (
+        <details>
+          <summary>Oбщий список:</summary>
           <button className={styles.handleCopy} onClick={handleCopy}>
             <FontAwesomeIcon icon={faCopy} />
           </button>
-        )}
+          <div className={styles.buyForDay}>
+            {Object.entries(sumIngredientsPrint).map(([ingredient, weight]) => (
+              <div key={ingredient}>
+                {ingredient}: {weight as number}
+              </div>
+            ))}
+          </div>
+        </details>
         {showTooltip && (
           <div className={styles.tooltip}>Cписок скопирован!</div>
         )}
       </div>
-      {sumIngredients && (
-        <div className={styles.buyForDay}>
-          {Object.entries(sumIngredientsPrint).map(([ingredient, weight]) => (
-            <div key={ingredient}>
-              {ingredient}: {weight as number}
-            </div>
-          ))}
-          <textarea
-            ref={textareaRef}
-            style={{ position: "absolute", left: "-9999px" }} // Hide the textarea off-screen
-            readOnly
-          />
-        </div>
-      )}
+      <textarea
+        ref={textareaRef}
+        style={{ position: "absolute", left: "-9999px" }} // Hide the textarea off-screen
+        readOnly
+      />
     </>
   );
 }

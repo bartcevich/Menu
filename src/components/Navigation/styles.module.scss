@@ -31,7 +31,8 @@
         @include font(#000, Inter, 20px, normal, 400, 25px, 0);
       }
       .readyMenu{
-        @include font(#008000, Inter, 20px, normal, 400, 25px, 0);
+        @include font(#008000, arial, 20px, normal, 400, 25px, 0);
+        text-shadow: 1.5px 0.5px 0.5px rgba(20, 67, 21, 0.986);
       }
       .dropdownTitle{
         @include font(#000, Inter, 20px, normal, 400, 25px, 0);        
