@@ -10,7 +10,7 @@
   height: 60px;
   background-color: rgba(153, 181, 191, 0.8);
   display: flex;
-  justify-content: space-between;
+  
   align-items: center;
   z-index: 100;
   transition: top 0.3s ease;
@@ -24,11 +24,13 @@
       top: -65px;
     }
     &.mobile {
+      // justify-content: space-between;
       .logoContainer {
         display: flex;
         align-items: center;
       }
       .siteName {
+        width: 170px;
         @include font(#000, Inter, 20px, normal, 400, 25px, 0);
       }
       .readyMenu{

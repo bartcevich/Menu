@@ -1,5 +1,5 @@
-"use client";
-import React, { useState } from "react";
+//"use client";
+//import React, { useState } from "react";
 import "./globals.css";
 import styles from "./style.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -27,29 +27,29 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [count, setCount] = useState(1);
-  const backgroundClass =
-    count === 1
-      ? styles.background1
-      : count === 2
-      ? styles.background2
-      : styles.background3;
+  // const [count, setCount] = useState(1);
+  // const backgroundClass =
+  //   count === 1
+  //     ? styles.background1
+  //     : count === 2
+  //     ? styles.background2
+  //     : styles.background3;
   return (
     <html lang="en">
       <body
         className={inter.className}
-        // style={{
-        //   backgroundImage: `url(${bgImage.src})`,
-        //   backgroundRepeat: "no-repeat",
-        //   backgroundSize: "cover",
-        //   backgroundAttachment: "fixed",
-        //   minHeight: "100vh",
-        // }}
+        style={{
+          backgroundImage: `url(${bgImage.src})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh",
+        }}
       >
         <MenuProvider>
-          <div className={`${backgroundClass}`}>
-            <Navigation />
-            <div className={styles.container_button}>
+          {/* <div className={`${backgroundClass}`}> */}
+          <Navigation />
+          {/* <div className={styles.container_button}>
               <div className={styles.container_text}>выберите фон</div>
               <div
                 className={styles.button}
@@ -64,10 +64,10 @@ export default function RootLayout({
               >
                 <FontAwesomeIcon icon={faCaretSquareRight} />
               </div>
-            </div>
-            {children}
-            <Footer />
-          </div>
+            </div> */}
+          {children}
+          <Footer />
+          {/* </div> */}
         </MenuProvider>
       </body>
     </html>

@@ -256,7 +256,7 @@ __webpack_require__.r(__webpack_exports__);
         }]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4232)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
+          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9192)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
     apple: [],
@@ -330,7 +330,7 @@ var free_solid_svg_icons = __webpack_require__(7877);
 
 
 const BuyForDay = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [sumIngredientsPrint, setSumIngredientsPrint] = (0,react_.useState)({});
     const [userInput, setUserInput] = (0,react_.useState)({
         menuText: ""
@@ -477,7 +477,7 @@ var getData = __webpack_require__(1245);
 
 
 const Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const First_courses_soup = (0,getData/* getLunchData */.C2)();
     const [label, setLabel] = (0,react_.useState)("");
     const [value, setValue] = (0,react_.useState)([]);
@@ -632,7 +632,7 @@ var Salad_styles_module_default = /*#__PURE__*/__webpack_require__.n(Salad_style
 
 
 const Salad_Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const Salad_courses = (0,getData/* getSalad */.R7)();
     const [label, setLabel] = (0,react_.useState)("");
     const [value, setValue] = (0,react_.useState)([]);
@@ -787,7 +787,7 @@ var Desserts_styles_module_default = /*#__PURE__*/__webpack_require__.n(Desserts
 
 
 const Desserts_Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const PastriesDesserts = (0,getData/* getPastriesDesserts */.Gk)();
     const [label, setLabel] = (0,react_.useState)("");
     const [value, setValue] = (0,react_.useState)([]);
@@ -942,7 +942,7 @@ var Starters_styles_module_default = /*#__PURE__*/__webpack_require__.n(Starters
 
 
 const Starters_Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const Starters_dessert = (0,getData/* getDinnerData */.GQ)();
     //const first_courses_soup: MealData[] = getLunchData();
     //const Main_courses: MealData[] = getDinnerData();
@@ -1118,7 +1118,7 @@ var SideDish_styles_module_default = /*#__PURE__*/__webpack_require__.n(SideDish
 
 
 const SideDish_Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const SideDish = (0,getData/* getBreakfastData */.aR)();
     const [label, setLabel] = (0,react_.useState)("");
     const [value, setValue] = (0,react_.useState)([]);
@@ -1272,7 +1272,7 @@ var ShowMenuDay_styles_module_default = /*#__PURE__*/__webpack_require__.n(ShowM
 
 
 const ShowMenuDay = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [menuData, setMenuData] = (0,react_.useState)([]);
     //1 отделение от ключа сохраненного выбора пользователя
     let userChoiceForComponent = {};
@@ -1467,7 +1467,7 @@ var PartMenuName_styles_module_default = /*#__PURE__*/__webpack_require__.n(Part
 
 
 function MenuGroups(props) {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [userInput, setUserInput] = (0,react_.useState)({
         menuText: ""
     });
@@ -1552,7 +1552,7 @@ var PartMenuComments_styles_module_default = /*#__PURE__*/__webpack_require__.n(
 
 
 function PartMenuComments_MenuGroups(props) {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [userInput, setUserInput] = (0,react_.useState)({
         menuText: ""
     });
@@ -1785,7 +1785,7 @@ var BuyForWeek_styles_module_default = /*#__PURE__*/__webpack_require__.n(BuyFor
 
 
 function BuyForWeek() {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [sumIngredientsPrint, setSumIngredientsPrint] = (0,react_.useState)({});
     const dataForComponent = ()=>{
         const stateFirstUndefined = userChoice;
@@ -1896,7 +1896,7 @@ function BuyForWeek() {
 
 
 function ShowSevenAndStorage() {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [messageSent, setMessageSent] = (0,react_.useState)(0);
     // const [count, setCount] = useState(1);
     const letterInMail = (0,react_.useCallback)(()=>{
@@ -2055,7 +2055,7 @@ const RIGHT_ANSWER = [
     }
 ];
 const LoginForm = ()=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [today, setToday] = (0,react_.useState)(new Date().toDateString());
     const [email, setEmail] = (0,react_.useState)("");
     const [password, setPassword] = (0,react_.useState)("");
@@ -2574,7 +2574,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,937,844,245], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,452,761,245], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

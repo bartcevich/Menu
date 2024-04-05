@@ -265,7 +265,7 @@ __webpack_require__.r(__webpack_exports__);
       ]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4232)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
+          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9192)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
     apple: [],
@@ -624,7 +624,7 @@ function CookFromPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,937,844,245], () => (__webpack_exec__(757)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,452,761,245], () => (__webpack_exec__(757)));
 module.exports = __webpack_exports__;
 
 })();

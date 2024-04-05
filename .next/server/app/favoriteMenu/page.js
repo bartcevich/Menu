@@ -265,7 +265,7 @@ __webpack_require__.r(__webpack_exports__);
       ]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4232)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
+          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9192)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
     apple: [],
@@ -505,7 +505,7 @@ var getData = __webpack_require__(1245);
 
 
 function FavoriteMenu() {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [value, setValue] = (0,react_.useState)([]);
     let value2 = [];
     const DinnerData = (0,getData/* getDinnerData */.GQ)();
@@ -799,7 +799,7 @@ function FavoriteMenuPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,937,844,245], () => (__webpack_exec__(7028)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,452,761,245], () => (__webpack_exec__(7028)));
 module.exports = __webpack_exports__;
 
 })();
