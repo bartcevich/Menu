@@ -107,67 +107,69 @@ const LoginForm = () => {
   return (
     <>
       {!isLoggedIn ? (
-        <form
-          onSubmit={handleSubmit}
-          className={`${styles.containerForm} ${
-            isLoggedIn ? "animate-slide" : ""
-          }`}
-        >
-          <h3>Регистрация.</h3>
-          <label>
-            <h3>Введите адрес вашей электронной почты</h3>
-            <input
-              type="email"
-              value={email}
-              onInput={handleEmailChange}
-              required
-              id="email"
-              placeholder="Enter a valid email address"
-              autoComplete="email"
-            />
-          </label>
-          <br />
-          <label>
-            <h3>Введите ваш пароль</h3>
-            <input
-              type="password"
-              value={password}
-              onInput={handlePasswordChange}
-              required
-              id="password"
-              placeholder={`${
-                password === "" ? "Enter your password" : "password"
-              }`}
-              autoComplete="current-password"
-            />
-          </label>
-          <br />
-          <h3>Выберите правильный ответ</h3>
-          <div className={styles.imageTest}>
-            <Image src={test} alt="image" />
-          </div>
-          <select
-            className={`formControl ${answer ? "formError" : ""}`}
-            // onFocus={() => {
-            //   handleInputFocus(setAnswer);
-            // }}
-            onChange={handleAnswerChange}
-            value={answer}
-            id="contactAnswer"
-            name="answer"
-            placeholder={answer === "" ? "Enter your answer" : ""}
+        <div className={styles.wrapper}>
+          <form
+            onSubmit={handleSubmit}
+            className={`${styles.containerForm} ${
+              isLoggedIn ? "animate-slide" : ""
+            }`}
           >
-            {RIGHT_ANSWER.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          {/* <button type="submit" disabled={!isValidEmail || !isValidPassword}> */}
-          <button type="submit">
-            <div className={styles.button}>{handleButtonText()}</div>
-          </button>
-        </form>
+            <h3>Регистрация.</h3>
+            <label>
+              <h3>Введите адрес вашей электронной почты</h3>
+              <input
+                type="email"
+                value={email}
+                onInput={handleEmailChange}
+                required
+                id="email"
+                placeholder="Enter a valid email address"
+                autoComplete="email"
+              />
+            </label>
+            <br />
+            <label>
+              <h3>Введите ваш пароль</h3>
+              <input
+                type="password"
+                value={password}
+                onInput={handlePasswordChange}
+                required
+                id="password"
+                placeholder={`${
+                  password === "" ? "Enter your password" : "password"
+                }`}
+                autoComplete="current-password"
+              />
+            </label>
+            <br />
+            <h3>Выберите правильный ответ</h3>
+            <div className={styles.imageTest}>
+              <Image src={test} alt="image" />
+            </div>
+            <select
+              className={`formControl ${answer ? "formError" : ""}`}
+              // onFocus={() => {
+              //   handleInputFocus(setAnswer);
+              // }}
+              onChange={handleAnswerChange}
+              value={answer}
+              id="contactAnswer"
+              name="answer"
+              placeholder={answer === "" ? "Enter your answer" : ""}
+            >
+              {RIGHT_ANSWER.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            {/* <button type="submit" disabled={!isValidEmail || !isValidPassword}> */}
+            <button type="submit">
+              <div className={styles.button}>{handleButtonText()}</div>
+            </button>
+          </form>
+        </div>
       ) : (
         <ShowSevenAndStorage />
       )}

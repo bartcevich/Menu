@@ -2136,80 +2136,83 @@ const LoginForm = ()=>{
         }
     };
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: !isLoggedIn ? /*#__PURE__*/ (0,jsx_runtime_.jsxs)("form", {
-            onSubmit: handleSubmit,
-            className: `${(styles_module_default()).containerForm} ${isLoggedIn ? "animate-slide" : ""}`,
-            children: [
-                /*#__PURE__*/ jsx_runtime_.jsx("h3", {
-                    children: "Регистрация."
-                }),
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("h3", {
-                            children: "Введите адрес вашей электронной почты"
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                            type: "email",
-                            value: email,
-                            onInput: handleEmailChange,
-                            required: true,
-                            id: "email",
-                            placeholder: "Enter a valid email address",
-                            autoComplete: "email"
+        children: !isLoggedIn ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            className: (styles_module_default()).wrapper,
+            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("form", {
+                onSubmit: handleSubmit,
+                className: `${(styles_module_default()).containerForm} ${isLoggedIn ? "animate-slide" : ""}`,
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                        children: "Регистрация."
+                    }),
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                                children: "Введите адрес вашей электронной почты"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                                type: "email",
+                                value: email,
+                                onInput: handleEmailChange,
+                                required: true,
+                                id: "email",
+                                placeholder: "Enter a valid email address",
+                                autoComplete: "email"
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                                children: "Введите ваш пароль"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                                type: "password",
+                                value: password,
+                                onInput: handlePasswordChange,
+                                required: true,
+                                id: "password",
+                                placeholder: `${password === "" ? "Enter your password" : "password"}`,
+                                autoComplete: "current-password"
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
+                    /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                        children: "Выберите правильный ответ"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: (styles_module_default()).imageTest,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
+                            src: test,
+                            alt: "image"
                         })
-                    ]
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("h3", {
-                            children: "Введите ваш пароль"
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                            type: "password",
-                            value: password,
-                            onInput: handlePasswordChange,
-                            required: true,
-                            id: "password",
-                            placeholder: `${password === "" ? "Enter your password" : "password"}`,
-                            autoComplete: "current-password"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("select", {
+                        className: `formControl ${answer ? "formError" : ""}`,
+                        // onFocus={() => {
+                        //   handleInputFocus(setAnswer);
+                        // }}
+                        onChange: handleAnswerChange,
+                        value: answer,
+                        id: "contactAnswer",
+                        name: "answer",
+                        placeholder: answer === "" ? "Enter your answer" : "",
+                        children: RIGHT_ANSWER.map((option)=>/*#__PURE__*/ jsx_runtime_.jsx("option", {
+                                value: option.value,
+                                children: option.label
+                            }, option.value))
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                        type: "submit",
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (styles_module_default()).button,
+                            children: handleButtonText()
                         })
-                    ]
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
-                /*#__PURE__*/ jsx_runtime_.jsx("h3", {
-                    children: "Выберите правильный ответ"
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                    className: (styles_module_default()).imageTest,
-                    children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
-                        src: test,
-                        alt: "image"
                     })
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx("select", {
-                    className: `formControl ${answer ? "formError" : ""}`,
-                    // onFocus={() => {
-                    //   handleInputFocus(setAnswer);
-                    // }}
-                    onChange: handleAnswerChange,
-                    value: answer,
-                    id: "contactAnswer",
-                    name: "answer",
-                    placeholder: answer === "" ? "Enter your answer" : "",
-                    children: RIGHT_ANSWER.map((option)=>/*#__PURE__*/ jsx_runtime_.jsx("option", {
-                            value: option.value,
-                            children: option.label
-                        }, option.value))
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                    type: "submit",
-                    children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: (styles_module_default()).button,
-                        children: handleButtonText()
-                    })
-                })
-            ]
+                ]
+            })
         }) : /*#__PURE__*/ jsx_runtime_.jsx(ShowSevenAndStorage, {})
     });
 };
@@ -2289,6 +2292,7 @@ module.exports = {
 	"fontBarlow": "Barlow,sans-serif",
 	"colorRedLight": "#ef233c",
 	"colorRedDark": "#d90429",
+	"wrapper": "styles_wrapper__T8DWD",
 	"animate-slide": "styles_animate-slide__4XcFj",
 	"slideIn": "styles_slideIn__8_QdL",
 	"containerForm": "styles_containerForm__3HubK",
@@ -2574,7 +2578,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,452,761,245], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,452,27,245], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

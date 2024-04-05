@@ -30,11 +30,11 @@
         align-items: center;
       }
       .siteName {
-        width: 170px;
+        width: 180px;
         @include font(#000, Inter, 20px, normal, 400, 25px, 0);
       }
       .readyMenu{
-        width: 170px;
+        width: 180px;
         @include font(#008000, arial, 19px, normal, 400, 25px, 0);
         text-shadow: 1.5px 0.5px 0.5px rgba(20, 67, 21, 0.986);
       }
