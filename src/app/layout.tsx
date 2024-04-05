@@ -1,13 +1,19 @@
+"use client";
+import React, { useState } from "react";
 import "./globals.css";
+import styles from "./style.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Inter } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { MenuProvider } from "@/context/IngredientsContext";
 import bgImage from "@/assets/images/background.png";
-
-//import "~slick-carousel/slick/slick.css";
-//import "~slick-carousel/slick/slick-theme.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCaretSquareRight,
+  faCaretSquareLeft,
+  faArrowCircleUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,22 +27,47 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [count, setCount] = useState(1);
+  const backgroundClass =
+    count === 1
+      ? styles.background1
+      : count === 2
+      ? styles.background2
+      : styles.background3;
   return (
     <html lang="en">
       <body
         className={inter.className}
-        style={{
-          backgroundImage: `url(${bgImage.src})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed",
-          minHeight: "100vh",
-        }}
+        // style={{
+        //   backgroundImage: `url(${bgImage.src})`,
+        //   backgroundRepeat: "no-repeat",
+        //   backgroundSize: "cover",
+        //   backgroundAttachment: "fixed",
+        //   minHeight: "100vh",
+        // }}
       >
         <MenuProvider>
-          <Navigation />
-          {children}
-          <Footer />
+          <div className={`${backgroundClass}`}>
+            <Navigation />
+            <div className={styles.container_button}>
+              <div className={styles.container_text}>выберите фон</div>
+              <div
+                className={styles.button}
+                onClick={() => setCount(count < 2 ? 1 : count - 1)}
+              >
+                <FontAwesomeIcon icon={faCaretSquareLeft} />
+              </div>
+              <div className={styles.button}>{count}</div>
+              <div
+                className={styles.button}
+                onClick={() => setCount(count > 2 ? 3 : count + 1)}
+              >
+                <FontAwesomeIcon icon={faCaretSquareRight} />
+              </div>
+            </div>
+            {children}
+            <Footer />
+          </div>
         </MenuProvider>
       </body>
     </html>

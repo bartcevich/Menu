@@ -53,7 +53,7 @@ export default function FavoriteMenu() {
       //setValue(updatedValue); // Set the value state with updatedValue
       value2 = updatedValue;
     }
-    //console.log("dataString", value2);
+    //console.log("dataString", value);
   };
   //находит данные блюд дня и создает объект
   const foundDishMenu = (arrNamesDish: [], nameDay: string) => {
@@ -88,14 +88,15 @@ export default function FavoriteMenu() {
         },
       };
     }
-    console.log("menuOneDay", menuOneDay);
+    //console.log("menuOneDay", menuOneDay);
     loadMenu(menuOneDay, nameDay);
   };
   //отдает функции массив с блюдами дня
   const menuDay = (nameDish: any) => {
     console.log("dataString", nameDish);
     deleteMenu();
-    for (let r = 0; r < nameDish.length; r++) {
+    //for (let r = 0; r < nameDish.length; r++) {
+    for (let r = nameDish.length - 1; r >= 0; r--) {
       let nameDay = `day${r + 1}_feature`;
       foundDishMenu(nameDish[r], nameDay);
     }

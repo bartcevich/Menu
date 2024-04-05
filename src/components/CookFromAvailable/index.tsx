@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
+import Image from "next/image";
+import person_thinks from "@/assets/images/person_thinks.png";
 import {
   getDinnerData,
   getBreakfastData,
@@ -8,38 +10,6 @@ import {
   getSalad,
   getPastriesDesserts,
 } from "@/services/getData";
-
-const RIGHT_ANSWER = [
-  { value: "Выберите ингридиент", label: "Выберите ингридиент" },
-
-  { value: "Помидоры гр", label: "Помидоры" },
-  { value: "Консервированный горошек гр", label: "Консервированный горошек" },
-  { value: "Крабовые палочки гр", label: "Крабовые палочки" },
-  { value: "Рыба гр", label: "Рыба" },
-  { value: "Селедка соленая гр", label: "Селедка соленая" },
-  { value: "Сосиски гр", label: "Сосиски" },
-  { value: "Ветчина гр", label: "Ветчина" },
-  { value: "Грудинка гр", label: "Грудинка" },
-  { value: "Курица гр", label: "Курица" },
-
-  //{ value: "Куриные субпродукты гр", label: "Куриные субпродукты" },
-  { value: "Куриные крылья гр", label: "Куриные крылья" },
-  { value: "Куриное филе гр", label: "Куриное филе" },
-  //{ value: "Утка гр", label: "Утка" },
-  //{ value: "Индейка гр", label: "Индейка" },
-  //{ value: "Гусь гр", label: "Гусь" },
-  { value: "Пельмени гр", label: "Пельмени" },
-  //{ value: "Перепел гр", label: "Перепел" },
-  { value: "Свинина гр", label: "Свинина" },
-  { value: "Свиной фарш гр", label: "Свиной фарш" },
-  //{ value: "Свиные субпродукты гр", label: "Свиные субпродукты" },
-  { value: "Свиные ребра гр", label: "Свиные ребра" },
-  { value: "Сало гр", label: "Сало" },
-  { value: "Говядина гр", label: "Говядина" },
-  //{ value: "Говяжий фарш гр", label: "Говяжий фарш" },
-  //{ value: "Говяжьи субпродукты гр", label: "Говяжьи субпродукты" },
-  //{ value: "Баранина гр", label: "Баранина" },
-];
 
 export default function CookFromAvailable() {
   const DinnerData = getDinnerData();
@@ -91,42 +61,86 @@ export default function CookFromAvailable() {
 
   return (
     <>
-      <div className={styles.wrapper}>
-        <h2>Выберите главный ингридиент для приготовления</h2>
-        <select
-          className={styles.form}
-          onChange={handleAnswerChange}
-          value={answer}
-          id="contactAnswer"
-          name="answer"
-        >
-          {RIGHT_ANSWER.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-        {allFound.length > 0 && <h2>Вы можете приготовить: </h2>}
-        {allFound.map((menuItem, index) => (
-          <div key={index} className={styles.menuItem}>
-            <div className={styles.container}>
-              <div className={styles.labelImage}>
-                <div className={styles.label}>{menuItem.label}</div>
-                <div className={styles.image}>
-                  <img src={menuItem.image} alt="Image" />
-                  {/* befor Image afto  image */}
-                </div>
-              </div>
-              <div>
-                {Object.entries(menuItem.value).map(([name, quantity]) => (
-                  <span className={styles.ingredientCourse} key={name}>
-                    {name}:{quantity as number},<span> </span>
-                  </span>
+      <div className={styles.center}>
+        <div className={styles.wrapper}>
+          {/* <h2>Выберите ингридиент для приготовления</h2> */}
+          <div className={styles.background}>
+            <Image
+              className={styles.background_image}
+              src={person_thinks}
+              alt="image"
+            />
+            <div className={styles.container_background}>
+              <select
+                className={styles.form}
+                onChange={handleAnswerChange}
+                value={answer}
+                id="contactAnswer"
+                name="answer"
+              >
+                <option value="Выберите ингридиент">Выберите ингридиент</option>
+                <optgroup label="овощи">
+                  <option value="Помидоры гр">Помидоры</option>
+                  <option value="Консервированный горошек гр">
+                    Консервированный горошек
+                  </option>
+                  <option value="potato" disabled>
+                    Potato
+                  </option>
+                </optgroup>
+                <optgroup label="рыба">
+                  <option value="Крабовые палочки гр">Крабовые палочки</option>
+                  <option value="Рыба гр">Рыба</option>
+                  <option value="Селедка соленая гр">Селедка соленая</option>
+                </optgroup>
+                <optgroup label="полуфабрикаты">
+                  <option value="Сосиски гр">Сосиски</option>
+                  <option value="Ветчина гр">Ветчина</option>
+                  <option value="Пельмени гр">Пельмени</option>
+                </optgroup>
+                <optgroup label="мясо">
+                  <option value="Грудинка гр">Грудинка</option>
+                  <option value="Курица гр">Курица</option>
+                  <option value="Куриные крылья гр">Куриные крылья</option>
+                  <option value="Куриное филе гр">Куриное филе</option>
+                  <option value="Свинина гр">Свинина</option>
+                  <option value="Свиной фарш гр">Свиной фарш</option>
+                  <option value="Свиные ребра гр">Свиные ребра</option>
+                  <option value="Сало гр">Сало</option>
+                  <option value="Говядина гр">Говядина</option>
+                </optgroup>
+              </select>
+              <div className={styles.container_scroll}>
+                {allFound.length > 0 && <h2>Вы можете приготовить: </h2>}
+                {allFound.map((menuItem, index) => (
+                  <div key={index} className={styles.menuItem}>
+                    <div className={styles.container}>
+                      <div className={styles.labelImage}>
+                        <div className={styles.label}>{menuItem.label}</div>
+                        <div className={styles.image}>
+                          <img src={menuItem.image} alt="Image" />
+                          {/* befor Image afto  image */}
+                        </div>
+                      </div>
+                      <div>
+                        {Object.entries(menuItem.value).map(
+                          ([name, quantity]) => (
+                            <span
+                              className={styles.ingredientCourse}
+                              key={name}
+                            >
+                              {name}:{quantity as number},<span> </span>
+                            </span>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </>
   );

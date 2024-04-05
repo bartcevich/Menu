@@ -6,12 +6,14 @@ import logoImage from "../../assets/images/logo.png";
 import React, { useState, useEffect } from "react";
 import logo from "@/assets/images/logo.png";
 import { px } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation: React.FC = () => {
   const [isTop, setIsTop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showFirstLink, setShowFirstLink] = useState(true);
+  const [showFirstLink, setShowFirstLink] = useState(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -29,7 +31,7 @@ const Navigation: React.FC = () => {
     };
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 730);
+      setIsMobile(window.innerWidth < 743);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -65,6 +67,9 @@ const Navigation: React.FC = () => {
   const handleClick2 = () => {
     setOpenMenu2((prevValue) => !prevValue);
   };
+  const handleClick3 = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <>
@@ -94,9 +99,20 @@ const Navigation: React.FC = () => {
             </Link>
           )}
         </div>
+        <Link
+          className={styles.faSearch}
+          // onClick={handleClick3}
+          href="/cookFromAvailable"
+        >
+          <FontAwesomeIcon icon={faSearch} />
+        </Link>
         {(!isMobile || isMenuOpen) && (
           <div className={styles.mobileMenu}>
-            <Link className={styles.dropdownTitle} href="/cookFromAvailable">
+            <Link
+              className={styles.dropdownTitle}
+              onClick={handleClick3}
+              href="/"
+            >
               О сайте
             </Link>
             <div className={styles.dropdown}>

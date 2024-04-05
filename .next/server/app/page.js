@@ -256,7 +256,7 @@ __webpack_require__.r(__webpack_exports__);
         }]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2088)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
+          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4232)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
     apple: [],
@@ -281,10 +281,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 4574:
+/***/ 463:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9840));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1091))
 
 /***/ }),
@@ -331,7 +330,7 @@ var free_solid_svg_icons = __webpack_require__(7877);
 
 
 const BuyForDay = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const [sumIngredientsPrint, setSumIngredientsPrint] = (0,react_.useState)({});
     const [userInput, setUserInput] = (0,react_.useState)({
         menuText: ""
@@ -478,7 +477,7 @@ var getData = __webpack_require__(1245);
 
 
 const Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const First_courses_soup = (0,getData/* getLunchData */.C2)();
     const [label, setLabel] = (0,react_.useState)("");
     const [value, setValue] = (0,react_.useState)([]);
@@ -633,7 +632,7 @@ var Salad_styles_module_default = /*#__PURE__*/__webpack_require__.n(Salad_style
 
 
 const Salad_Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const Salad_courses = (0,getData/* getSalad */.R7)();
     const [label, setLabel] = (0,react_.useState)("");
     const [value, setValue] = (0,react_.useState)([]);
@@ -788,7 +787,7 @@ var Desserts_styles_module_default = /*#__PURE__*/__webpack_require__.n(Desserts
 
 
 const Desserts_Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const PastriesDesserts = (0,getData/* getPastriesDesserts */.Gk)();
     const [label, setLabel] = (0,react_.useState)("");
     const [value, setValue] = (0,react_.useState)([]);
@@ -943,7 +942,7 @@ var Starters_styles_module_default = /*#__PURE__*/__webpack_require__.n(Starters
 
 
 const Starters_Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const Starters_dessert = (0,getData/* getDinnerData */.GQ)();
     //const first_courses_soup: MealData[] = getLunchData();
     //const Main_courses: MealData[] = getDinnerData();
@@ -1119,7 +1118,7 @@ var SideDish_styles_module_default = /*#__PURE__*/__webpack_require__.n(SideDish
 
 
 const SideDish_Starters = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const SideDish = (0,getData/* getBreakfastData */.aR)();
     const [label, setLabel] = (0,react_.useState)("");
     const [value, setValue] = (0,react_.useState)([]);
@@ -1273,7 +1272,7 @@ var ShowMenuDay_styles_module_default = /*#__PURE__*/__webpack_require__.n(ShowM
 
 
 const ShowMenuDay = (props)=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const [menuData, setMenuData] = (0,react_.useState)([]);
     //1 отделение от ключа сохраненного выбора пользователя
     let userChoiceForComponent = {};
@@ -1468,7 +1467,7 @@ var PartMenuName_styles_module_default = /*#__PURE__*/__webpack_require__.n(Part
 
 
 function MenuGroups(props) {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const [userInput, setUserInput] = (0,react_.useState)({
         menuText: ""
     });
@@ -1553,7 +1552,7 @@ var PartMenuComments_styles_module_default = /*#__PURE__*/__webpack_require__.n(
 
 
 function PartMenuComments_MenuGroups(props) {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const [userInput, setUserInput] = (0,react_.useState)({
         menuText: ""
     });
@@ -1786,7 +1785,7 @@ var BuyForWeek_styles_module_default = /*#__PURE__*/__webpack_require__.n(BuyFor
 
 
 function BuyForWeek() {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const [sumIngredientsPrint, setSumIngredientsPrint] = (0,react_.useState)({});
     const dataForComponent = ()=>{
         const stateFirstUndefined = userChoice;
@@ -1894,9 +1893,12 @@ function BuyForWeek() {
 
 
 
+
+
 function ShowSevenAndStorage() {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const [messageSent, setMessageSent] = (0,react_.useState)(0);
+    // const [count, setCount] = useState(1);
     const letterInMail = (0,react_.useCallback)(()=>{
         // Use useCallback to avoid unnecessary re-renders
         //console.log("ShowSevenAndStorage", messageSent);
@@ -1943,65 +1945,80 @@ function ShowSevenAndStorage() {
     }, [
         messageSent
     ]);
+    const goToTop = ()=>window.scrollTo(0, 0);
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-            className: (ShowSevenAndStorage_styles_module_default()).container,
-            children: [
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    className: (ShowSevenAndStorage_styles_module_default()).column1,
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups1,
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroupsOpen_MenuGroups, {
-                                day: "day1"
+        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            className: `${(ShowSevenAndStorage_styles_module_default()).containerTest} ${(ShowSevenAndStorage_styles_module_default()).backgroundClass}`,
+            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: (ShowSevenAndStorage_styles_module_default()).container,
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: (ShowSevenAndStorage_styles_module_default()).column1,
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (ShowSevenAndStorage_styles_module_default()).menuGroups1,
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroupsOpen_MenuGroups, {
+                                    day: "day1"
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (ShowSevenAndStorage_styles_module_default()).menuGroups2,
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                    day: "day2"
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (ShowSevenAndStorage_styles_module_default()).menuGroups3,
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                    day: "day3"
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (ShowSevenAndStorage_styles_module_default()).menuGroups4,
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                    day: "day4"
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (ShowSevenAndStorage_styles_module_default()).menuGroups5,
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                    day: "day5"
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (ShowSevenAndStorage_styles_module_default()).menuGroups6,
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                    day: "day6"
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (ShowSevenAndStorage_styles_module_default()).menuGroups7,
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
+                                    day: "day7"
+                                })
                             })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups2,
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                                day: "day2"
+                        ]
+                    }),
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (ShowSevenAndStorage_styles_module_default()).column2,
+                                children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: (ShowSevenAndStorage_styles_module_default()).menuGroups8,
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(BuyForWeek, {})
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: (ShowSevenAndStorage_styles_module_default()).goToTop,
+                                onClick: ()=>goToTop(),
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                                    icon: free_solid_svg_icons/* faArrowCircleUp */.M3_
+                                })
                             })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups3,
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                                day: "day3"
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups4,
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                                day: "day4"
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups5,
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                                day: "day5"
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups6,
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                                day: "day6"
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: (ShowSevenAndStorage_styles_module_default()).menuGroups7,
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups_MenuGroups, {
-                                day: "day7"
-                            })
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                    className: (ShowSevenAndStorage_styles_module_default()).column2,
-                    children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: (ShowSevenAndStorage_styles_module_default()).menuGroups8,
-                        children: /*#__PURE__*/ jsx_runtime_.jsx(BuyForWeek, {})
+                        ]
                     })
-                })
-            ]
+                ]
+            })
         })
     });
 }
@@ -2038,7 +2055,7 @@ const RIGHT_ANSWER = [
     }
 ];
 const LoginForm = ()=>{
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const [today, setToday] = (0,react_.useState)(new Date().toDateString());
     const [email, setEmail] = (0,react_.useState)("");
     const [password, setPassword] = (0,react_.useState)("");
@@ -2417,6 +2434,13 @@ module.exports = {
 	"colorRedLight": "#ef233c",
 	"colorRedDark": "#d90429",
 	"container": "styles_container__2CT7I",
+	"background1": "styles_background1__HX5ZP",
+	"background2": "styles_background2__7RCAh",
+	"container_button": "styles_container_button__oOeIj",
+	"goToTop": "styles_goToTop__gLhYj",
+	"button": "styles_button__vh3cO",
+	"button2": "styles_button2__6hPYA",
+	"container_text": "styles_container_text__C30S1",
 	"column2": "styles_column2__Rg7EV",
 	"column1": "styles_column1__kjk3k",
 	"column3": "styles_column3__GOo7d"
@@ -2528,27 +2552,15 @@ const __default__ = proxy.default;
 
 
 /* harmony default export */ const LoginForm = (__default__);
-// EXTERNAL MODULE: ./src/assets/images/background.png
-var background = __webpack_require__(2253);
 ;// CONCATENATED MODULE: ./src/app/page.tsx
 //'use client';
 
 
 
 //import { MenuProvider } from "@/context/IngredientsContext";
-
 function Home() {
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-            style: {
-                backgroundImage: `url(${background/* default */.Z.src})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundAttachment: "fixed",
-                minHeight: "100vh"
-            },
-            children: /*#__PURE__*/ jsx_runtime_.jsx(LoginForm, {})
-        })
+        children: /*#__PURE__*/ jsx_runtime_.jsx(LoginForm, {})
     });
 }
 
@@ -2562,7 +2574,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,610,877,988,245], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,937,844,245], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

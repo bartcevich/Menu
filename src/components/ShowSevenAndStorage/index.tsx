@@ -5,10 +5,13 @@ import { IngredientsContext } from "@/context/IngredientsContext";
 import MenuGroupsOpen from "@/components/MenuGroupsOpen";
 import MenuGroups from "@/components/MenuGroups";
 import BuyForWeek from "@/components/BuyForWeek";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function ShowSevenAndStorage() {
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const [messageSent, setMessageSent] = useState(0);
+  // const [count, setCount] = useState(1);
 
   const letterInMail = useCallback(() => {
     // Use useCallback to avoid unnecessary re-renders
@@ -59,35 +62,44 @@ export default function ShowSevenAndStorage() {
     }
   }, [messageSent]);
 
+  const goToTop = () => window.scrollTo(0, 0);
+
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.column1}>
-          <div className={styles.menuGroups1}>
-            <MenuGroupsOpen day={"day1"} />
+      <div className={`${styles.containerTest} ${styles.backgroundClass}`}>
+        <div className={styles.container}>
+          <div className={styles.column1}>
+            <div className={styles.menuGroups1}>
+              <MenuGroupsOpen day={"day1"} />
+            </div>
+            <div className={styles.menuGroups2}>
+              <MenuGroups day={"day2"} />
+            </div>
+            <div className={styles.menuGroups3}>
+              <MenuGroups day={"day3"} />
+            </div>
+            <div className={styles.menuGroups4}>
+              <MenuGroups day={"day4"} />
+            </div>
+            <div className={styles.menuGroups5}>
+              <MenuGroups day={"day5"} />
+            </div>
+            <div className={styles.menuGroups6}>
+              <MenuGroups day={"day6"} />
+            </div>
+            <div className={styles.menuGroups7}>
+              <MenuGroups day={"day7"} />
+            </div>
           </div>
-          <div className={styles.menuGroups2}>
-            <MenuGroups day={"day2"} />
-          </div>
-          <div className={styles.menuGroups3}>
-            <MenuGroups day={"day3"} />
-          </div>
-          <div className={styles.menuGroups4}>
-            <MenuGroups day={"day4"} />
-          </div>
-          <div className={styles.menuGroups5}>
-            <MenuGroups day={"day5"} />
-          </div>
-          <div className={styles.menuGroups6}>
-            <MenuGroups day={"day6"} />
-          </div>
-          <div className={styles.menuGroups7}>
-            <MenuGroups day={"day7"} />
-          </div>
-        </div>
-        <div className={styles.column2}>
-          <div className={styles.menuGroups8}>
-            <BuyForWeek />
+          <div>
+            <div className={styles.column2}>
+              <div className={styles.menuGroups8}>
+                <BuyForWeek />
+              </div>
+            </div>
+            <div className={styles.goToTop} onClick={() => goToTop()}>
+              <FontAwesomeIcon icon={faArrowCircleUp} />
+            </div>
           </div>
         </div>
       </div>

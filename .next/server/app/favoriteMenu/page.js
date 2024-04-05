@@ -265,7 +265,7 @@ __webpack_require__.r(__webpack_exports__);
       ]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2088)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
+          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4232)), "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
     apple: [],
@@ -505,7 +505,7 @@ var getData = __webpack_require__(1245);
 
 
 function FavoriteMenu() {
-    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
+    const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext/* IngredientsContext */.d);
     const [value, setValue] = (0,react_.useState)([]);
     let value2 = [];
     const DinnerData = (0,getData/* getDinnerData */.GQ)();
@@ -543,7 +543,7 @@ function FavoriteMenu() {
             //setValue(updatedValue); // Set the value state with updatedValue
             value2 = updatedValue;
         }
-    //console.log("dataString", value2);
+    //console.log("dataString", value);
     };
     //находит данные блюд дня и создает объект
     const foundDishMenu = (arrNamesDish, nameDay)=>{
@@ -573,14 +573,15 @@ function FavoriteMenu() {
                 }
             };
         }
-        console.log("menuOneDay", menuOneDay);
+        //console.log("menuOneDay", menuOneDay);
         loadMenu(menuOneDay, nameDay);
     };
     //отдает функции массив с блюдами дня
     const menuDay = (nameDish)=>{
         console.log("dataString", nameDish);
         deleteMenu();
-        for(let r = 0; r < nameDish.length; r++){
+        //for (let r = 0; r < nameDish.length; r++) {
+        for(let r = nameDish.length - 1; r >= 0; r--){
             let nameDay = `day${r + 1}_feature`;
             foundDishMenu(nameDish[r], nameDay);
         }
@@ -798,7 +799,7 @@ function FavoriteMenuPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,610,988,245], () => (__webpack_exec__(7028)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,937,844,245], () => (__webpack_exec__(7028)));
 module.exports = __webpack_exports__;
 
 })();

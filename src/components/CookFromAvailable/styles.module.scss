@@ -1,24 +1,63 @@
 @import '@/app/variables.scss';
+.center{
+    display: flex;
+    justify-content: center;
+}
 .wrapper{
+    max-width: 600px;
+    width: 100%;
     display: flex;
     flex-flow: column;
-    align-items: center;
+    // align-items: center;
     //height: 21em;
     min-height: 70vh;
-    margin: 75px 0 30px 10px;
+    //margin: 75px 0 30px 10px;
     @include font(#E47611, Inter, 20px, normal, 600, 25px, 0);
     font-size: clamp(18px, 3vw, 20px);
     text-align: center;
     li{
         margin: 15px 0;
     }
+    h2{
+     width: 35ch;
+     animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+     white-space: nowrap;
+     overflow: hidden;
+     border-right: 3px solid;
+     font-family: monospace;
+  //font-size: 2em;
+    }
+    @keyframes typing {
+        from {
+          width: 0
+        }
+      }
+    @keyframes blink {
+        50% {
+          border-color: transparent
+        }
+      }
 }
+
 .form{
+    background-color: transparent;
     margin-bottom: 30px;
     max-width: 300px;
+    //accent-color: #FF0000;
 }
-.container{
+
+.background{
+    position: relative;
+}
+.background_image{
+    width: 320px;
+}
+.container_background{
+    position: absolute;
     display: flex;
+    flex-flow: column;
+    left: 46px;
+    top: 80px;
 }
 .image{
     height: 60px;
@@ -27,6 +66,18 @@
     padding-right: 5px;
     display: flex;
     // justify-content: flex-end;
+}
+.container_scroll{
+    overflow-y: auto;
+    height: 100vh;
+    position: absolute;
+    top: 85px;
+    /* right: -11px; */
+    left: -30px;
+    width: 500px;
+}
+.menuItem{
+    background-color: rgba(153, 181, 191, 0.9);
 }
 .label{
     width: 200px;
@@ -40,6 +91,16 @@
     font-size: clamp(15px, 3vw, 20px);
 }
 @media (max-width: 550px){
+    .wrapper{
+        max-width: 300px;
+    width: 100%;
+    }
+    .container_scroll{
+        width: 298px;
+        h2{
+            width: 22.5ch;
+        }
+    }
     .container{
         flex-flow: column;
     }
