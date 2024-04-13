@@ -76,7 +76,7 @@ export default function MenuGroups(props: MondayProps) {
           type="text"
           name="menuText"
           value={userInput.menuText || ""}
-          maxLength={27}
+          maxLength={25}
           onChange={handleInputChange}
           placeholder="Меню для..."
         />

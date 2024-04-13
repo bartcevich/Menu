@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { IngredientsContext } from "@/context/IngredientsContext";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import person_thinks from "@/assets/images/person_thinks.png";
@@ -12,6 +13,7 @@ import {
 } from "@/services/getData";
 
 export default function CookFromAvailable() {
+  const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const DinnerData = getDinnerData();
   const BreakfastData = getBreakfastData();
   const LunchData = getLunchData();
@@ -59,9 +61,34 @@ export default function CookFromAvailable() {
     setAnswer(enteredAnswer);
   };
 
+  const [number, setNumber] = useState(1);
+  const dataForComponent = () => {
+    const stateFirstUndefined: any = userChoice;
+    const numberGet = stateFirstUndefined.background || 1;
+    setNumber(numberGet);
+  };
+  //задание однократного вызова из памяти номера фона
+  useEffect(() => {
+    if (
+      typeof userChoice === "object" &&
+      userChoice !== null &&
+      Object.keys(userChoice).length > 0
+    ) {
+      dataForComponent();
+    }
+  }, []);
+  //установка имени класса в зависимости от выбора пользователя
+  let backgroundClass =
+    //styles.background`${number}`;
+    number === 1
+      ? styles.background1
+      : number === 2
+      ? styles.background2
+      : styles.background3;
+
   return (
     <>
-      <div className={styles.center}>
+      <div className={`${styles.center} ${backgroundClass}`}>
         <div className={styles.wrapper}>
           {/* <h2>Выберите ингридиент для приготовления</h2> */}
           <div className={styles.background}>
@@ -79,7 +106,7 @@ export default function CookFromAvailable() {
                 name="answer"
               >
                 <option value="Выберите ингридиент">Выберите ингридиент</option>
-                <optgroup label="овощи">
+                <optgroup label="Oвощи">
                   <option value="Помидоры гр">Помидоры</option>
                   <option value="Консервированный горошек гр">
                     Консервированный горошек
@@ -88,17 +115,17 @@ export default function CookFromAvailable() {
                     Potato
                   </option>
                 </optgroup>
-                <optgroup label="рыба">
+                <optgroup label="Pыба">
                   <option value="Крабовые палочки гр">Крабовые палочки</option>
                   <option value="Рыба гр">Рыба</option>
                   <option value="Селедка соленая гр">Селедка соленая</option>
                 </optgroup>
-                <optgroup label="полуфабрикаты">
+                <optgroup label="Полуфабрикаты">
                   <option value="Сосиски гр">Сосиски</option>
                   <option value="Ветчина гр">Ветчина</option>
                   <option value="Пельмени гр">Пельмени</option>
                 </optgroup>
-                <optgroup label="мясо">
+                <optgroup label="Mясо">
                   <option value="Грудинка гр">Грудинка</option>
                   <option value="Курица гр">Курица</option>
                   <option value="Куриные крылья гр">Куриные крылья</option>

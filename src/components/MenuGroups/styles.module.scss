@@ -43,20 +43,31 @@
     padding: 4px 8px;
     border-radius: 4px;
 }
-.menuGroup{
+.buttonGroup{
     width: 130px;
         height: 30px;
         border: 2px solid #E47611;
         border-radius: 10px;
         @include font(#E47611, Inter, 15px, normal, 400, 15px, 0);
 }
+// .custom-btn {
+//     background: transparent;
+//     cursor: pointer;
+//     transition: all 0.3s ease;
+//     position: relative;
+//     display: inline-block;
+//      box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+//      7px 7px 20px 0px rgba(0,0,0,.1),
+//      4px 4px 5px 0px rgba(0,0,0,.1);
+//     outline: none;
+//   }
 @media (hover: hover)  {
-    .menuGroup:hover{
+    .buttonGroup:hover{
         background-color: rgba(153, 181, 191, 0.5);
     }
 }
 @media (hover: none)  {
-    .menuGroup:active{
+    .buttonGroup:active{
         background-color: rgba(153, 181, 191, 0.5);
     }
 }

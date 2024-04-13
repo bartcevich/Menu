@@ -103,9 +103,33 @@ export default function FavoriteMenu() {
     window.location.href = "/";
   };
 
+  const [number, setNumber] = useState(1);
+  const dataForComponent = () => {
+    const stateFirstUndefined: any = userChoice;
+    const numberGet = stateFirstUndefined.background || 1;
+    setNumber(numberGet);
+  };
+  //задание однократного вызова из памяти номера фона
+  useEffect(() => {
+    if (
+      typeof userChoice === "object" &&
+      userChoice !== null &&
+      Object.keys(userChoice).length > 0
+    ) {
+      dataForComponent();
+    }
+  }, []);
+  //установка имени класса в зависимости от выбора пользователя
+  let backgroundClass =
+    number === 1
+      ? styles.background1
+      : number === 2
+      ? styles.background2
+      : styles.background3;
+
   return (
     <>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} ${backgroundClass}`}>
         <h2>Вкусное и недорогое меню для семьи на месяц</h2>
         <div className={styles.container}>
           <div className={styles.section}>

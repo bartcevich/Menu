@@ -12,11 +12,12 @@ interface BuyForDayProps {
 const BuyForDay: React.FC<BuyForDayProps> = (props) => {
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const [sumIngredientsPrint, setSumIngredientsPrint] = useState({});
-  const [userInput, setUserInput] = useState<any>({ menuText: "" });
+  const [userList, setUserList] = useState<any>({ menuText: "" });
+  const [userComment, setUserComment] = useState<any>({ menuText: "" });
 
   const dataForComponent = () => {
     const stateFirstUndefined: any = userChoice;
-    setUserInput(
+    setUserList(
       stateFirstUndefined[`${props.day}_nameMenu`] || { menuText: "" }
     );
     const userChoiceForComponent =
@@ -26,6 +27,9 @@ const BuyForDay: React.FC<BuyForDayProps> = (props) => {
       .map((item: any) => item.ingredients)
       .flat();
     //console.log(props.day, userChoiceForComponent);
+    setUserComment(
+      stateFirstUndefined[`${props.day}_comment`] || { menuText: "" }
+    );
 
     // const uniqueIngredients: any = new Set(
     //   oneArrIngredients.map((item) => item[0])
@@ -85,7 +89,8 @@ const BuyForDay: React.FC<BuyForDayProps> = (props) => {
       const formattedString = Object.entries(sumIngredientsPrint)
         .map(([ingredient, weight]) => `${ingredient}: ${weight}`)
         .join(",\n");
-      textareaRef.current.value = formattedString;
+      const formattedComment = Object.values(userComment).join(",\n");
+      textareaRef.current.value = `${formattedString}\n${formattedComment}`;
       textareaRef.current.select();
       document.execCommand("copy");
       setShowTooltip(true);
@@ -103,7 +108,7 @@ const BuyForDay: React.FC<BuyForDayProps> = (props) => {
   return (
     <>
       <div className={styles.container}>
-        <h3>Cписок {Object.values(userInput)}</h3>
+        <h3>Cписок {Object.values(userList)}</h3>
         <button
           className={styles.handleIngredients}
           onClick={handleIngredients}
@@ -126,6 +131,7 @@ const BuyForDay: React.FC<BuyForDayProps> = (props) => {
               {ingredient}: {weight as number}
             </div>
           ))}
+          {Object.values(userComment)}
           <textarea
             ref={textareaRef}
             style={{ position: "absolute", left: "-9999px" }} // Hide the textarea off-screen

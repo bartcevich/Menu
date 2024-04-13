@@ -24,7 +24,7 @@ export default function MenuGroups(props: any) {
         <PartMenuName day={day} />
         <button
           type="button"
-          className={styles.menuGroup}
+          className={styles.buttonGroup}
           onClick={handleClick}
         >
           {openMenu ? "Возврат к меню" : "Тип блюда"}

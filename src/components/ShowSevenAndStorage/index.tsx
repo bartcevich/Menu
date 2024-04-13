@@ -6,12 +6,16 @@ import MenuGroupsOpen from "@/components/MenuGroupsOpen";
 import MenuGroups from "@/components/MenuGroups";
 import BuyForWeek from "@/components/BuyForWeek";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretSquareRight,
+  faCaretSquareLeft,
+  faArrowCircleUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function ShowSevenAndStorage() {
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const [messageSent, setMessageSent] = useState(0);
-  // const [count, setCount] = useState(1);
+  const [number, setNumber] = useState(1);
 
   const letterInMail = useCallback(() => {
     // Use useCallback to avoid unnecessary re-renders
@@ -63,10 +67,59 @@ export default function ShowSevenAndStorage() {
   }, [messageSent]);
 
   const goToTop = () => window.scrollTo(0, 0);
+  //данные для компонента о номере фона который был выбран или задать 1
+  const dataForComponent = () => {
+    const stateFirstUndefined: any = userChoice;
+    const numberGet = stateFirstUndefined.background || 1;
+    setNumber(numberGet);
+    //console.log(stateFirstUndefined.background, numberGet, number);
+  };
+  //задание однократного вызова из памяти номера фона
+  useEffect(() => {
+    if (
+      typeof userChoice === "object" &&
+      userChoice !== null &&
+      Object.keys(userChoice).length > 0
+    ) {
+      dataForComponent();
+    }
+  }, []);
+  const handleNumberChange = (event: { target: { value: string } }) => {
+    setNumber(parseInt(event.target.value));
+  };
+  //установка имени класса в зависимости от выбора пользователя
+  let backgroundClass =
+    number === 1
+      ? styles.background1
+      : number === 2
+      ? styles.background2
+      : styles.background3;
+  // сохранение выбора  пользователя в хранилище
+  const savingToContext = () => {
+    setUserChoice((prevUserChoice) => ({
+      ...prevUserChoice,
+      ["background"]: number,
+    }));
+  };
+  useEffect(() => {
+    savingToContext();
+  }, [number]);
 
   return (
     <>
-      <div className={`${styles.containerTest} ${styles.backgroundClass}`}>
+      <div className={`${styles.containerTest} ${backgroundClass}`}>
+        <div className={styles.container_button}>
+          <p>выберите фон:</p>
+          <input
+            type="range"
+            max="3"
+            min="1"
+            value={number}
+            onChange={handleNumberChange}
+            id="sliderRange"
+          />
+          <span id="demo">{number}</span>
+        </div>
         <div className={styles.container}>
           <div className={styles.column1}>
             <div className={styles.menuGroups1}>

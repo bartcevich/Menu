@@ -1,9 +1,30 @@
 @import '@/app/variables.scss';
 .center{
-    margin-top: 65px;
+    padding-top: 65px;
     display: flex;
     justify-content: center;
 }
+.background1 {
+    background-image: url("../../assets/images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .background2 {
+    background: radial-gradient(100% 300% at 0% 0%, #262425 50%, #5B483A 100%), #211F20;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .background3 {
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
 .wrapper{
     max-width: 600px;
     width: 100%;
@@ -43,7 +64,8 @@
 .form{
     background-color: transparent;
     margin-bottom: 30px;
-    max-width: 300px;
+    //field-sizing: content;
+    max-width: 200px;
     //accent-color: #FF0000;
 }
 
@@ -57,7 +79,7 @@
     position: absolute;
     display: flex;
     flex-flow: column;
-    left: 46px;
+    left: 35px;
     top: 80px;
 }
 .image{
