@@ -11,7 +11,7 @@ const  DATA_DINNER = [
         "Соль гр": 5, 
         "Сахар гр": 5, 
         "Специи": 1,},
-        "image": "https://bartcevich.github.io/letter/image/fried_eggs.jpg",
+        "image": "https://bartcevich.github.io/letter/image_dinner/benderici.png",
     },
     {
              "label": "Блины бахиры",
@@ -32,7 +32,7 @@ const  DATA_DINNER = [
         "Подсолнечное масло гр": 8, 
         "Соль гр": 1, 
         "Сахар гр": 6,},
-        "image": "https://bartcevich.github.io/letter/image/fried_eggs.jpg",
+        "image": "https://bartcevich.github.io/letter/image_dinner/thin_pancakes.png",
     },
     {
         "label": "Говядина по кремлевски.",
@@ -43,7 +43,7 @@ const  DATA_DINNER = [
         "Уксус гр": 2, 
         "Соль гр": 2, 
         "Сахар гр": 2,},
-        "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg",
+        "image": "https://bartcevich.github.io/letter/image_dinner/Kreml-style_beef.png",
     },
     {
         "label": "Голубцы.",
@@ -75,7 +75,7 @@ const  DATA_DINNER = [
     "Масло сливочное гр": 10,
     "Подсолнечное масло гр": 7.5, 
     "Соль гр": 1,},
-    "image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png",
+    "image": "https://bartcevich.github.io/letter/image_dinner/buckwheat_mushrooms.png",
 },
 {
     "label": "Гречневая каша со свининой",
@@ -85,7 +85,7 @@ const  DATA_DINNER = [
     "Масло сливочное гр": 10,
     "Подсолнечное масло гр": 7.5, 
     "Соль гр": 1,},
-    "image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png",
+    "image": "https://bartcevich.github.io/letter/image_dinner/buckwheat_minced_meat.png",
 },
 {
     "label": "Гречневая каша с говядиной",
@@ -95,7 +95,7 @@ const  DATA_DINNER = [
     "Масло сливочное гр": 10,
     "Подсолнечное масло гр": 7.5, 
     "Соль гр": 1,},
-    "image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png",
+    "image": "https://bartcevich.github.io/letter/image_dinner/buckwheat_minced_meat.png",
 },
 {
     "label": "Гречневая каша с фаршем",
@@ -104,7 +104,7 @@ const  DATA_DINNER = [
     "Масло сливочное гр": 10,
     "Подсолнечное масло гр": 7.5, 
     "Соль гр": 1,},
-    "image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png",
+    "image": "https://bartcevich.github.io/letter/image_dinner/buckwheat_minced_meat.png",
 },
 {
     "label": "Гуляш.",
@@ -187,7 +187,7 @@ const  DATA_DINNER = [
     "Яблоки гр": 70, 
     "Чеснок гр": 5,
     "Кари гр": 3,},
-    "image": "https://bartcevich.github.io/letter/image/curry_onions.png",
+    "image": "https://bartcevich.github.io/letter/image_dinner/Liver_Curry.png",
 },
 {
     "label": "Картофельная бабка.",
@@ -198,7 +198,7 @@ const  DATA_DINNER = [
     "Лук репчатый гр": 50,
     "Подсолнечное масло гр": 20, 
     "Соль гр": 1,},
-    "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg",
+    "image": "https://bartcevich.github.io/letter/image_dinner/potato_grandmother.png",
 },
 {
     "label": "Картофельные драники.",
@@ -209,7 +209,7 @@ const  DATA_DINNER = [
     "Яйца куриные шт": 0.3, 
     "Мука пшеничная гр": 8,
     "Сметана гр": 45,},
-    "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg",
+    "image": "https://bartcevich.github.io/letter/image_dinner/potato_pancakes.png",
 },
 {
     "label": "Картофельные колдуны с мясом.",
@@ -350,7 +350,7 @@ const  DATA_DINNER = [
     "Соль гр": 1, 
     "Подсолнечное масло гр": 2, 
     "Специи": 1,},
-    "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg",
+    "image": "https://bartcevich.github.io/letter/image_dinner/meat_bread.png",
 },
 {
     "label": "Наггетсы куриные сырные",
@@ -373,7 +373,7 @@ const  DATA_DINNER = [
     "Подсолнечное масло гр": 25, 
     "Сода гр": 1, 
     "Соль гр": 1,},
-    "image": "https://bartcevich.github.io/letter/image/honey_kefir.png",
+    "image": "https://bartcevich.github.io/letter/image_dinner/pancakes_kefir.png",
 },
 {
     "label": "Оладьи с яблоками и кабачками",
@@ -399,7 +399,7 @@ const  DATA_DINNER = [
     "Помидоры гр": 50, 
     "Лук репчатый гр": 50, 
     "Лук зелёный гр": 5,},
-    "image": "https://bartcevich.github.io/letter/image/fried_eggs.jpg",
+    "image": "https://bartcevich.github.io/letter/image_dinner/omelette.png",
 },
 {
     "label": "Отбивные.",
@@ -411,7 +411,7 @@ const  DATA_DINNER = [
     "Подсолнечное масло гр": 35, 
     "Соль гр": 1, 
     "Специи": 1,},
-    "image": "https://bartcevich.github.io/letter/image/тыквенные_блины.jpg",
+    "image": "https://bartcevich.github.io/letter/image_dinner/pork_chops.png",
 },
 {
     "label": "Паштет из куриной печени",
@@ -435,7 +435,7 @@ const  DATA_DINNER = [
     "Соус томатный гр": 6, 
     "Соль гр": 1, 
     "Специи": 1,},
-    "image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png",
+    "image": "https://bartcevich.github.io/letter/image_dinner/wings_pearl_barley.png",
 },
 {
     "label": "Печень в сметанном соусе",
@@ -458,7 +458,7 @@ const  DATA_DINNER = [
     "Белый рис гр": 50, 
     "Соль гр": 1, 
     "Специи": 1,},
-    "image": "https://bartcevich.github.io/letter/image/pilaf_raisins.png",
+    "image": "https://bartcevich.github.io/letter/image_dinner/pilaf.png",
 }, 
 {
     "label": "Рататуй с фаршем",

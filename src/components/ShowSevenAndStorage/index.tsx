@@ -36,7 +36,7 @@ export default function ShowSevenAndStorage() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("promise=", data);
+          //console.log("promise=", data);
           if (data["success"] === true) {
             setMessageSent(2);
             setUserChoice((prevUserChoice) => ({

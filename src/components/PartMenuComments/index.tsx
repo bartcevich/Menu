@@ -42,7 +42,7 @@ export default function MenuGroups(props: MondayProps) {
   };
   // добавление ключа от этого компонента и сохранение
   const savingToContext = () => {
-    if (userInput["menuText"] !== "") {
+    if (userInput["menuText"] !== "" && userInput["menuText"] !== " ") {
       // Clear previous timeout
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current); // Отменяет выполнение

@@ -17,18 +17,6 @@
       "static/chunks/main-app.js",
       "static/css/app/cookFromAvailable/page.css",
       "static/chunks/app/cookFromAvailable/page.js"
-    ],
-    "/favoriteMenu/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/favoriteMenu/page.css",
-      "static/chunks/app/favoriteMenu/page.js"
-    ],
-    "/programs/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/programs/page.css",
-      "static/chunks/app/programs/page.js"
     ]
   }
 }

@@ -38,11 +38,11 @@ export default function MenuGroups(props: MondayProps) {
       [e.target.name]: e.target.value,
     };
     setUserInput(newInputs);
-    console.log(newInputs);
+    //console.log(newInputs);
   };
   // добавление ключа от этого компонента и сохранение
   const savingToContext = () => {
-    if (userInput["menuText"] !== "") {
+    if (userInput["menuText"] !== "" && userInput["menuText"] !== " ") {
       // Clear previous timeout
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
