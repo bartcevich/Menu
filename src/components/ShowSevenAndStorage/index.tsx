@@ -5,6 +5,7 @@ import { IngredientsContext } from "@/context/IngredientsContext";
 import MenuGroupsOpen from "@/components/MenuGroupsOpen";
 import MenuGroups from "@/components/MenuGroups";
 import BuyForWeek from "@/components/BuyForWeek";
+import TimeEndBackground from "@/components/TimeEndBackground";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCaretSquareRight,
@@ -72,7 +73,6 @@ export default function ShowSevenAndStorage() {
     const stateFirstUndefined: any = userChoice;
     const numberGet = stateFirstUndefined.background || 1;
     setNumber(numberGet);
-    //console.log(stateFirstUndefined.background, numberGet, number);
   };
   //задание однократного вызова из памяти номера фона
   useEffect(() => {
@@ -83,10 +83,7 @@ export default function ShowSevenAndStorage() {
     ) {
       dataForComponent();
     }
-  }, []);
-  const handleNumberChange = (event: { target: { value: string } }) => {
-    setNumber(parseInt(event.target.value));
-  };
+  }, [userChoice]);
   //установка имени класса в зависимости от выбора пользователя
   let backgroundClass =
     number === 1
@@ -94,32 +91,11 @@ export default function ShowSevenAndStorage() {
       : number === 2
       ? styles.background2
       : styles.background3;
-  // сохранение выбора  пользователя в хранилище
-  const savingToContext = () => {
-    setUserChoice((prevUserChoice) => ({
-      ...prevUserChoice,
-      ["background"]: number,
-    }));
-  };
-  useEffect(() => {
-    savingToContext();
-  }, [number]);
 
   return (
     <>
       <div className={`${styles.containerTest} ${backgroundClass}`}>
-        <div className={styles.container_button}>
-          <p>выберите фон:</p>
-          <input
-            type="range"
-            max="3"
-            min="1"
-            value={number}
-            onChange={handleNumberChange}
-            id="sliderRange"
-          />
-          <span id="demo">{number}</span>
-        </div>
+        <TimeEndBackground />
         <div className={styles.container}>
           <div className={styles.column1}>
             <div className={styles.menuGroups1}>

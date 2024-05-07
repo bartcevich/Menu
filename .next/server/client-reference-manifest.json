@@ -79,14 +79,6 @@
         "chunks": [],
         "async": false
       }
-    },
-    "(app-client)/./src/components/CookFromAvailable/index.tsx": {
-      "*": {
-        "id": "(sc_client)/./src/components/CookFromAvailable/index.tsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
     }
   },
   "edgeSSRModuleMapping": {},
@@ -234,14 +226,6 @@
         "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
-    },
-    "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\components\\CookFromAvailable\\index.tsx": {
-      "id": "(app-client)/./src/components/CookFromAvailable/index.tsx",
-      "name": "*",
-      "chunks": [
-        "app/cookFromAvailable/page:static/chunks/app/cookFromAvailable/page.js"
-      ],
-      "async": false
     }
   },
   "entryCSSFiles": {
@@ -250,9 +234,6 @@
     ],
     "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\layout": [
       "static/css/app/layout.css"
-    ],
-    "D:\\andrei\\work\\codewars\\shoppingCart2\\Menu\\src\\app\\cookFromAvailable\\page": [
-      "static/css/app/cookFromAvailable/page.css"
     ]
   }
 }

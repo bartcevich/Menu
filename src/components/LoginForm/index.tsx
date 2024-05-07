@@ -85,6 +85,7 @@ const LoginForm = () => {
     e.preventDefault();
     //console.log("state Answer1", answer, isValidEmail, isValidPassword);
     if (isValidEmail && isValidPassword && answer === "сорока") {
+      window.navigator.vibrate([500, 500, 500]);
       savingToContext();
       setIsLoggedIn(true);
     } else {
