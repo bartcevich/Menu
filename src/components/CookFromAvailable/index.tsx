@@ -76,15 +76,16 @@ export default function CookFromAvailable() {
     ) {
       dataForComponent();
     }
-  }, []);
+  }, [userChoice]);
   //установка имени класса в зависимости от выбора пользователя
   let backgroundClass =
-    //styles.background`${number}`;
     number === 1
       ? styles.background1
       : number === 2
       ? styles.background2
-      : styles.background3;
+      : number === 3
+      ? styles.background3
+      : styles.background4;
 
   return (
     <>
@@ -106,6 +107,9 @@ export default function CookFromAvailable() {
                 name="answer"
               >
                 <option value="Выберите ингридиент">Выберите ингридиент</option>
+                <optgroup label="Категории блюд">
+                  <option value="завтрак">Завтраки</option>
+                </optgroup>
                 <optgroup label="Oвощи">
                   <option value="Помидоры гр">Помидоры</option>
                   <option value="Консервированный горошек гр">

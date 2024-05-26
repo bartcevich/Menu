@@ -9,11 +9,18 @@
     padding-right: 5px;
     display: flex;
     justify-content: flex-end;
+    // clip-path: circle(50% at 50% 50%);
 }
 .label{
     max-width: 200px;
     @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
     font-size: clamp(18px, 3vw, 20px);
+}
+.nameDish{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 .numberServings {
     display: inline-block;

@@ -104,7 +104,7 @@ const Starters: React.FC<MondayProps> = (props) => {
               onChange={handleSelectChange}
               className={styles.container_select}
             >
-              <option value="">Гарниры</option>
+              <option value="">Завтраки и гарниры</option>
               {SideDish.map((option, index) => (
                 <option key={index} value={option.label}>
                   {option.label}

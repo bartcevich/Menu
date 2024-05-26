@@ -7,6 +7,27 @@ export default function TimeEndBackground() {
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const [number, setNumber] = useState(1);
   const [currentTime, setCurrentTime] = useState(new Date()); // State to hold the current time
+  //const [isOnline, setIsOnline] = useState(window.navigator.onLine);
+
+  // useEffect(() => {
+  //   const handleOnline = () => {
+  //     setIsOnline(true);
+  //     console.log("line1=", isOnline);
+  //   };
+
+  //   const handleOffline = () => {
+  //     setIsOnline(false);
+  //     console.log("line2=", isOnline);
+  //   };
+
+  //   window.addEventListener("online", handleOnline);
+  //   window.addEventListener("offline", handleOffline);
+
+  //   return () => {
+  //     window.removeEventListener("online", handleOnline);
+  //     window.removeEventListener("offline", handleOffline);
+  //   };
+  // }, [isOnline, userChoice]);
 
   const formatter = new Intl.DateTimeFormat("ru", {
     //weekday: "long",
@@ -73,7 +94,7 @@ export default function TimeEndBackground() {
           <p>выберите фон:</p>
           <input
             type="range"
-            max="3"
+            max="4"
             min="1"
             value={number}
             onChange={handleNumberChange}
@@ -81,6 +102,11 @@ export default function TimeEndBackground() {
           />
         </div>
         {/* <span id="demo">{number}</span> */}
+        {/* <div>
+          <span style={{ color: isOnline ? "green" : "red" }}>
+            {isOnline ? "Online" : "Offline"}
+          </span>
+        </div> */}
         <div className={styles.dateTimeFormat}>
           {formatter.format(currentTime)}
         </div>

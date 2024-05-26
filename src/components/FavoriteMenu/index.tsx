@@ -118,123 +118,127 @@ export default function FavoriteMenu() {
     ) {
       dataForComponent();
     }
-  }, []);
+  }, [userChoice]);
   //установка имени класса в зависимости от выбора пользователя
   let backgroundClass =
     number === 1
       ? styles.background1
       : number === 2
       ? styles.background2
-      : styles.background3;
+      : number === 3
+      ? styles.background3
+      : styles.background4;
 
   return (
     <>
-      <div className={`${styles.wrapper} ${backgroundClass}`}>
-        <h2>Вкусное и недорогое меню для семьи на месяц</h2>
-        <div className={styles.container}>
-          <div className={styles.section}>
-            <h2>меню для первой недели</h2>
-            <button
-              className={styles.button}
-              onClick={() => menuDay(setOfDishes1)}
-            >
-              <div className={styles.container_img}>
-                <div className={styles.image}>
-                  <img
-                    src={
-                      "https://bartcevich.github.io/letter/image_favorit/11%201.png"
-                    }
-                    alt="Image"
-                  />
+      <div className={`${backgroundClass}`}>
+        <div className={`${styles.wrapper} ${styles.noWorck2Styles}`}>
+          <h2>Вкусное и недорогое меню для семьи на месяц</h2>
+          <div className={styles.container}>
+            <div className={styles.section}>
+              <h2>меню для первой недели</h2>
+              <button
+                className={styles.button}
+                onClick={() => menuDay(setOfDishes1)}
+              >
+                <div className={styles.container_img}>
+                  <div className={styles.image}>
+                    <img
+                      src={
+                        "https://bartcevich.github.io/letter/image_favorit/11%201.png"
+                      }
+                      alt="Image"
+                    />
+                  </div>
+                  <div className={styles.image}>
+                    <img
+                      src={
+                        "https://bartcevich.github.io/letter/image_favorit/12%201.png"
+                      }
+                      alt="Image"
+                    />
+                  </div>
                 </div>
-                <div className={styles.image}>
-                  <img
-                    src={
-                      "https://bartcevich.github.io/letter/image_favorit/12%201.png"
-                    }
-                    alt="Image"
-                  />
+              </button>
+            </div>
+            <div className={styles.section}>
+              <h2>меню для второй недели</h2>
+              <button
+                className={styles.button}
+                onClick={() => menuDay(setOfDishes2)}
+              >
+                <div className={styles.container_img}>
+                  <div className={styles.image}>
+                    <img
+                      src={
+                        "https://bartcevich.github.io/letter/image_favorit/21%201.png"
+                      }
+                      alt="Image"
+                    />
+                  </div>
+                  <div className={styles.image}>
+                    <img
+                      src={
+                        "https://bartcevich.github.io/letter/image_favorit/22%201.png"
+                      }
+                      alt="Image"
+                    />
+                  </div>
                 </div>
-              </div>
-            </button>
-          </div>
-          <div className={styles.section}>
-            <h2>меню для второй недели</h2>
-            <button
-              className={styles.button}
-              onClick={() => menuDay(setOfDishes2)}
-            >
-              <div className={styles.container_img}>
-                <div className={styles.image}>
-                  <img
-                    src={
-                      "https://bartcevich.github.io/letter/image_favorit/21%201.png"
-                    }
-                    alt="Image"
-                  />
+              </button>
+            </div>
+            <div className={styles.section}>
+              <h2>меню для третьей недели</h2>
+              <button
+                className={styles.button}
+                onClick={() => menuDay(setOfDishes3)}
+              >
+                <div className={styles.container_img}>
+                  <div className={styles.image}>
+                    <img
+                      src={
+                        "https://bartcevich.github.io/letter/image_favorit/31%201.png"
+                      }
+                      alt="Image"
+                    />
+                  </div>
+                  <div className={styles.image}>
+                    <img
+                      src={
+                        "https://bartcevich.github.io/letter/image_favorit/32%201.png"
+                      }
+                      alt="Image"
+                    />
+                  </div>
                 </div>
-                <div className={styles.image}>
-                  <img
-                    src={
-                      "https://bartcevich.github.io/letter/image_favorit/22%201.png"
-                    }
-                    alt="Image"
-                  />
+              </button>
+            </div>
+            <div className={styles.section}>
+              <h2>меню для четвертой недели</h2>
+              <button
+                className={styles.button}
+                onClick={() => menuDay(setOfDishes4)}
+              >
+                <div className={styles.container_img}>
+                  <div className={styles.image}>
+                    <img
+                      src={
+                        "https://bartcevich.github.io/letter/image_favorit/41%201.png"
+                      }
+                      alt="Image"
+                    />
+                  </div>
+                  <div className={styles.image}>
+                    <img
+                      src={
+                        "https://bartcevich.github.io/letter/image_favorit/42%201.png"
+                      }
+                      alt="Image"
+                    />
+                  </div>
                 </div>
-              </div>
-            </button>
-          </div>
-          <div className={styles.section}>
-            <h2>меню для третьей недели</h2>
-            <button
-              className={styles.button}
-              onClick={() => menuDay(setOfDishes3)}
-            >
-              <div className={styles.container_img}>
-                <div className={styles.image}>
-                  <img
-                    src={
-                      "https://bartcevich.github.io/letter/image_favorit/31%201.png"
-                    }
-                    alt="Image"
-                  />
-                </div>
-                <div className={styles.image}>
-                  <img
-                    src={
-                      "https://bartcevich.github.io/letter/image_favorit/32%201.png"
-                    }
-                    alt="Image"
-                  />
-                </div>
-              </div>
-            </button>
-          </div>
-          <div className={styles.section}>
-            <h2>меню для четвертой недели</h2>
-            <button
-              className={styles.button}
-              onClick={() => menuDay(setOfDishes4)}
-            >
-              <div className={styles.container_img}>
-                <div className={styles.image}>
-                  <img
-                    src={
-                      "https://bartcevich.github.io/letter/image_favorit/41%201.png"
-                    }
-                    alt="Image"
-                  />
-                </div>
-                <div className={styles.image}>
-                  <img
-                    src={
-                      "https://bartcevich.github.io/letter/image_favorit/42%201.png"
-                    }
-                    alt="Image"
-                  />
-                </div>
-              </div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
       </div>

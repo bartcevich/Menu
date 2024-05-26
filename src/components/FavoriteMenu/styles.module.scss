@@ -22,6 +22,11 @@
     min-height: 100vh;
   }
   .background3 {
+    background: linear-gradient(45deg, #64b5f6, #81c784, #ffeb3b, #ff8a65);
+     background-size: 400% 400%;
+    animation: gradientAnimation 7s ease infinite;
+  }
+  .background4 {
     background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
     background-repeat: no-repeat;
     background-size: cover;

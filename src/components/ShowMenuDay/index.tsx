@@ -120,7 +120,7 @@ const ShowMenuDay: React.FC<MondayProps> = (props) => {
             </div>
             <div>
               <div className={styles.label}>
-                <span>{menuItem.label}</span>
+                <span className={styles.nameDish}>{menuItem.label}</span>
                 <span> Для </span>
                 <span className={styles.numberServings}>
                   <button onClick={() => countMinus(menuItem)}>-</button>

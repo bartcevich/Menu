@@ -62,8 +62,9 @@
 //     outline: none;
 //   }
 @media (hover: hover)  {
-    .buttonGroup:hover{
+    .buttonGroup:hover {
         background-color: rgba(153, 181, 191, 0.5);
+        // filter: drop-shadow(0 0 10px #220ac2);
     }
 }
 @media (hover: none)  {
