@@ -1,5 +1,5 @@
-exports.id = 919;
-exports.ids = [919];
+exports.id = 520;
+exports.ids = [520];
 exports.modules = {
 
 /***/ 7496:
@@ -13,12 +13,12 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_
 
 /***/ }),
 
-/***/ 3177:
+/***/ 7993:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4494));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6473));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4700))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4700));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4494))
 
 /***/ }),
 
@@ -335,19 +335,16 @@ const Navigation = ()=>{
                 (!isMobile || isMenuOpen) && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                     className: (styles_module_default()).mobileMenu,
                     children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                            className: (styles_module_default()).dropdownTitle,
-                            onClick: handleClick3,
-                            href: "/",
-                            children: "О сайте"
-                        }),
                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                             className: (styles_module_default()).dropdown,
                             children: [
-                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                     className: (styles_module_default()).dropdownTitle,
                                     onClick: handleClick2,
-                                    children: "Советы нутрициолога:"
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx("span", {}),
+                                        "От нутрициолога"
+                                    ]
                                 }),
                                 openMenu2 && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                     className: !isMobile ? (styles_module_default()).dropdownContent : (styles_module_default()).dropdownContentMobile,
@@ -371,10 +368,13 @@ const Navigation = ()=>{
                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                             className: (styles_module_default()).dropdown,
                             children: [
-                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                     className: (styles_module_default()).dropdownTitle,
                                     onClick: handleClick1,
-                                    children: "Полезные статьи:"
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx("span", {}),
+                                        "Полезные статьи"
+                                    ]
                                 }),
                                 openMenu1 && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                     className: !isMobile ? (styles_module_default()).dropdownContent : (styles_module_default()).dropdownContentMobile,
@@ -398,6 +398,18 @@ const Navigation = ()=>{
                                     ]
                                 })
                             ]
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (styles_module_default()).dropdown,
+                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)((link_default()), {
+                                className: (styles_module_default()).dropdownTitle,
+                                onClick: handleClick3,
+                                href: "/",
+                                children: [
+                                    /*#__PURE__*/ jsx_runtime_.jsx("span", {}),
+                                    "О сайте"
+                                ]
+                            })
                         })
                     ]
                 }),
@@ -458,7 +470,7 @@ const MenuProvider = ({ children })=>{
     }, [
         userChoice
     ]);
-    //console.log("userChoice=", userChoice);
+    console.log("userChoice=", userChoice);
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(IngredientsContext.Provider, {
         value: value,
         children: children
@@ -521,6 +533,7 @@ module.exports = {
 	"burgerMenu": "styles_burgerMenu__iASrR",
 	"mobileMenu": "styles_mobileMenu__5l3uC",
 	"logo": "styles_logo__sONaQ",
+	"dropdown": "styles_dropdown__YRLRo",
 	"dropdownContent": "styles_dropdownContent__N_hIO",
 	"dropdownContentMobile": "styles_dropdownContentMobile__gyrZB",
 	"active": "styles_active__Pyknv",

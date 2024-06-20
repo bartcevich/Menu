@@ -44,6 +44,7 @@
     border-radius: 4px;
 }
 .buttonGroup{
+    margin-bottom: 5px;
     width: 130px;
         height: 30px;
         border: 2px solid #E47611;
@@ -63,6 +64,7 @@
 //   }
 @media (hover: hover)  {
     .buttonGroup:hover {
+        transform: scale(1.2);
         background-color: rgba(153, 181, 191, 0.5);
         // filter: drop-shadow(0 0 10px #220ac2);
     }

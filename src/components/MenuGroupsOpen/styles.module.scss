@@ -44,14 +44,17 @@
     border-radius: 4px;
 }
 .menuGroup{
+    margin-bottom: 5px;
     width: 130px;
         height: 30px;
         border: 2px solid #E47611;
         border-radius: 10px;
         @include font(#E47611, Inter, 15px, normal, 400, 15px, 0);
 }
+
 @media (hover: hover)  {
     .menuGroup:hover{
+        transform: scale(1.2);
         background-color: rgba(153, 181, 191, 0.5);
     }
 }

@@ -1,4 +1,5 @@
 @import '@/app/variables.scss';
+
 .center{
     padding-top: 65px;
     display: flex;
@@ -77,6 +78,8 @@
 
 .background{
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 .background_image{
     width: 320px;
@@ -85,7 +88,7 @@
     position: absolute;
     display: flex;
     flex-flow: column;
-    left: 35px;
+    left: 175px;
     top: 80px;
 }
 .image{
@@ -103,7 +106,7 @@
     top: 85px;
     /* right: -11px; */
     left: -30px;
-    width: 500px;
+    width: 450px;
 }
 .menuItem{
     background-color: rgba(153, 181, 191, 0.9);
@@ -119,10 +122,14 @@
     @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
     font-size: clamp(15px, 3vw, 20px);
 }
-@media (max-width: 550px){
+@media (max-width: 600px){
     .wrapper{
         max-width: 300px;
-    width: 100%;
+        width: 100%;
+
+    }
+    .container_background{
+        left: 35px;
     }
     .container_scroll{
         width: 298px;

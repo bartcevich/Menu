@@ -371,11 +371,11 @@ function CookFromAvailable() {
         const enteredAnswer = e.target.value;
         setAnswer(enteredAnswer);
     };
-    const [number, setNumber] = (0,react_.useState)(1);
+    const [backgroundClassState, setBackgroundClassState] = (0,react_.useState)("");
     const dataForComponent = ()=>{
         const stateFirstUndefined = userChoice;
         const numberGet = stateFirstUndefined.background || 1;
-        setNumber(numberGet);
+        setBackgroundClassState(`${(styles_module_default())[`background${numberGet}`]}`);
     };
     //задание однократного вызова из памяти номера фона
     (0,react_.useEffect)(()=>{
@@ -385,11 +385,9 @@ function CookFromAvailable() {
     }, [
         userChoice
     ]);
-    //установка имени класса в зависимости от выбора пользователя
-    let backgroundClass = number === 1 ? (styles_module_default()).background1 : number === 2 ? (styles_module_default()).background2 : number === 3 ? (styles_module_default()).background3 : (styles_module_default()).background4;
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-            className: `${(styles_module_default()).center} ${backgroundClass}`,
+            className: `${(styles_module_default()).center} ${backgroundClassState}`,
             children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
                 className: (styles_module_default()).wrapper,
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
@@ -656,7 +654,7 @@ function CookFromPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,919,245], () => (__webpack_exec__(757)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,520,245], () => (__webpack_exec__(757)));
 module.exports = __webpack_exports__;
 
 })();

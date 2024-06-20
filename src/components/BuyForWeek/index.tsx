@@ -78,13 +78,13 @@ export default function BuyForWeek() {
           <button className={styles.handleCopy} onClick={handleCopy}>
             <FontAwesomeIcon icon={faCopy} />
           </button>
-          <div className={styles.buyForDay}>
+          <ul className={styles.buyForDay}>
             {Object.entries(sumIngredientsPrint).map(([ingredient, weight]) => (
-              <div key={ingredient}>
+              <li key={ingredient}>
                 {ingredient}: {weight as number}
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </details>
         {showTooltip && (
           <div className={styles.tooltip}>Cписок скопирован!</div>

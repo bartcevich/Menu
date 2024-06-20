@@ -116,7 +116,12 @@ const ShowMenuDay: React.FC<MondayProps> = (props) => {
         <div key={index} className={styles.menuItem}>
           <div className={styles.container}>
             <div className={styles.image}>
-              <img src={menuItem.image} alt="Image" />
+              <img
+                src={menuItem.image}
+                alt="Image"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div>
               <div className={styles.label}>

@@ -103,11 +103,11 @@ export default function FavoriteMenu() {
     window.location.href = "/";
   };
 
-  const [number, setNumber] = useState(1);
+  const [backgroundClassState, setBackgroundClassState] = useState("");
   const dataForComponent = () => {
     const stateFirstUndefined: any = userChoice;
     const numberGet = stateFirstUndefined.background || 1;
-    setNumber(numberGet);
+    setBackgroundClassState(`${styles[`background${numberGet}`]}`);
   };
   //задание однократного вызова из памяти номера фона
   useEffect(() => {
@@ -119,19 +119,10 @@ export default function FavoriteMenu() {
       dataForComponent();
     }
   }, [userChoice]);
-  //установка имени класса в зависимости от выбора пользователя
-  let backgroundClass =
-    number === 1
-      ? styles.background1
-      : number === 2
-      ? styles.background2
-      : number === 3
-      ? styles.background3
-      : styles.background4;
 
   return (
     <>
-      <div className={`${backgroundClass}`}>
+      <div className={backgroundClassState}>
         <div className={`${styles.wrapper} ${styles.noWorck2Styles}`}>
           <h2>Вкусное и недорогое меню для семьи на месяц</h2>
           <div className={styles.container}>

@@ -108,16 +108,9 @@ const Navigation: React.FC = () => {
         </Link>
         {(!isMobile || isMenuOpen) && (
           <div className={styles.mobileMenu}>
-            <Link
-              className={styles.dropdownTitle}
-              onClick={handleClick3}
-              href="/"
-            >
-              О сайте
-            </Link>
             <div className={styles.dropdown}>
               <div className={styles.dropdownTitle} onClick={handleClick2}>
-                Советы нутрициолога:
+                <span></span>От нутрициолога
               </div>
               {openMenu2 && (
                 <div
@@ -137,7 +130,7 @@ const Navigation: React.FC = () => {
             </div>
             <div className={styles.dropdown}>
               <div className={styles.dropdownTitle} onClick={handleClick1}>
-                Полезные статьи:
+                <span></span>Полезные статьи
               </div>
               {openMenu1 && (
                 <div
@@ -153,6 +146,15 @@ const Navigation: React.FC = () => {
                   <a href="/">советы по выбору продуктов</a>
                 </div>
               )}
+            </div>
+            <div className={styles.dropdown}>
+              <Link
+                className={styles.dropdownTitle}
+                onClick={handleClick3}
+                href="/"
+              >
+                <span></span>О сайте
+              </Link>
             </div>
           </div>
         )}

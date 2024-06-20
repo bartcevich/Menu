@@ -61,11 +61,11 @@ export default function CookFromAvailable() {
     setAnswer(enteredAnswer);
   };
 
-  const [number, setNumber] = useState(1);
+  const [backgroundClassState, setBackgroundClassState] = useState("");
   const dataForComponent = () => {
     const stateFirstUndefined: any = userChoice;
     const numberGet = stateFirstUndefined.background || 1;
-    setNumber(numberGet);
+    setBackgroundClassState(`${styles[`background${numberGet}`]}`);
   };
   //задание однократного вызова из памяти номера фона
   useEffect(() => {
@@ -77,19 +77,10 @@ export default function CookFromAvailable() {
       dataForComponent();
     }
   }, [userChoice]);
-  //установка имени класса в зависимости от выбора пользователя
-  let backgroundClass =
-    number === 1
-      ? styles.background1
-      : number === 2
-      ? styles.background2
-      : number === 3
-      ? styles.background3
-      : styles.background4;
 
   return (
     <>
-      <div className={`${styles.center} ${backgroundClass}`}>
+      <div className={`${styles.center} ${backgroundClassState}`}>
         <div className={styles.wrapper}>
           {/* <h2>Выберите ингридиент для приготовления</h2> */}
           <div className={styles.background}>

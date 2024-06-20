@@ -3,7 +3,7 @@
 import "./globals.css";
 import styles from "./style.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Inter } from "next/font/google";
+import { Content, Inter } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { MenuProvider } from "@/context/IngredientsContext";

@@ -1391,7 +1391,9 @@ const ShowMenuDay = (props)=>{
                             className: (ShowMenuDay_styles_module_default()).image,
                             children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
                                 src: menuItem.image,
-                                alt: "Image"
+                                alt: "Image",
+                                loading: "lazy",
+                                decoding: "async"
                             })
                         }),
                         /*#__PURE__*/ jsx_runtime_.jsx("div", {
@@ -1864,9 +1866,9 @@ function BuyForWeek() {
                                     icon: free_solid_svg_icons/* faCopy */.kZ_
                                 })
                             }),
-                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            /*#__PURE__*/ jsx_runtime_.jsx("ul", {
                                 className: (BuyForWeek_styles_module_default()).buyForDay,
-                                children: Object.entries(sumIngredientsPrint).map(([ingredient, weight])=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                children: Object.entries(sumIngredientsPrint).map(([ingredient, weight])=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("li", {
                                         children: [
                                             ingredient,
                                             ": ",
@@ -2740,7 +2742,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,919,245], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,520,245], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

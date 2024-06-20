@@ -7,9 +7,18 @@
     max-width: 100px;
     width: 100%;
     padding-right: 5px;
+    margin-bottom: 5px;
     display: flex;
     justify-content: flex-end;
     // clip-path: circle(50% at 50% 50%);
+    
+}
+.image>img{
+    border-top-left-radius: 1.5rem;
+    // border-top-right-radius: 1rem;
+    border-bottom-right-radius: 0.9rem;
+    // border-bottom-left-radius: 2rem;
+    rotate: -1deg;
 }
 .label{
     max-width: 200px;
