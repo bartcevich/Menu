@@ -64,8 +64,8 @@
 //   }
 @media (hover: hover)  {
     .buttonGroup:hover {
-        transform: scale(1.2);
         background-color: rgba(153, 181, 191, 0.5);
+        transform: scale(1.1);
         // filter: drop-shadow(0 0 10px #220ac2);
     }
 }

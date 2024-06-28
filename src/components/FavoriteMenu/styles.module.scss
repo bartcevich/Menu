@@ -33,7 +33,24 @@
     background-attachment: fixed;
     min-height: 100vh;
   }
-@media (min-width: 630px){
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 0%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+@media (min-width: 950px){
     .wrapper{
         height: 85vh;
     }

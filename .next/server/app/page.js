@@ -1798,6 +1798,7 @@ var BuyForWeek_styles_module_default = /*#__PURE__*/__webpack_require__.n(BuyFor
 function BuyForWeek() {
     const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [sumIngredientsPrint, setSumIngredientsPrint] = (0,react_.useState)({});
+    const [menuPrint, setMenuPrint] = (0,react_.useState)([]);
     const dataForComponent = ()=>{
         const stateFirstUndefined = userChoice;
         const userChoiceForComponent = {
@@ -1809,8 +1810,9 @@ function BuyForWeek() {
             ...stateFirstUndefined["day6_feature"] || {},
             ...stateFirstUndefined["day7_feature"] || {}
         };
+        setMenuPrint(Object.keys(userChoiceForComponent));
+        console.log("all day", Object.keys(userChoiceForComponent));
         const oneArrIngredients = Object.values(userChoiceForComponent).map((item)=>item.ingredients).flat();
-        //console.log("all day", oneArrIngredients);
         setSumIngredientsPrint(oneArrIngredients.reduce((accumulator, current)=>{
             const [ingredient, weight] = current;
             if (accumulator.hasOwnProperty(ingredient)) {
@@ -1854,6 +1856,19 @@ function BuyForWeek() {
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: (BuyForWeek_styles_module_default()).container,
                 children: [
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("details", {
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("summary", {
+                                children: "Выбранные блюда"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("ul", {
+                                className: (BuyForWeek_styles_module_default()).buyForDay,
+                                children: menuPrint.map((name, index)=>/*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                        children: name
+                                    }, index))
+                            })
+                        ]
+                    }),
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("details", {
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx("summary", {
@@ -2742,7 +2757,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,520,245], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,308,245], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

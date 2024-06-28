@@ -8,6 +8,7 @@ import { faCartShopping, faCopy } from "@fortawesome/free-solid-svg-icons";
 export default function BuyForWeek() {
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const [sumIngredientsPrint, setSumIngredientsPrint] = useState({});
+  const [menuPrint, setMenuPrint] = useState<any[]>([]);
 
   const dataForComponent = () => {
     const stateFirstUndefined: any = userChoice;
@@ -20,10 +21,11 @@ export default function BuyForWeek() {
       ...(stateFirstUndefined["day6_feature"] || {}),
       ...(stateFirstUndefined["day7_feature"] || {}),
     };
+    setMenuPrint(Object.keys(userChoiceForComponent));
+    console.log("all day", Object.keys(userChoiceForComponent));
     const oneArrIngredients = Object.values(userChoiceForComponent)
       .map((item: any) => item.ingredients)
       .flat();
-    //console.log("all day", oneArrIngredients);
 
     setSumIngredientsPrint(
       oneArrIngredients.reduce((accumulator, current) => {
@@ -73,6 +75,14 @@ export default function BuyForWeek() {
   return (
     <>
       <div className={styles.container}>
+        <details>
+          <summary>Выбранные блюда</summary>
+          <ul className={styles.buyForDay}>
+            {menuPrint.map((name, index) => (
+              <li key={index}>{name}</li>
+            ))}
+          </ul>
+        </details>
         <details>
           <summary>Oбщий список:</summary>
           <button className={styles.handleCopy} onClick={handleCopy}>
