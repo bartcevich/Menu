@@ -290,6 +290,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ 7496:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 1522, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 125, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 6249, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 7844, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 8782, 23))
+
+/***/ }),
+
 /***/ 9332:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -619,28 +630,54 @@ function FavoriteMenu() {
                                     /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                                         children: "меню для первой недели"
                                     }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
                                         className: (styles_module_default()).button,
                                         onClick: ()=>menuDay(setOfDishes1),
-                                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                            className: (styles_module_default()).container_img,
-                                            children: [
-                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                    className: (styles_module_default()).image,
-                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                                        src: "https://bartcevich.github.io/letter/image_favorit/11%201.png",
-                                                        alt: "Image"
-                                                    })
-                                                }),
-                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                    className: (styles_module_default()).image,
-                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                                        src: "https://bartcevich.github.io/letter/image_favorit/12%201.png",
-                                                        alt: "Image"
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: (styles_module_default()).front,
+                                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                    className: (styles_module_default()).container_img,
+                                                    children: [
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                            className: (styles_module_default()).image,
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                                src: "https://bartcevich.github.io/letter/image_favorit/11%201.png",
+                                                                alt: "Image"
+                                                            })
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                            className: (styles_module_default()).image,
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                                src: "https://bartcevich.github.io/letter/image_favorit/12%201.png",
+                                                                alt: "Image"
+                                                            })
+                                                        })
+                                                    ]
+                                                })
+                                            }),
+                                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: (styles_module_default()).back,
+                                                children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                    className: (styles_module_default()).content,
+                                                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                        className: (styles_module_default()).main,
+                                                        children: [
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("h4", {
+                                                                className: (styles_module_default()).text_center,
+                                                                children: "Здесь будет описание карточки"
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                                children: "Inna was working with our team since 2012."
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                                children: "Web design"
+                                                            })
+                                                        ]
                                                     })
                                                 })
-                                            ]
-                                        })
+                                            })
+                                        ]
                                     })
                                 ]
                             }),
@@ -650,28 +687,54 @@ function FavoriteMenu() {
                                     /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                                         children: "меню для второй недели"
                                     }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
                                         className: (styles_module_default()).button,
                                         onClick: ()=>menuDay(setOfDishes2),
-                                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                            className: (styles_module_default()).container_img,
-                                            children: [
-                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                    className: (styles_module_default()).image,
-                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                                        src: "https://bartcevich.github.io/letter/image_favorit/21%201.png",
-                                                        alt: "Image"
-                                                    })
-                                                }),
-                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                    className: (styles_module_default()).image,
-                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                                        src: "https://bartcevich.github.io/letter/image_favorit/22%201.png",
-                                                        alt: "Image"
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: (styles_module_default()).front,
+                                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                    className: (styles_module_default()).container_img,
+                                                    children: [
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                            className: (styles_module_default()).image,
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                                src: "https://bartcevich.github.io/letter/image_favorit/21%201.png",
+                                                                alt: "Image"
+                                                            })
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                            className: (styles_module_default()).image,
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                                src: "https://bartcevich.github.io/letter/image_favorit/22%201.png",
+                                                                alt: "Image"
+                                                            })
+                                                        })
+                                                    ]
+                                                })
+                                            }),
+                                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: (styles_module_default()).back,
+                                                children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                    className: (styles_module_default()).content,
+                                                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                        className: (styles_module_default()).main,
+                                                        children: [
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("h4", {
+                                                                className: (styles_module_default()).text_center,
+                                                                children: "Здесь будет описание карточки"
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                                children: "Inna was working with our team since 2012."
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                                children: "Web design"
+                                                            })
+                                                        ]
                                                     })
                                                 })
-                                            ]
-                                        })
+                                            })
+                                        ]
                                     })
                                 ]
                             }),
@@ -681,28 +744,54 @@ function FavoriteMenu() {
                                     /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                                         children: "меню для третьей недели"
                                     }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
                                         className: (styles_module_default()).button,
                                         onClick: ()=>menuDay(setOfDishes3),
-                                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                            className: (styles_module_default()).container_img,
-                                            children: [
-                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                    className: (styles_module_default()).image,
-                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                                        src: "https://bartcevich.github.io/letter/image_favorit/31%201.png",
-                                                        alt: "Image"
-                                                    })
-                                                }),
-                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                    className: (styles_module_default()).image,
-                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                                        src: "https://bartcevich.github.io/letter/image_favorit/32%201.png",
-                                                        alt: "Image"
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: (styles_module_default()).front,
+                                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                    className: (styles_module_default()).container_img,
+                                                    children: [
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                            className: (styles_module_default()).image,
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                                src: "https://bartcevich.github.io/letter/image_favorit/31%201.png",
+                                                                alt: "Image"
+                                                            })
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                            className: (styles_module_default()).image,
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                                src: "https://bartcevich.github.io/letter/image_favorit/32%201.png",
+                                                                alt: "Image"
+                                                            })
+                                                        })
+                                                    ]
+                                                })
+                                            }),
+                                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: (styles_module_default()).back,
+                                                children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                    className: (styles_module_default()).content,
+                                                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                        className: (styles_module_default()).main,
+                                                        children: [
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("h4", {
+                                                                className: (styles_module_default()).text_center,
+                                                                children: "Здесь будет описание карточки"
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                                children: "Inna was working with our team since 2012."
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                                children: "Web design"
+                                                            })
+                                                        ]
                                                     })
                                                 })
-                                            ]
-                                        })
+                                            })
+                                        ]
                                     })
                                 ]
                             }),
@@ -712,28 +801,54 @@ function FavoriteMenu() {
                                     /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                                         children: "меню для четвертой недели"
                                     }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
                                         className: (styles_module_default()).button,
                                         onClick: ()=>menuDay(setOfDishes4),
-                                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                            className: (styles_module_default()).container_img,
-                                            children: [
-                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                    className: (styles_module_default()).image,
-                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                                        src: "https://bartcevich.github.io/letter/image_favorit/41%201.png",
-                                                        alt: "Image"
-                                                    })
-                                                }),
-                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                    className: (styles_module_default()).image,
-                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                                        src: "https://bartcevich.github.io/letter/image_favorit/42%201.png",
-                                                        alt: "Image"
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: (styles_module_default()).front,
+                                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                    className: (styles_module_default()).container_img,
+                                                    children: [
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                            className: (styles_module_default()).image,
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                                src: "https://bartcevich.github.io/letter/image_favorit/41%201.png",
+                                                                alt: "Image"
+                                                            })
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                            className: (styles_module_default()).image,
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                                src: "https://bartcevich.github.io/letter/image_favorit/42%201.png",
+                                                                alt: "Image"
+                                                            })
+                                                        })
+                                                    ]
+                                                })
+                                            }),
+                                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                className: (styles_module_default()).back,
+                                                children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                    className: (styles_module_default()).content,
+                                                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                        className: (styles_module_default()).main,
+                                                        children: [
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("h4", {
+                                                                className: (styles_module_default()).text_center,
+                                                                children: "Здесь будет описание карточки"
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                                children: "Inna was working with our team since 2012."
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                                children: "Web design"
+                                                            })
+                                                        ]
                                                     })
                                                 })
-                                            ]
-                                        })
+                                            })
+                                        ]
                                     })
                                 ]
                             })
@@ -766,6 +881,11 @@ module.exports = {
 	"container": "styles_container__2XcUd",
 	"section": "styles_section__HmXUU",
 	"button": "styles_button__S7SPw",
+	"hover": "styles_hover__b1u27",
+	"static": "styles_static__ObauM",
+	"front": "styles_front__LoHtc",
+	"back": "styles_back__16MLc",
+	"content": "styles_content__lLU1K",
 	"container_img": "styles_container_img__zrXCJ",
 	"image": "styles_image__wGRCC"
 };
@@ -821,7 +941,7 @@ function FavoriteMenuPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,308,245], () => (__webpack_exec__(7028)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,650,245], () => (__webpack_exec__(7028)));
 module.exports = __webpack_exports__;
 
 })();

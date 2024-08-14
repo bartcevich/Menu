@@ -10,6 +10,7 @@ import SideDish from "@/components/SideDish";
 import ShowMenuDay from "@/components/ShowMenuDay";
 import PartMenuName from "@/components/PartMenuName";
 import PartMenuComments from "@/components/PartMenuComments";
+import cn from "clsx";
 
 export default function MenuGroups(props: any) {
   const [openMenu, setOpenMenu] = useState(true);
@@ -22,14 +23,26 @@ export default function MenuGroups(props: any) {
     <>
       <div className={styles.container_top}>
         <PartMenuName day={day} />
-        <div className={styles.container_button}>
+        <div
+          className={cn(styles.container_button, {
+            [styles.tooltip]: true,
+          })}
+        >
           <button
             type="button"
             className={styles.menuGroup}
             onClick={handleClick}
+            // data-tooltip="test"
           >
             {openMenu ? "Возврат к меню" : "Тип блюда"}
           </button>
+          <div
+            className={cn(styles.tooltiptext, {
+              [styles.tooltipTop]: true,
+            })}
+          >
+            нажмите для выбора блюд
+          </div>
         </div>
         {openMenu && (
           <div className={styles.container_popup}>

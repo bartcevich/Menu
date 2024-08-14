@@ -132,48 +132,75 @@ export default function FavoriteMenu() {
                 className={styles.button}
                 onClick={() => menuDay(setOfDishes1)}
               >
-                <div className={styles.container_img}>
-                  <div className={styles.image}>
-                    <img
-                      src={
-                        "https://bartcevich.github.io/letter/image_favorit/11%201.png"
-                      }
-                      alt="Image"
-                    />
+                <div className={styles.front}>
+                  <div className={styles.container_img}>
+                    <div className={styles.image}>
+                      <img
+                        src={
+                          "https://bartcevich.github.io/letter/image_favorit/11%201.png"
+                        }
+                        alt="Image"
+                      />
+                    </div>
+                    <div className={styles.image}>
+                      <img
+                        src={
+                          "https://bartcevich.github.io/letter/image_favorit/12%201.png"
+                        }
+                        alt="Image"
+                      />
+                    </div>
                   </div>
-                  <div className={styles.image}>
-                    <img
-                      src={
-                        "https://bartcevich.github.io/letter/image_favorit/12%201.png"
-                      }
-                      alt="Image"
-                    />
+                </div>
+                <div className={styles.back}>
+                  <div className={styles.content}>
+                    <div className={styles.main}>
+                      <h4 className={styles.text_center}>
+                        Здесь будет описание карточки
+                      </h4>
+                      <p>Inna was working with our team since 2012.</p>
+                      <p>Web design</p>
+                    </div>
                   </div>
                 </div>
               </button>
             </div>
+
             <div className={styles.section}>
               <h2>меню для второй недели</h2>
               <button
                 className={styles.button}
                 onClick={() => menuDay(setOfDishes2)}
               >
-                <div className={styles.container_img}>
-                  <div className={styles.image}>
-                    <img
-                      src={
-                        "https://bartcevich.github.io/letter/image_favorit/21%201.png"
-                      }
-                      alt="Image"
-                    />
+                <div className={styles.front}>
+                  <div className={styles.container_img}>
+                    <div className={styles.image}>
+                      <img
+                        src={
+                          "https://bartcevich.github.io/letter/image_favorit/21%201.png"
+                        }
+                        alt="Image"
+                      />
+                    </div>
+                    <div className={styles.image}>
+                      <img
+                        src={
+                          "https://bartcevich.github.io/letter/image_favorit/22%201.png"
+                        }
+                        alt="Image"
+                      />
+                    </div>
                   </div>
-                  <div className={styles.image}>
-                    <img
-                      src={
-                        "https://bartcevich.github.io/letter/image_favorit/22%201.png"
-                      }
-                      alt="Image"
-                    />
+                </div>
+                <div className={styles.back}>
+                  <div className={styles.content}>
+                    <div className={styles.main}>
+                      <h4 className={styles.text_center}>
+                        Здесь будет описание карточки
+                      </h4>
+                      <p>Inna was working with our team since 2012.</p>
+                      <p>Web design</p>
+                    </div>
                   </div>
                 </div>
               </button>
@@ -184,22 +211,35 @@ export default function FavoriteMenu() {
                 className={styles.button}
                 onClick={() => menuDay(setOfDishes3)}
               >
-                <div className={styles.container_img}>
-                  <div className={styles.image}>
-                    <img
-                      src={
-                        "https://bartcevich.github.io/letter/image_favorit/31%201.png"
-                      }
-                      alt="Image"
-                    />
+                <div className={styles.front}>
+                  <div className={styles.container_img}>
+                    <div className={styles.image}>
+                      <img
+                        src={
+                          "https://bartcevich.github.io/letter/image_favorit/31%201.png"
+                        }
+                        alt="Image"
+                      />
+                    </div>
+                    <div className={styles.image}>
+                      <img
+                        src={
+                          "https://bartcevich.github.io/letter/image_favorit/32%201.png"
+                        }
+                        alt="Image"
+                      />
+                    </div>
                   </div>
-                  <div className={styles.image}>
-                    <img
-                      src={
-                        "https://bartcevich.github.io/letter/image_favorit/32%201.png"
-                      }
-                      alt="Image"
-                    />
+                </div>
+                <div className={styles.back}>
+                  <div className={styles.content}>
+                    <div className={styles.main}>
+                      <h4 className={styles.text_center}>
+                        Здесь будет описание карточки
+                      </h4>
+                      <p>Inna was working with our team since 2012.</p>
+                      <p>Web design</p>
+                    </div>
                   </div>
                 </div>
               </button>
@@ -210,22 +250,35 @@ export default function FavoriteMenu() {
                 className={styles.button}
                 onClick={() => menuDay(setOfDishes4)}
               >
-                <div className={styles.container_img}>
-                  <div className={styles.image}>
-                    <img
-                      src={
-                        "https://bartcevich.github.io/letter/image_favorit/41%201.png"
-                      }
-                      alt="Image"
-                    />
+                <div className={styles.front}>
+                  <div className={styles.container_img}>
+                    <div className={styles.image}>
+                      <img
+                        src={
+                          "https://bartcevich.github.io/letter/image_favorit/41%201.png"
+                        }
+                        alt="Image"
+                      />
+                    </div>
+                    <div className={styles.image}>
+                      <img
+                        src={
+                          "https://bartcevich.github.io/letter/image_favorit/42%201.png"
+                        }
+                        alt="Image"
+                      />
+                    </div>
                   </div>
-                  <div className={styles.image}>
-                    <img
-                      src={
-                        "https://bartcevich.github.io/letter/image_favorit/42%201.png"
-                      }
-                      alt="Image"
-                    />
+                </div>
+                <div className={styles.back}>
+                  <div className={styles.content}>
+                    <div className={styles.main}>
+                      <h4 className={styles.text_center}>
+                        Здесь будет описание карточки
+                      </h4>
+                      <p>Inna was working with our team since 2012.</p>
+                      <p>Web design</p>
+                    </div>
                   </div>
                 </div>
               </button>

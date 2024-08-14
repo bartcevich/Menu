@@ -281,14 +281,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 463:
+/***/ 7496:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 3915))
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 1522, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 125, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 6249, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 7844, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 8782, 23))
 
 /***/ }),
 
-/***/ 3915:
+/***/ 463:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4520))
+
+/***/ }),
+
+/***/ 4520:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1637,8 +1648,11 @@ function PartMenuComments_MenuGroups(props) {
     });
 }
 
+;// CONCATENATED MODULE: ./node_modules/clsx/dist/clsx.mjs
+function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ const dist_clsx = (clsx);
 ;// CONCATENATED MODULE: ./src/components/MenuGroupsOpen/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
+
 
 
 
@@ -1664,14 +1678,24 @@ function MenuGroupsOpen_MenuGroups(props) {
                     /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups, {
                         day: day
                     }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: (MenuGroupsOpen_styles_module_default()).container_button,
-                        children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                            type: "button",
-                            className: (MenuGroupsOpen_styles_module_default()).menuGroup,
-                            onClick: handleClick,
-                            children: openMenu ? "Возврат к меню" : "Тип блюда"
-                        })
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: dist_clsx((MenuGroupsOpen_styles_module_default()).container_button, {
+                            [(MenuGroupsOpen_styles_module_default()).tooltip]: true
+                        }),
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                type: "button",
+                                className: (MenuGroupsOpen_styles_module_default()).menuGroup,
+                                onClick: handleClick,
+                                children: openMenu ? "Возврат к меню" : "Тип блюда"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: dist_clsx((MenuGroupsOpen_styles_module_default()).tooltiptext, {
+                                    [(MenuGroupsOpen_styles_module_default()).tooltipTop]: true
+                                }),
+                                children: "нажмите для выбора блюд"
+                            })
+                        ]
                     }),
                     openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: (MenuGroupsOpen_styles_module_default()).container_popup,
@@ -2472,12 +2496,13 @@ module.exports = {
 	"colorRedLight": "#ef233c",
 	"colorRedDark": "#d90429",
 	"container_top": "styles_container_top__obLDS",
+	"tooltiptext": "styles_tooltiptext__LDjuC",
+	"tooltip": "styles_tooltip__z2IP3",
 	"container_popup": "styles_container_popup__yS0Da",
 	"container_popup2": "styles_container_popup2__HdBzi",
 	"buyForDay": "styles_buyForDay__ZfzTB",
 	"handleIngredients": "styles_handleIngredients__VXhXi",
 	"handleCopy": "styles_handleCopy__E4QiS",
-	"tooltip": "styles_tooltip__z2IP3",
 	"menuGroup": "styles_menuGroup__LJkb9"
 };
 
@@ -2757,7 +2782,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,308,245], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,650,245], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

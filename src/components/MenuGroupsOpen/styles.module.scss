@@ -6,6 +6,27 @@
     //margin-left: 10px;
 }
 
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(153, 181, 191, 0.5);
+    color: #000;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+  
+    // &.tooltipTop {
+    //     top: 20px;
+    //     right: 117px;
+    //   margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    // }
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
 .container_popup{
     position: relative;
     width: 270px;
@@ -33,16 +54,16 @@
 .handleCopy{
     color: #E47611;
 }
-.tooltip {
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #333;
-    color: #E47611;
-    padding: 4px 8px;
-    border-radius: 4px;
-}
+// .tooltip {
+//     position: absolute;
+//     top: 85%;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     background: #333;
+//     color: #E47611;
+//     padding: 4px 8px;
+//     border-radius: 4px;
+// }
 .menuGroup{
     margin-bottom: 5px;
     width: 130px;
@@ -63,3 +84,9 @@
         background-color: rgba(153, 181, 191, 0.5);
     }
 }
+// .menuGroup::before{
+//     content: attr();
+// }
+// .menuGroup::after{
+// content: attr(data-tooltip);
+// }
