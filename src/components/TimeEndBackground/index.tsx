@@ -67,7 +67,7 @@ export default function TimeEndBackground() {
       .getBattery()
       .then((battery: any) => {
         // console.log(battery);
-        setCurrentStateBattery(`${battery.level * 100}%`);
+        setCurrentStateBattery(`${Math.round(battery.level * 100)}%`);
       })
       .catch((error: any) => {
         console.error("Failed to get battery info:", error);
