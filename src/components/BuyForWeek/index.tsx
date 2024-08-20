@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import styles from "./styles.module.scss";
 import { IngredientsContext } from "@/context/IngredientsContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faCopy } from "@fortawesome/free-solid-svg-icons";
 
 export default function BuyForWeek() {
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
@@ -51,6 +51,7 @@ export default function BuyForWeek() {
   }, [userChoice]);
   //копирование в буфер данных и подтверждение этого на экране
   const [showTooltip, setShowTooltip] = useState(false);
+  const [showCheck, setShowCheck] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const handleCopy = () => {
     if (textareaRef.current) {
@@ -61,6 +62,7 @@ export default function BuyForWeek() {
       textareaRef.current.select();
       document.execCommand("copy");
       setShowTooltip(true);
+      setShowCheck(true);
       setTimeout(() => {
         setShowTooltip(false);
       }, 5000);
@@ -85,8 +87,14 @@ export default function BuyForWeek() {
         </details>
         <details>
           <summary>Oбщий список:</summary>
-          <button className={styles.handleCopy} onClick={handleCopy}>
+          <button
+            aria-label="копировать список"
+            className={styles.handleCopy}
+            onClick={handleCopy}
+          >
             <FontAwesomeIcon icon={faCopy} />
+            <span> </span>
+            {showCheck && <FontAwesomeIcon icon={faCheck} />}
           </button>
           <ul className={styles.buyForDay}>
             {Object.entries(sumIngredientsPrint).map(([ingredient, weight]) => (

@@ -2,25 +2,30 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./styles.module.scss";
 import { IngredientsContext } from "@/context/IngredientsContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBattery } from "@fortawesome/free-solid-svg-icons";
+interface Navigator {
+  getBattery(): any;
+}
 
+// const TimeEndBackground: React.FC<Navigator> = () => {
 export default function TimeEndBackground() {
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const [number, setNumber] = useState(1);
-  const [currentTime, setCurrentTime] = useState(new Date()); // State to hold the current time
-  //const [isOnline, setIsOnline] = useState(window.navigator.onLine);
-
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentStateBattery, setCurrentStateBattery] = useState("100%");
+  // const [isOnline, setIsOnline] = useState(window.navigator.onLine);
   // useEffect(() => {
   //   const handleOnline = () => {
   //     setIsOnline(true);
-  //     console.log("line1=", isOnline);
   //   };
-
+  //   console.log("line1=", isOnline);
   //   const handleOffline = () => {
   //     setIsOnline(false);
   //     console.log("line2=", isOnline);
   //   };
 
-  //   window.addEventListener("online", handleOnline);
+  // window.addEventListener("ononline", handleOnline);
   //   window.addEventListener("offline", handleOffline);
 
   //   return () => {
@@ -58,6 +63,16 @@ export default function TimeEndBackground() {
   };
   //задание однократного вызова из памяти номера фона
   useEffect(() => {
+    (navigator as unknown as Navigator)
+      .getBattery()
+      .then((battery: any) => {
+        // console.log(battery);
+        setCurrentStateBattery(`${battery.level * 100}%`);
+      })
+      .catch((error: any) => {
+        console.error("Failed to get battery info:", error);
+      });
+
     if (
       typeof userChoice === "object" &&
       userChoice !== null &&
@@ -108,6 +123,8 @@ export default function TimeEndBackground() {
           </span>
         </div> */}
         <div className={styles.dateTimeFormat}>
+          <FontAwesomeIcon icon={faBattery} />={currentStateBattery}
+          <span> </span>
           {formatter.format(currentTime)}
         </div>
       </div>

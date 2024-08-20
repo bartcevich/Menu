@@ -119,6 +119,7 @@ export default function CookFromAvailable() {
                   <option value="Сосиски гр">Сосиски</option>
                   <option value="Ветчина гр">Ветчина</option>
                   <option value="Пельмени гр">Пельмени</option>
+                  <option value="Яйца куриные шт">Яйца куриные</option>
                 </optgroup>
                 <optgroup label="Mясо">
                   <option value="Грудинка гр">Грудинка</option>
