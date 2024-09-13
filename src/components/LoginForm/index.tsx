@@ -22,6 +22,7 @@ const LoginForm = () => {
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [answer, setAnswer] = useState("");
+  const [screenHeight, setScreenHeight] = useState(0);
   //1 проверка регистрации в этом дне
   useEffect(() => {
     if (
@@ -105,10 +106,20 @@ const LoginForm = () => {
     }
   };
 
+  useEffect(() => {
+    // Check if the window object is available
+    if (typeof window !== "undefined") {
+      setScreenHeight(window.innerHeight - 540);
+    }
+  }, []);
+
   return (
     <>
       {!isLoggedIn ? (
-        <div className={styles.wrapper}>
+        <div
+          className={styles.wrapper}
+          style={{ marginBottom: `${screenHeight}px` }}
+        >
           <form
             onSubmit={handleSubmit}
             className={`${styles.containerForm} ${

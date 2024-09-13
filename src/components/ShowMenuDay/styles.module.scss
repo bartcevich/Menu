@@ -46,13 +46,19 @@
 }
 .dropdownIcon{
     //position: absolute;
+    height: 20px;
     margin-left: 15px;
     color: #fff;
     font-size: 18px;
 }
 .dropdownIcon:hover{
     cursor: pointer;
+    transform: rotate(3turn);
+    transition: 2s;
 }
+// .dropdownIcon::before{
+    
+// }
 .ingredientCourse{
     @include font(#E47611, Inter, 20px, normal, 400, 17px, 0);
     font-size: clamp(15px, 3vw, 20px);
