@@ -2507,7 +2507,8 @@ module.exports = {
 	"slideIn": "styles_slideIn__8_QdL",
 	"containerForm": "styles_containerForm__3HubK",
 	"imageTest": "styles_imageTest__Ae7cL",
-	"button": "styles_button__ox83s"
+	"button": "styles_button__ox83s",
+	"wrapper": "styles_wrapper__T8DWD"
 };
 
 
