@@ -36,13 +36,13 @@ export default function MenuGroups(props: any) {
           >
             {openMenu ? "Возврат к меню" : "Тип блюда"}
           </button>
-          <div
+          {/* <div
             className={cn(styles.tooltiptext, {
               [styles.tooltipTop]: true,
             })}
           >
             нажмите для выбора блюд
-          </div>
+          </div> */}
         </div>
         {openMenu && (
           <div className={styles.container_popup}>
