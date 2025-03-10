@@ -284,11 +284,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 463:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4520))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 3915))
 
 /***/ }),
 
-/***/ 4520:
+/***/ 3915:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1637,11 +1637,8 @@ function PartMenuComments_MenuGroups(props) {
     });
 }
 
-;// CONCATENATED MODULE: ./node_modules/clsx/dist/clsx.mjs
-function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ const dist_clsx = (clsx);
 ;// CONCATENATED MODULE: ./src/components/MenuGroupsOpen/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
-
 
 
 
@@ -1667,16 +1664,19 @@ function MenuGroupsOpen_MenuGroups(props) {
                     /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups, {
                         day: day
                     }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: dist_clsx((MenuGroupsOpen_styles_module_default()).container_button, {
-                            [(MenuGroupsOpen_styles_module_default()).tooltip]: true
-                        }),
-                        children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                            type: "button",
-                            className: (MenuGroupsOpen_styles_module_default()).menuGroup,
-                            onClick: handleClick,
-                            children: openMenu ? "Возврат к меню" : "Тип блюда"
-                        })
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: (MenuGroupsOpen_styles_module_default()).container_button,
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                type: "button",
+                                className: (MenuGroupsOpen_styles_module_default()).menuGroup,
+                                onClick: handleClick,
+                                children: openMenu ? "Возврат к меню" : "Тип блюда"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                children: "нажмите для выбора блюд"
+                            })
+                        ]
                     }),
                     openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: (MenuGroupsOpen_styles_module_default()).container_popup,
@@ -1747,11 +1747,19 @@ function MenuGroups_MenuGroups(props) {
                     /*#__PURE__*/ jsx_runtime_.jsx(MenuGroups, {
                         day: day
                     }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                        type: "button",
-                        className: (MenuGroups_styles_module_default()).buttonGroup,
-                        onClick: handleClick,
-                        children: openMenu ? "Возврат к меню" : "Тип блюда"
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: (MenuGroups_styles_module_default()).container_button,
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                type: "button",
+                                className: (MenuGroups_styles_module_default()).buttonGroup,
+                                onClick: handleClick,
+                                children: openMenu ? "Возврат к меню" : "Тип блюда"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                children: "нажмите для выбора блюд"
+                            })
+                        ]
                     }),
                     openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: (MenuGroups_styles_module_default()).container_popup,
@@ -1836,7 +1844,7 @@ function BuyForWeek() {
     }, [
         userChoice
     ]);
-    //копирование в буфер данных и подтверждение этого на экране
+    //копирование в буфер ingredients и подтверждение этого на экране
     const [showTooltip, setShowTooltip] = (0,react_.useState)(false);
     const [showCheck, setShowCheck] = (0,react_.useState)(false);
     const textareaRef = (0,react_.useRef)(null);
@@ -1853,6 +1861,20 @@ function BuyForWeek() {
             }, 5000);
         }
     };
+    //копирование в буфер menu и подтверждение этого на экране
+    const [showCheckMenu, setShowCheckMenu] = (0,react_.useState)(false);
+    const handleCopyMenu = ()=>{
+        const textToCopy = menuPrint.join("\n");
+        navigator.clipboard.writeText(textToCopy).then(()=>{
+            setShowTooltip(true);
+            setShowCheckMenu(true);
+            setTimeout(()=>{
+                setShowTooltip(false);
+            }, 5000);
+        }).catch((error)=>{
+            console.error("Ошибка копирования: ", error);
+        });
+    };
     //включение показа списка покупок
     const [sumIngredients, setSumIngredients] = (0,react_.useState)(false);
     const handleIngredients = ()=>{
@@ -1864,9 +1886,26 @@ function BuyForWeek() {
                 className: (BuyForWeek_styles_module_default()).container,
                 children: [
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("details", {
+                        className: (BuyForWeek_styles_module_default()).details,
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx("summary", {
                                 children: "Выбранные блюда"
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
+                                "aria-label": "копировать список",
+                                className: (BuyForWeek_styles_module_default()).handleCopy,
+                                onClick: handleCopyMenu,
+                                children: [
+                                    /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                                        icon: free_solid_svg_icons/* faCopy */.kZ_
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                        children: " "
+                                    }),
+                                    showCheckMenu && /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                                        icon: free_solid_svg_icons/* faCheck */.LEp
+                                    })
+                                ]
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx("ul", {
                                 className: (BuyForWeek_styles_module_default()).buyForDay,
@@ -2516,6 +2555,7 @@ module.exports = {
 	"colorRedLight": "#ef233c",
 	"colorRedDark": "#d90429",
 	"container_top": "styles_container_top__obLDS",
+	"container_button": "styles_container_button__0QRjG",
 	"container_popup": "styles_container_popup__yS0Da",
 	"container_popup2": "styles_container_popup2__HdBzi",
 	"buyForDay": "styles_buyForDay__ZfzTB",
@@ -2539,6 +2579,7 @@ module.exports = {
 	"colorRedLight": "#ef233c",
 	"colorRedDark": "#d90429",
 	"container_top": "styles_container_top__NYIZS",
+	"container_button": "styles_container_button__XojBw",
 	"container_popup": "styles_container_popup__jLfpf",
 	"container_popup2": "styles_container_popup2__StMe3",
 	"buyForDay": "styles_buyForDay__utxQx",

@@ -6,6 +6,21 @@
     @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
 }
 
+.container_button p{
+    display: none;
+}
+@media (hover: hover)  {
+    .container_button:hover p{
+        display: block;
+        @include font(#fff, Inter, 16px, normal, 400, 20px, 0);
+    }
+}
+@media (hover: none)  {
+    .container_button p{
+        display: none;
+    }
+}
+
 .container_popup{
     position: relative;
     width: 270px;

@@ -22,13 +22,17 @@ export default function MenuGroups(props: any) {
     <>
       <div className={styles.container_top}>
         <PartMenuName day={day} />
-        <button
-          type="button"
-          className={styles.buttonGroup}
-          onClick={handleClick}
-        >
-          {openMenu ? "Возврат к меню" : "Тип блюда"}
-        </button>
+        <div className={styles.container_button}>
+          <button
+            type="button"
+            className={styles.buttonGroup}
+            onClick={handleClick}
+          >
+            {openMenu ? "Возврат к меню" : "Тип блюда"}
+          </button>
+          <p>нажмите для выбора блюд</p>
+        </div>
+
         {openMenu && (
           <div className={styles.container_popup}>
             <Starters

@@ -31,6 +31,10 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
+.nameDish::before {
+    content: "👉 "; /* Добавляем символ перед текстом */
+    color:#E47611;
+  }
 .numberServings {
     display: inline-block;
     margin: 0 10px;

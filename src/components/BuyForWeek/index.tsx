@@ -49,7 +49,7 @@ export default function BuyForWeek() {
       dataForComponent();
     }
   }, [userChoice]);
-  //копирование в буфер данных и подтверждение этого на экране
+  //копирование в буфер ingredients и подтверждение этого на экране
   const [showTooltip, setShowTooltip] = useState(false);
   const [showCheck, setShowCheck] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -68,6 +68,23 @@ export default function BuyForWeek() {
       }, 5000);
     }
   };
+  //копирование в буфер menu и подтверждение этого на экране
+  const [showCheckMenu, setShowCheckMenu] = useState(false);
+  const handleCopyMenu = () => {
+    const textToCopy = menuPrint.join("\n");
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        setShowTooltip(true);
+        setShowCheckMenu(true);
+        setTimeout(() => {
+          setShowTooltip(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error("Ошибка копирования: ", error);
+      });
+  };
   //включение показа списка покупок
   const [sumIngredients, setSumIngredients] = useState(false);
   const handleIngredients = () => {
@@ -77,8 +94,17 @@ export default function BuyForWeek() {
   return (
     <>
       <div className={styles.container}>
-        <details>
+        <details className={styles.details}>
           <summary>Выбранные блюда</summary>
+          <button
+            aria-label="копировать список"
+            className={styles.handleCopy}
+            onClick={handleCopyMenu}
+          >
+            <FontAwesomeIcon icon={faCopy} />
+            <span> </span>
+            {showCheckMenu && <FontAwesomeIcon icon={faCheck} />}
+          </button>
           <ul className={styles.buyForDay}>
             {menuPrint.map((name, index) => (
               <li key={index}>{name}</li>

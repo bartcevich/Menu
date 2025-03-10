@@ -24,9 +24,10 @@ export default function MenuGroups(props: any) {
       <div className={styles.container_top}>
         <PartMenuName day={day} />
         <div
-          className={cn(styles.container_button, {
-            [styles.tooltip]: true,
-          })}
+          className={styles.container_button}
+          // className={cn(styles.container_button, {
+          //   [styles.tooltip]: true,
+          // })}
         >
           <button
             type="button"
@@ -36,6 +37,7 @@ export default function MenuGroups(props: any) {
           >
             {openMenu ? "Возврат к меню" : "Тип блюда"}
           </button>
+          <p>нажмите для выбора блюд</p>
           {/* <div
             className={cn(styles.tooltiptext, {
               [styles.tooltipTop]: true,

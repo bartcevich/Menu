@@ -6,6 +6,20 @@
     //margin-left: 10px;
 }
 
+.container_button p{
+    display: none;
+}
+@media (hover: hover)  {
+    .container_button:hover p{
+        display: block;
+    }
+}
+@media (hover: none)  {
+    .container_button p{
+        display: none;
+    }
+}
+
 .container_popup{
     position: relative;
     width: 270px;
