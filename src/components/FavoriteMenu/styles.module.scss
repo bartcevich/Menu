@@ -60,6 +60,10 @@
     flex-flow: wrap;
     justify-content: space-evenly;
 }
+.h2Title{
+  -webkit-text-stroke: 1px #ed2525;
+  color: #E47611;
+}
 .section h2::before {
   content: "";
   position: absolute;

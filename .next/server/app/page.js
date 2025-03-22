@@ -281,14 +281,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 463:
+/***/ 5736:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 3915))
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 125, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 6249, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 7844, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 8782, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 1522, 23))
 
 /***/ }),
 
-/***/ 3915:
+/***/ 463:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4751))
+
+/***/ }),
+
+/***/ 4751:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -304,6 +315,7 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(8038);
+var react_default = /*#__PURE__*/__webpack_require__.n(react_);
 // EXTERNAL MODULE: ./src/context/IngredientsContext.tsx
 var IngredientsContext = __webpack_require__(4700);
 // EXTERNAL MODULE: ./src/components/LoginForm/styles.module.scss
@@ -1969,6 +1981,45 @@ function BuyForWeek() {
 // EXTERNAL MODULE: ./src/components/TimeEndBackground/styles.module.scss
 var TimeEndBackground_styles_module = __webpack_require__(3239);
 var TimeEndBackground_styles_module_default = /*#__PURE__*/__webpack_require__.n(TimeEndBackground_styles_module);
+// EXTERNAL MODULE: ./node_modules/@uidotdev/usehooks/index.js
+var usehooks = __webpack_require__(3795);
+;// CONCATENATED MODULE: ./src/components/Geolocation/geolocation.tsx
+
+
+
+const GeoLocation = ()=>{
+    const state = (0,usehooks/* useGeolocation */.ZZ)();
+    //   console.log(state);
+    if (state.loading) {
+        return /*#__PURE__*/ jsx_runtime_.jsx("p", {
+            children: "loading... "
+        }); //(you may need to enable permissions)
+    }
+    if (state.error) {
+        return /*#__PURE__*/ jsx_runtime_.jsx("p", {
+            children: "Enable access about your location"
+        });
+    }
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h2", {
+                children: [
+                    "latitude: ",
+                    state.latitude
+                ]
+            }),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h2", {
+                children: [
+                    "longitude: ",
+                    state.longitude
+                ]
+            })
+        ]
+    });
+};
+const MemoizedLocation = /*#__PURE__*/ react_default().memo(GeoLocation);
+/* harmony default export */ const geolocation = (MemoizedLocation);
+
 ;// CONCATENATED MODULE: ./src/components/TimeEndBackground/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
@@ -1976,8 +2027,9 @@ var TimeEndBackground_styles_module_default = /*#__PURE__*/__webpack_require__.n
 
 
 
-// const TimeEndBackground: React.FC<Navigator> = () => {
+
 function TimeEndBackground() {
+    const [geo, setGeo] = (0,react_.useState)(false);
     const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [number, setNumber] = (0,react_.useState)(1);
     const [currentTime, setCurrentTime] = (0,react_.useState)(new Date());
@@ -2073,6 +2125,13 @@ function TimeEndBackground() {
                             id: "sliderRange"
                         })
                     ]
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: (TimeEndBackground_styles_module_default()).geoLocation,
+                    onClick: ()=>setGeo((prevValue)=>!prevValue),
+                    children: geo ? /*#__PURE__*/ jsx_runtime_.jsx(geolocation, {}) : /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                        children: "Geolocation"
+                    })
                 }),
                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                     className: (TimeEndBackground_styles_module_default()).dateTimeFormat,
@@ -2843,7 +2902,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,333,245], () => (__webpack_exec__(680)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,795,243,245], () => (__webpack_exec__(680)));
 module.exports = __webpack_exports__;
 
 })();

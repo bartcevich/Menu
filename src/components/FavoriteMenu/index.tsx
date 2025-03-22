@@ -124,7 +124,9 @@ export default function FavoriteMenu() {
     <>
       <div className={backgroundClassState}>
         <div className={`${styles.wrapper} ${styles.noWorck2Styles}`}>
-          <h2>Вкусное и недорогое меню для семьи на месяц</h2>
+          <h2 className={styles.h2Title}>
+            Вкусное и недорогое меню для семьи на месяц
+          </h2>
           <div className={styles.container}>
             <div className={styles.section}>
               <h2>меню для первой недели</h2>
