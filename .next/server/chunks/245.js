@@ -370,6 +370,26 @@ const DATA_DINNER = [
         "image": "https://bartcevich.github.io/letter/image_dinner/chicken_chops.png"
     },
     {
+        "label": "Лазанья.",
+        "value": {
+            "Свиной фарш гр": 125,
+            "Сыры гр": 20,
+            "Масло сливочное гр": 20,
+            "Молоко гр": 175,
+            "Морковь гр": 30,
+            "Лук репчатый гр": 30,
+            "Сельдирей листовой гр": 50,
+            "Чеснок гр": 5,
+            "Помидоры гр": 100,
+            "Макароны гр": 63,
+            "Мука пшеничная гр": 10,
+            "Специи": 5,
+            "Подсолнечное масло гр": 10,
+            "Соль гр": 2
+        },
+        "image": "https://bartcevich.github.io/letter/image_dinner/potato_casserole.png"
+    },
+    {
         "label": "Ленивые голубцы",
         "value": {
             "Свиной фарш гр": 100,
@@ -718,6 +738,35 @@ const SIDE_DISH = [
         "image": "https://bartcevich.github.io/letter/image_side_dish/eggplant_Parma.png"
     },
     {
+        "label": "Банановые сырники.",
+        "value": {
+            "Творог гр": 200,
+            "Бананы гр": 40,
+            "Яйца куриные шт": 0.5,
+            "Сахар гр": 20,
+            "Овсяные хлопья гр": 20,
+            "Мука пшеничная гр": 30,
+            "Подсолнечное масло гр": 10,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image_dinner/cottage_cheese_pancakes.png"
+    },
+    {
+        "label": "Безглютеновые оладьи с яблоком.",
+        "value": {
+            "Яблоки гр": 87,
+            "Кефир гр": 73,
+            "Мука рисовая гр": 67,
+            "Яйца куриные шт": 0.3,
+            "Разрыхлитель гр": 2.5,
+            "Сахар гр": 7,
+            "Соль гр": 3,
+            "Подсолнечное масло гр": 10,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image_dinner/pancakes_kefir.png"
+    },
+    {
         "label": "Блины с творогом.",
         "value": {
             "Молоко гр": 300,
@@ -810,6 +859,18 @@ const SIDE_DISH = [
         "image": "https://bartcevich.github.io/letter/image_side_dish/Sandwiches_from_oven.png"
     },
     {
+        "label": "Бутерброды с зеленым луком",
+        "value": {
+            "Лук зелёный гр": 20,
+            "Сыры гр": 20,
+            "Батон гр": 100,
+            "Яйца куриные шт": 2,
+            "Соль гр": 2,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image_side_dish/Sandwiches_from_oven.png"
+    },
+    {
         "label": "Вареники ленивые.",
         "value": {
             "Творог гр": 150,
@@ -845,6 +906,21 @@ const SIDE_DISH = [
             "завтрак": 1
         },
         "image": "https://bartcevich.github.io/letter/image_side_dish/buckwheat_porridge.png"
+    },
+    {
+        "label": "Запеканка из макарон с курицей.",
+        "value": {
+            "Куриное филе гр": 50,
+            "Макароны гр": 50,
+            "Яйца куриные шт": 0.5,
+            "Подсолнечное масло гр": 10,
+            "Соль гр": 5,
+            "Специи": 5,
+            "Сметана гр": 20,
+            "Лук репчатый гр": 50,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image/noodles_meat.png"
     },
     {
         "label": "Кабачки в кляре",
@@ -931,6 +1007,19 @@ const SIDE_DISH = [
         "image": "https://bartcevich.github.io/letter/image_side_dish/baked_sour_cream.png"
     },
     {
+        "label": "Лаваш с ветчиной и сыром.",
+        "value": {
+            "Ветчина гр": 100,
+            "Сыры гр": 90,
+            "Лаваш шт": 1,
+            "Майонез гр": 20,
+            "Соус томатный гр": 20,
+            "Яйца куриные шт": 0.5,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image_side_dish/pancakes_cottage_cheese.png"
+    },
+    {
         "label": "Макароны отварные.",
         "value": {
             "Макароны гр": 100,
@@ -941,6 +1030,26 @@ const SIDE_DISH = [
         "image": "https://bartcevich.github.io/letter/image_side_dish/boiled_pasta.png"
     },
     {
+        "label": "Макароны с сыром.",
+        "value": {
+            "Макароны гр": 100,
+            "Соль гр": 5,
+            "Сыры гр": 50,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image/noodles_meat.png"
+    },
+    {
+        "label": "Макароны с яйцом.",
+        "value": {
+            "Макароны гр": 100,
+            "Соль гр": 5,
+            "Яйца куриные шт": 1,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image/noodles_meat.png"
+    },
+    {
         "label": "Манная каша",
         "value": {
             "Манка гр": 40,
@@ -948,6 +1057,28 @@ const SIDE_DISH = [
             "завтрак": 1
         },
         "image": "https://bartcevich.github.io/letter/image_side_dish/semolina_porridge.png"
+    },
+    {
+        "label": "Мясная запеканка в лаваше.",
+        "value": {
+            "Свиной фарш гр": 117,
+            "Сыры гр": 28,
+            "Сметана гр": 15,
+            "Лук репчатый гр": 25,
+            "Помидоры гр": 42,
+            "Лук зелёный гр": 8,
+            "Укроп гр": 3,
+            "Петрушка гр": 3,
+            "Чеснок гр": 3,
+            "Грибы гр": 50,
+            "Лаваш шт": 0.5,
+            "Сухари панировочные гр": 5,
+            "Соль гр": 3,
+            "Специи": 3,
+            "Подсолнечное масло гр": 10,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image_dinner/meat_bread.png"
     },
     {
         "label": "Овощи тушеные.",
@@ -993,6 +1124,20 @@ const SIDE_DISH = [
         "image": "https://bartcevich.github.io/letter/image_dinner/zucchini_pancakes.png"
     },
     {
+        "label": "Оладьи с яблоком на дрожжах.",
+        "value": {
+            "Молоко гр": 30,
+            "Яблоки гр": 20,
+            "Мука пшеничная гр": 50,
+            "Яйца куриные шт": 0.2,
+            "Сахар гр": 2,
+            "Дрожжи живые гр": 1.4,
+            "Подсолнечное масло гр": 10,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image_dinner/pancakes_kefir.png"
+    },
+    {
         "label": "Омлет с грибами и ветчиной.",
         "value": {
             "Ветчина гр": 50,
@@ -1032,6 +1177,24 @@ const SIDE_DISH = [
         "image": "https://bartcevich.github.io/letter/image_side_dish/pearl_porridge.png"
     },
     {
+        "label": "Пирожки с мясом.",
+        "value": {
+            "Свиной фарш гр": 75,
+            "Молоко гр": 20,
+            "Масло сливочное гр": 8,
+            "Лук репчатый гр": 20,
+            "Подсолнечное масло гр": 7,
+            "Яйца куриные шт": 0.2,
+            "Мука пшеничная гр": 75,
+            "Сахар гр": 8,
+            "Дрожжи живые гр": 1.3,
+            "Соль гр": 2,
+            "Специи": 2,
+            "завтрак": 1
+        },
+        "image": "https://bartcevich.github.io/letter/image_side_dish/pancakes_cottage_cheese.png"
+    },
+    {
         "label": "Пшенная каша",
         "value": {
             "Пшено гр": 45,
@@ -1062,6 +1225,18 @@ const SIDE_DISH = [
             "Белый рис гр": 100,
             "Соль гр": 1,
             "Масло сливочное гр": 20
+        },
+        "image": "https://bartcevich.github.io/letter/image_side_dish/crumbly_rice.png"
+    },
+    {
+        "label": "Рис с карамелизированным яблоком.",
+        "value": {
+            "Яблоки гр": 100,
+            "Пропаренный рис гр": 44,
+            "Сахар гр": 9,
+            "Соль гр": 3,
+            "Масло сливочное гр": 13,
+            "завтрак": 1
         },
         "image": "https://bartcevich.github.io/letter/image_side_dish/crumbly_rice.png"
     },
