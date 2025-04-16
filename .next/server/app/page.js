@@ -284,11 +284,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 463:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4751))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9534))
 
 /***/ }),
 
-/***/ 4751:
+/***/ 9534:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1638,6 +1638,107 @@ function PartMenuComments_MenuGroups(props) {
     });
 }
 
+// EXTERNAL MODULE: ./src/components/FoundDish/styles.module.scss
+var FoundDish_styles_module = __webpack_require__(4256);
+var FoundDish_styles_module_default = /*#__PURE__*/__webpack_require__.n(FoundDish_styles_module);
+;// CONCATENATED MODULE: ./src/components/FoundDish/index.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+function CookFromAvailable() {
+    const DinnerData = (0,getData/* getDinnerData */.GQ)();
+    const BreakfastData = (0,getData/* getBreakfastData */.aR)();
+    const LunchData = (0,getData/* getLunchData */.C2)();
+    const SaladData = (0,getData/* getSalad */.R7)();
+    const PastriesDesserts = (0,getData/* getPastriesDesserts */.Gk)();
+    const [answer, setAnswer] = (0,react_.useState)("");
+    const [allFound, setAllFound] = (0,react_.useState)([]);
+    (0,react_.useEffect)(()=>{
+        if (answer.length < 3) {
+            setAllFound([]);
+            return;
+        }
+        const filterByIngredient = (data)=>{
+            return data.filter((item)=>Object.keys(item.value).some((ingredient)=>ingredient.toLowerCase().includes(answer.toLowerCase())));
+        };
+        const foundDinner = filterByIngredient(DinnerData);
+        const foundBreakfast = filterByIngredient(BreakfastData);
+        const foundLunch = filterByIngredient(LunchData);
+        const foundSalad = filterByIngredient(SaladData);
+        const foundPastries = filterByIngredient(PastriesDesserts);
+        const allFoundItems = [
+            ...foundDinner,
+            ...foundBreakfast,
+            ...foundLunch,
+            ...foundSalad,
+            ...foundPastries
+        ];
+        setAllFound(allFoundItems);
+    //console.log(foundSalad);
+    }, [
+        answer
+    ]);
+    const handleAnswerChange = (e)=>{
+        setAnswer(e.target.value);
+    };
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: (FoundDish_styles_module_default()).found,
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                className: (FoundDish_styles_module_default()).form,
+                type: "text",
+                value: answer,
+                onInput: handleAnswerChange,
+                required: true,
+                id: "contactAnswer",
+                placeholder: `${answer === "" ? "найти по ингредиенту" : "ингредиент"}`
+            }),
+            answer.length >= 3 && /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                className: (FoundDish_styles_module_default()).container_scroll,
+                children: allFound.map((menuItem, index)=>/*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: (FoundDish_styles_module_default()).menuItem,
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: (FoundDish_styles_module_default()).container,
+                            children: [
+                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                    className: (FoundDish_styles_module_default()).labelImage,
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                            className: (FoundDish_styles_module_default()).label,
+                                            children: menuItem.label
+                                        }),
+                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                            className: (FoundDish_styles_module_default()).image,
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                src: menuItem.image,
+                                                alt: "Image"
+                                            })
+                                        })
+                                    ]
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    children: Object.entries(menuItem.value).map(([name, quantity])=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
+                                            className: (FoundDish_styles_module_default()).ingredientCourse,
+                                            children: [
+                                                name,
+                                                ":",
+                                                quantity,
+                                                ",",
+                                                /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                                    children: " "
+                                                })
+                                            ]
+                                        }, name))
+                                })
+                            ]
+                        })
+                    }, index))
+            })
+        ]
+    });
+}
+
 ;// CONCATENATED MODULE: ./src/components/MenuGroupsOpen/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
@@ -1650,6 +1751,8 @@ function PartMenuComments_MenuGroups(props) {
 
 
 
+
+// import cn from "clsx";
 
 function MenuGroupsOpen_MenuGroups(props) {
     const [openMenu, setOpenMenu] = (0,react_.useState)(true);
@@ -1682,6 +1785,7 @@ function MenuGroupsOpen_MenuGroups(props) {
                     openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: (MenuGroupsOpen_styles_module_default()).container_popup,
                         children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx(CookFromAvailable, {}),
                             /*#__PURE__*/ jsx_runtime_.jsx(components_Starters, {
                                 day: day
                             }),
@@ -1734,6 +1838,7 @@ var MenuGroups_styles_module_default = /*#__PURE__*/__webpack_require__.n(MenuGr
 
 
 
+
 function MenuGroups_MenuGroups(props) {
     const [openMenu, setOpenMenu] = (0,react_.useState)(false);
     const handleClick = ()=>{
@@ -1765,6 +1870,7 @@ function MenuGroups_MenuGroups(props) {
                     openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: (MenuGroups_styles_module_default()).container_popup,
                         children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx(CookFromAvailable, {}),
                             /*#__PURE__*/ jsx_runtime_.jsx(components_Starters, {
                                 day: day
                             }),
@@ -2568,6 +2674,31 @@ module.exports = {
 	"container_ingredients": "styles_container_ingredients__RstTp",
 	"container_popup": "styles_container_popup__hX5bV",
 	"container_Summarized": "styles_container_Summarized__7JT5I"
+};
+
+
+/***/ }),
+
+/***/ 4256:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"found": "styles_found__z0Puq",
+	"form": "styles_form__rGBNo",
+	"image": "styles_image__UvBRJ",
+	"container_scroll": "styles_container_scroll__dHQgj",
+	"menuItem": "styles_menuItem__Oa1j6",
+	"label": "styles_label__R89vj",
+	"ingredientCourse": "styles_ingredientCourse__mSjZ7",
+	"wrapper": "styles_wrapper__0BNei",
+	"container_background": "styles_container_background__8gFJd",
+	"container": "styles_container__hRFs9",
+	"labelImage": "styles_labelImage__tNPIm"
 };
 
 

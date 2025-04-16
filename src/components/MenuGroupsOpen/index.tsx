@@ -10,7 +10,8 @@ import SideDish from "@/components/SideDish";
 import ShowMenuDay from "@/components/ShowMenuDay";
 import PartMenuName from "@/components/PartMenuName";
 import PartMenuComments from "@/components/PartMenuComments";
-import cn from "clsx";
+// import cn from "clsx";
+import FoundDish from "@/components/FoundDish";
 
 export default function MenuGroups(props: any) {
   const [openMenu, setOpenMenu] = useState(true);
@@ -48,6 +49,7 @@ export default function MenuGroups(props: any) {
         </div>
         {openMenu && (
           <div className={styles.container_popup}>
+            <FoundDish />
             <Starters day={day} />
             <SideDish day={day} />
             <Soup day={day} />
