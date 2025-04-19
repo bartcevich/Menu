@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState, useContext } from "react";
+import { IngredientsContext } from "@/context/IngredientsContext";
 import styles from "./styles.module.scss";
 import {
   getDinnerData,
@@ -14,7 +15,13 @@ interface MenuItem {
   value: Record<string, number | undefined>;
 }
 
-export default function CookFromAvailable() {
+interface DishFound {
+  day: any;
+  // setDishFromFound: React.Dispatch<React.SetStateAction<any[]>>;
+}
+
+const FoundDish: React.FC<DishFound> = (props) => {
+  const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const DinnerData: MenuItem[] = getDinnerData();
   const BreakfastData: MenuItem[] = getBreakfastData();
   const LunchData: MenuItem[] = getLunchData();
@@ -58,6 +65,29 @@ export default function CookFromAvailable() {
     setAnswer(e.target.value);
   };
 
+  const userFound = (menuItem: any) => {
+    const selectedUser = {
+      [menuItem.label]: {
+        label: menuItem.label,
+        numberServings: 1,
+        ingredients: Object.entries(menuItem.value),
+        image: menuItem.image,
+      },
+    };
+
+    const stateFirstUndefined: any = userChoice;
+    let userChoiceForComponent: any =
+      stateFirstUndefined[`${props.day}_feature`] || {};
+
+    setUserChoice((prevUserChoice) => ({
+      ...prevUserChoice,
+      [`${props.day}_feature`]: {
+        ...userChoiceForComponent,
+        ...selectedUser,
+      },
+    }));
+  };
+
   return (
     <div className={styles.found}>
       <input
@@ -72,7 +102,11 @@ export default function CookFromAvailable() {
       {answer.length >= 3 && (
         <div className={styles.container_scroll}>
           {allFound.map((menuItem, index) => (
-            <div key={index} className={styles.menuItem}>
+            <div
+              key={index}
+              className={styles.menuItem}
+              onClick={() => userFound(menuItem)}
+            >
               <div className={styles.container}>
                 <div className={styles.labelImage}>
                   <div className={styles.label}>{menuItem.label}</div>
@@ -94,4 +128,5 @@ export default function CookFromAvailable() {
       )}
     </div>
   );
-}
+};
+export default FoundDish;

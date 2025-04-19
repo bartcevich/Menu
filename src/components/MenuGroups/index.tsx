@@ -36,10 +36,9 @@ export default function MenuGroups(props: any) {
 
         {openMenu && (
           <div className={styles.container_popup}>
-            <FoundDish />
+            <FoundDish day={day} />
             <Starters
               day={day}
-              //setIngredients={setIngredients}
               //setLabel={setLabel}
             />
             <SideDish day={day} />

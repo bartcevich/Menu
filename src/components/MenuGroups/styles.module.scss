@@ -3,7 +3,7 @@
     display: flex;
     flex-flow: column;
     //margin-left: 10px;
-    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+    // @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
 }
 
 .container_button p{
@@ -48,16 +48,16 @@
 .handleCopy{
     color: #E47611;
 }
-.tooltip {
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #333;
-    color: #E47611;
-    padding: 4px 8px;
-    border-radius: 4px;
-}
+// .tooltip {
+//     position: absolute;
+//     top: 85%;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     background: #333;
+//     color: #E47611;
+//     padding: 4px 8px;
+//     border-radius: 4px;
+// }
 .buttonGroup{
     margin-bottom: 5px;
     width: 130px;

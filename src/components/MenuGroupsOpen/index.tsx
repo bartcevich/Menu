@@ -49,7 +49,7 @@ export default function MenuGroups(props: any) {
         </div>
         {openMenu && (
           <div className={styles.container_popup}>
-            <FoundDish />
+            <FoundDish day={day} />
             <Starters day={day} />
             <SideDish day={day} />
             <Soup day={day} />

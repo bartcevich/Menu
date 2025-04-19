@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/page",{
+
+/***/ "(app-client)/./src/components/MenuGroupsOpen/styles.module.scss":
+/*!**********************************************************!*\
+  !*** ./src/components/MenuGroupsOpen/styles.module.scss ***!
+  \**********************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("// extracted by mini-css-extract-plugin\nmodule.exports = {\"fontHelveticaNeueCyr\":\"HelveticaNeueCyr, sans-serif\",\"fontBarlow\":\"Barlow, sans-serif\",\"colorRedLight\":\"#ef233c\",\"colorRedDark\":\"#d90429\",\"container_top\":\"styles_container_top__obLDS\",\"container_button\":\"styles_container_button__0QRjG\",\"container_popup\":\"styles_container_popup__yS0Da\",\"container_popup2\":\"styles_container_popup2__HdBzi\",\"buyForDay\":\"styles_buyForDay__ZfzTB\",\"handleIngredients\":\"styles_handleIngredients__VXhXi\",\"handleCopy\":\"styles_handleCopy__E4QiS\",\"menuGroup\":\"styles_menuGroup__LJkb9\",\"tooltiptext\":\"styles_tooltiptext__LDjuC\",\"tooltip\":\"styles_tooltip__z2IP3\"};\n    if(true) {\n      // 1745075125377\n      var cssReload = __webpack_require__(/*! ./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js */ \"(app-client)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js\")(module.id, {\"publicPath\":\"/_next/\",\"esModule\":false,\"locals\":true});\n      module.hot.dispose(cssReload);\n      \n    }\n  \nmodule.exports.__checksum = \"1f24ab1b451d\"\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1jbGllbnQpLy4vc3JjL2NvbXBvbmVudHMvTWVudUdyb3Vwc09wZW4vc3R5bGVzLm1vZHVsZS5zY3NzIiwibWFwcGluZ3MiOiJBQUFBO0FBQ0Esa0JBQWtCO0FBQ2xCLE9BQU8sSUFBVTtBQUNqQjtBQUNBLHNCQUFzQixtQkFBTyxDQUFDLGlNQUFnSSxjQUFjLHNEQUFzRDtBQUNsTyxNQUFNLFVBQVU7QUFDaEI7QUFDQTtBQUNBO0FBQ0EseUJBQXlCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vX05fRS8uL3NyYy9jb21wb25lbnRzL01lbnVHcm91cHNPcGVuL3N0eWxlcy5tb2R1bGUuc2Nzcz9kYTUyIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxubW9kdWxlLmV4cG9ydHMgPSB7XCJmb250SGVsdmV0aWNhTmV1ZUN5clwiOlwiSGVsdmV0aWNhTmV1ZUN5ciwgc2Fucy1zZXJpZlwiLFwiZm9udEJhcmxvd1wiOlwiQmFybG93LCBzYW5zLXNlcmlmXCIsXCJjb2xvclJlZExpZ2h0XCI6XCIjZWYyMzNjXCIsXCJjb2xvclJlZERhcmtcIjpcIiNkOTA0MjlcIixcImNvbnRhaW5lcl90b3BcIjpcInN0eWxlc19jb250YWluZXJfdG9wX19vYkxEU1wiLFwiY29udGFpbmVyX2J1dHRvblwiOlwic3R5bGVzX2NvbnRhaW5lcl9idXR0b25fXzBRUmpHXCIsXCJjb250YWluZXJfcG9wdXBcIjpcInN0eWxlc19jb250YWluZXJfcG9wdXBfX3lTMERhXCIsXCJjb250YWluZXJfcG9wdXAyXCI6XCJzdHlsZXNfY29udGFpbmVyX3BvcHVwMl9fSGRCemlcIixcImJ1eUZvckRheVwiOlwic3R5bGVzX2J1eUZvckRheV9fWmZ6VEJcIixcImhhbmRsZUluZ3JlZGllbnRzXCI6XCJzdHlsZXNfaGFuZGxlSW5ncmVkaWVudHNfX1ZYaFhpXCIsXCJoYW5kbGVDb3B5XCI6XCJzdHlsZXNfaGFuZGxlQ29weV9fRTRRaVNcIixcIm1lbnVHcm91cFwiOlwic3R5bGVzX21lbnVHcm91cF9fTEprYjlcIixcInRvb2x0aXB0ZXh0XCI6XCJzdHlsZXNfdG9vbHRpcHRleHRfX0xEanVDXCIsXCJ0b29sdGlwXCI6XCJzdHlsZXNfdG9vbHRpcF9fejJJUDNcIn07XG4gICAgaWYobW9kdWxlLmhvdCkge1xuICAgICAgLy8gMTc0NTA3NTEyNTM3N1xuICAgICAgdmFyIGNzc1JlbG9hZCA9IHJlcXVpcmUoXCJEOi9hbmRyZWkvd29yay9jb2Rld2Fycy9zaG9wcGluZ0NhcnQyL01lbnUvbm9kZV9tb2R1bGVzL25leHQvZGlzdC9jb21waWxlZC9taW5pLWNzcy1leHRyYWN0LXBsdWdpbi9obXIvaG90TW9kdWxlUmVwbGFjZW1lbnQuanNcIikobW9kdWxlLmlkLCB7XCJwdWJsaWNQYXRoXCI6XCIvX25leHQvXCIsXCJlc01vZHVsZVwiOmZhbHNlLFwibG9jYWxzXCI6dHJ1ZX0pO1xuICAgICAgbW9kdWxlLmhvdC5kaXNwb3NlKGNzc1JlbG9hZCk7XG4gICAgICBcbiAgICB9XG4gIFxubW9kdWxlLmV4cG9ydHMuX19jaGVja3N1bSA9IFwiMWYyNGFiMWI0NTFkXCJcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(app-client)/./src/components/MenuGroupsOpen/styles.module.scss\n"));
+
+/***/ })
+
+});
