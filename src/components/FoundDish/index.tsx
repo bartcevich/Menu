@@ -29,6 +29,10 @@ const FoundDish: React.FC<DishFound> = (props) => {
   const PastriesDesserts: MenuItem[] = getPastriesDesserts();
   const [answer, setAnswer] = useState("");
   const [allFound, setAllFound] = useState<any[]>([]);
+  const [placeholder, setPlaceholder] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     if (answer.length < 3) {
@@ -86,7 +90,44 @@ const FoundDish: React.FC<DishFound> = (props) => {
         ...selectedUser,
       },
     }));
+    setAnswer("");
   };
+
+  const phrases = ["найти        ", "завтрак         ", "творог          "];
+
+  useEffect(() => {
+    const tick = () => {
+      const current = phrases[phraseIndex];
+      // console.log(placeholder, isDeleting, charIndex);
+      if (!isDeleting) {
+        // — ПЕЧАТЬ
+        setPlaceholder(current.slice(0, charIndex));
+        setCharIndex((prev) => prev + 1);
+        if (charIndex > current.length) {
+          // фраза полностью напечатана
+          setIsDeleting(true);
+        }
+      } else if (charIndex < 0) {
+        // полностью стерли → переходим к следующей фразе
+        setPhraseIndex(phraseIndex + 1);
+        setIsDeleting(false);
+        setCharIndex(0);
+      } else {
+        // — СТИРАТЬ
+        setPlaceholder(current.slice(0, charIndex));
+        setCharIndex(charIndex - 1);
+        // setTimeout(tick, erasingDelay);
+      }
+    };
+    if (phrases.length > phraseIndex) {
+      const timerID = setTimeout(() => tick(), 100);
+      return () => {
+        clearTimeout(timerID);
+      };
+    } else {
+      setPlaceholder("по ингредиенту");
+    }
+  }, [charIndex]);
 
   return (
     <div className={styles.found}>
@@ -97,7 +138,7 @@ const FoundDish: React.FC<DishFound> = (props) => {
         onInput={handleAnswerChange}
         required
         id="contactAnswer"
-        placeholder={`${answer === "" ? "найти по ингредиенту" : "ингредиент"}`}
+        placeholder={placeholder}
       />
       {answer.length >= 3 && (
         <div className={styles.container_scroll}>

@@ -1656,6 +1656,10 @@ const FoundDish = (props)=>{
     const PastriesDesserts = (0,getData/* getPastriesDesserts */.Gk)();
     const [answer, setAnswer] = (0,react_.useState)("");
     const [allFound, setAllFound] = (0,react_.useState)([]);
+    const [placeholder, setPlaceholder] = (0,react_.useState)("");
+    const [phraseIndex, setPhraseIndex] = (0,react_.useState)(0);
+    const [charIndex, setCharIndex] = (0,react_.useState)(0);
+    const [isDeleting, setIsDeleting] = (0,react_.useState)(false);
     (0,react_.useEffect)(()=>{
         if (answer.length < 3) {
             setAllFound([]);
@@ -1702,7 +1706,48 @@ const FoundDish = (props)=>{
                     ...selectedUser
                 }
             }));
+        setAnswer("");
     };
+    const phrases = [
+        "найти        ",
+        "завтрак         ",
+        "творог          "
+    ];
+    (0,react_.useEffect)(()=>{
+        const tick = ()=>{
+            const current = phrases[phraseIndex];
+            // console.log(placeholder, isDeleting, charIndex);
+            if (!isDeleting) {
+                // — ПЕЧАТЬ
+                setPlaceholder(current.slice(0, charIndex));
+                setCharIndex((prev)=>prev + 1);
+                if (charIndex > current.length) {
+                    // фраза полностью напечатана
+                    setIsDeleting(true);
+                }
+            } else if (charIndex < 0) {
+                // полностью стерли → переходим к следующей фразе
+                setPhraseIndex(phraseIndex + 1);
+                setIsDeleting(false);
+                setCharIndex(0);
+            } else {
+                // — СТИРАТЬ
+                setPlaceholder(current.slice(0, charIndex));
+                setCharIndex(charIndex - 1);
+            // setTimeout(tick, erasingDelay);
+            }
+        };
+        if (phrases.length > phraseIndex) {
+            const timerID = setTimeout(()=>tick(), 100);
+            return ()=>{
+                clearTimeout(timerID);
+            };
+        } else {
+            setPlaceholder("по ингредиенту");
+        }
+    }, [
+        charIndex
+    ]);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: (FoundDish_styles_module_default()).found,
         children: [
@@ -1713,7 +1758,7 @@ const FoundDish = (props)=>{
                 onInput: handleAnswerChange,
                 required: true,
                 id: "contactAnswer",
-                placeholder: `${answer === "" ? "найти по ингредиенту" : "ингредиент"}`
+                placeholder: placeholder
             }),
             answer.length >= 3 && /*#__PURE__*/ jsx_runtime_.jsx("div", {
                 className: (FoundDish_styles_module_default()).container_scroll,
