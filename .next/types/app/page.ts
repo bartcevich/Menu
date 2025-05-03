@@ -1,4 +1,4 @@
-// File: D:\andrei\work\codewars\shoppingCart2Copy\src\app\page.tsx
+// File: D:\andrei\work\codewars\shoppingCart2Main\src\app\page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -13,11 +13,21 @@ import PartMenuComments from "@/components/PartMenuComments";
 // import cn from "clsx";
 import FoundDish from "@/components/FoundDish";
 
-export default function MenuGroups(props: any) {
+export default function MenuGroupOpen(props: any) {
   const [openMenu, setOpenMenu] = useState(true);
   const handleClick = () => {
-    setOpenMenu((prevValue) => !prevValue);
+    setOpenMenu((prevValue) => {
+      const audioChoiceAvailable = new Audio("/sounds/choice_available.mp3");
+      const audioChoiceClosed = new Audio("/sounds/choice_closed.mp3");
+      if (prevValue) {
+        audioChoiceClosed.play();
+      } else {
+        audioChoiceAvailable.play();
+      }
+      return !prevValue;
+    });
   };
+
   const day = props.day;
 
   return (
