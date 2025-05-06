@@ -7,10 +7,10 @@ import { faBattery } from "@fortawesome/free-solid-svg-icons";
 interface Navigator {
   getBattery(): any;
 }
-import MemoizedLocation from "../Geolocation/geolocation";
+// import MemoizedLocation from "../Geolocation/geolocation";
 
 export default function TimeEndBackground() {
-  const [geo, setGeo] = useState(false);
+  // const [geo, setGeo] = useState(false);
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
   const [number, setNumber] = useState(1);
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -117,12 +117,12 @@ export default function TimeEndBackground() {
             id="sliderRange"
           />
         </div>
-        <div
+        {/* <div
           className={styles.geoLocation}
           onClick={() => setGeo((prevValue) => !prevValue)}
         >
           {geo ? <MemoizedLocation /> : <button>Geolocation</button>}
-        </div>
+        </div> */}
         {/* <span id="demo">{number}</span> */}
         {/* <div>
           <span style={{ color: isOnline ? "green" : "red" }}>

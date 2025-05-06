@@ -2,7 +2,7 @@
   "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
   "/cookFromAvailable/page": "/cookFromAvailable",
-  "/favoriteMenu/page": "/favoriteMenu",
   "/kids/page": "/kids",
+  "/favoriteMenu/page": "/favoriteMenu",
   "/programs/page": "/programs"
 }

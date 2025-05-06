@@ -284,11 +284,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 1099:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9534))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6556))
 
 /***/ }),
 
-/***/ 9534:
+/***/ 6556:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1995,6 +1995,297 @@ function MenuGroups_MenuGroups(props) {
     });
 }
 
+// EXTERNAL MODULE: ./src/components/MenuGroupsWeather/styles.module.scss
+var MenuGroupsWeather_styles_module = __webpack_require__(6929);
+var MenuGroupsWeather_styles_module_default = /*#__PURE__*/__webpack_require__.n(MenuGroupsWeather_styles_module);
+// EXTERNAL MODULE: ./node_modules/@uidotdev/usehooks/index.js
+var usehooks = __webpack_require__(3795);
+;// CONCATENATED MODULE: ./src/components/Geolocation/geolocation.tsx
+
+
+
+const GeoLocation = (props)=>{
+    const state = (0,usehooks/* useGeolocation */.ZZ)();
+    //   console.log(state);
+    (0,react_.useEffect)(()=>{
+        if (!state.loading && !state.error && state.latitude != null && state.longitude != null) {
+            props.setLatitude(state.latitude);
+            props.setLongitude(state.longitude);
+        }
+    }, [
+        state.loading,
+        state.error,
+        state.latitude,
+        state.longitude,
+        props
+    ]);
+    if (state.loading) {
+        return /*#__PURE__*/ jsx_runtime_.jsx("p", {
+            children: "загрузка данных... Разрешите браузеру получить вашу локацию."
+        });
+    }
+    if (state.error) {
+        return /*#__PURE__*/ jsx_runtime_.jsx("p", {
+            children: "Enable access about your location"
+        });
+    }
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h2", {
+                children: [
+                    "latitude: ",
+                    state.latitude
+                ]
+            }),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h2", {
+                children: [
+                    "longitude: ",
+                    state.longitude
+                ]
+            })
+        ]
+    });
+};
+const MemoizedLocation = /*#__PURE__*/ react_default().memo(GeoLocation);
+/* harmony default export */ const geolocation = (MemoizedLocation);
+
+;// CONCATENATED MODULE: ./src/components/MenuGroupsWeather/index.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+
+
+const API = "c36b3601f08a6d80e90fad7a4d07df8f";
+function WeatherForecast() {
+    const [openMenu, setOpenMenu] = (0,react_.useState)(false);
+    const [weatherData, setWeatherData] = (0,react_.useState)(null);
+    const [latitude, setLatitude] = (0,react_.useState)(0);
+    const [longitude, setLongitude] = (0,react_.useState)(0);
+    const [geo, setGeo] = (0,react_.useState)(false);
+    const [loading, setLoading] = (0,react_.useState)(false);
+    const [error, setError] = (0,react_.useState)(null);
+    const [hasWeatherData, setHasWeatherData] = (0,react_.useState)(false);
+    const [days, setDays] = (0,react_.useState)([]);
+    // console.log(latitude, longitude, weatherData);
+    (0,react_.useEffect)(()=>{
+        const fetchWeather = async ()=>{
+            setLoading(true);
+            setError(null);
+            setHasWeatherData(false);
+            const url = latitude === 0 && longitude === 0 ? `https://api.openweathermap.org/data/2.5/forecast?lat=53.815388&lon=27.79933&appid=${API}&units=metric` : `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API}&units=metric`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error("Ошибка при загрузке данных погоды");
+                }
+                const data = await response.json();
+                setWeatherData(data);
+                setHasWeatherData(true);
+                // Группируем данные по дням
+                if (data.list && Array.isArray(data.list)) {
+                    const grouped = groupByDay(data.list);
+                    setDays(grouped);
+                }
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(err.message);
+                } else {
+                    setError("Неизвестная ошибка");
+                }
+            } finally{
+                setLoading(false);
+            }
+        };
+        fetchWeather();
+    }, [
+        latitude,
+        longitude
+    ]);
+    // Функция для группировки данных по дням
+    function groupByDay(forecasts) {
+        const daysMap = new Map();
+        forecasts.forEach((forecast)=>{
+            const date = new Date(forecast.dt * 1000);
+            const dayKey = date.toLocaleDateString("ru-RU", {
+                weekday: "long",
+                day: "numeric",
+                month: "long"
+            });
+            if (!daysMap.has(dayKey)) {
+                daysMap.set(dayKey, []);
+            }
+            daysMap.get(dayKey)?.push(forecast);
+        });
+        return Array.from(daysMap.entries());
+    // const arrayForRender = Array.from(daysMap.entries());
+    // setDays(arrayForRender)
+    }
+    // Функция для отображения капель дождя
+    function renderRainDrops(pop) {
+        let dropsCount = 0; //
+        if (typeof pop === "object" && Object.keys(pop).length > 0) {
+            dropsCount = Math.ceil(pop["3h"]); //Math.min(, 6);
+        }
+        return dropsCount > 0 ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            className: (MenuGroupsWeather_styles_module_default()).rainDrops,
+            children: Array(dropsCount).fill(0).map((_, i)=>/*#__PURE__*/ jsx_runtime_.jsx("span", {
+                    children: "\uD83D\uDCA7"
+                }, i))
+        }) : null;
+    }
+    // Функция для определения цвета фона по скорости ветра
+    function getWindBgColor(speed) {
+        const roundedSpeed = Math.ceil(speed);
+        if (roundedSpeed <= 2) return (MenuGroupsWeather_styles_module_default()).windLow;
+        if (roundedSpeed <= 4) return (MenuGroupsWeather_styles_module_default()).windMedium;
+        if (roundedSpeed <= 6) return (MenuGroupsWeather_styles_module_default()).windHigh;
+        if (roundedSpeed <= 8) return (MenuGroupsWeather_styles_module_default()).windVeryHigh;
+        return (MenuGroupsWeather_styles_module_default()).windExtreme;
+    }
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: (MenuGroupsWeather_styles_module_default()).weatherContainer,
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: (MenuGroupsWeather_styles_module_default()).container_button,
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                type: "button",
+                                className: (MenuGroupsWeather_styles_module_default()).styleButton,
+                                onClick: ()=>setOpenMenu((prevValue)=>!prevValue),
+                                children: openMenu ? "Закрыть просмотр" : "Погода подробно"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                type: "button",
+                                className: (MenuGroupsWeather_styles_module_default()).styleButton,
+                                onClick: ()=>setGeo((prevValue)=>!prevValue),
+                                children: geo ? "Назад" : "погода для вашей локации"
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("b", {
+                        children: "нажмите для подробного"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("b", {
+                        children: "просмотра погоды"
+                    }),
+                    !geo && /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                        children: "данные погоды в Pryvol’ny (2000) BY"
+                    }),
+                    geo && weatherData && /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
+                                children: [
+                                    "данные погоды в ",
+                                    weatherData.city.name,
+                                    " (",
+                                    weatherData.city.population,
+                                    ") ",
+                                    weatherData.city.country,
+                                    ". Получены для геоточки:"
+                                ]
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx(geolocation, {
+                                setLatitude: setLatitude,
+                                setLongitude: setLongitude
+                            })
+                        ]
+                    })
+                ]
+            }),
+            hasWeatherData && openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+                children: [
+                    days.map(([dayName, forecasts], dayIndex)=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: (MenuGroupsWeather_styles_module_default()).dayContainer,
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                                    className: (MenuGroupsWeather_styles_module_default()).dayTitle,
+                                    children: dayIndex === 0 ? "Сегодня" : dayIndex === 1 ? "Завтра" : dayName
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: (MenuGroupsWeather_styles_module_default()).hourlyForecasts,
+                                    children: forecasts.map((forecast, index)=>{
+                                        const time = new Date(forecast.dt * 1000).toLocaleTimeString("ru-RU", {
+                                            hour: "2-digit",
+                                            minute: "2-digit"
+                                        }).replace(":", ".");
+                                        return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                            className: `${(MenuGroupsWeather_styles_module_default()).forecastCard} ${getWindBgColor(forecast?.wind?.speed)}`,
+                                            children: [
+                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                    className: (MenuGroupsWeather_styles_module_default()).time,
+                                                    children: [
+                                                        time,
+                                                        renderRainDrops(forecast?.rain)
+                                                    ]
+                                                }),
+                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                    className: (MenuGroupsWeather_styles_module_default()).tempRange,
+                                                    children: [
+                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
+                                                            className: (MenuGroupsWeather_styles_module_default()).tempMax,
+                                                            children: [
+                                                                Math.round(forecast.main.temp_min),
+                                                                "\xb0C",
+                                                                Math.round(forecast.main.temp_max) !== Math.round(forecast.main.temp_min) ? ` - ${Math.round(forecast.main.temp_max)}°C` : ""
+                                                            ]
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                            className: (MenuGroupsWeather_styles_module_default()).feelsLike,
+                                                            children: [
+                                                                "Ощущается: ",
+                                                                Math.round(forecast.main.feels_like),
+                                                                "\xb0"
+                                                            ]
+                                                        })
+                                                    ]
+                                                }),
+                                                /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                    src: `http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`,
+                                                    alt: forecast.weather[0].description,
+                                                    className: (MenuGroupsWeather_styles_module_default()).weatherIcon
+                                                }),
+                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                    className: (MenuGroupsWeather_styles_module_default()).windInfo,
+                                                    children: [
+                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
+                                                            className: (MenuGroupsWeather_styles_module_default()).rainImage,
+                                                            children: [
+                                                                forecast?.rain && /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                                                    children: "\uD83D\uDCA7"
+                                                                }),
+                                                                forecast?.rain !== null ? typeof forecast?.rain === "object" ? forecast.rain["3h"] : "" : ""
+                                                            ]
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
+                                                            children: [
+                                                                /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                                                                    icon: free_solid_svg_icons/* faWind */.DSs
+                                                                }),
+                                                                " ",
+                                                                Math.ceil(forecast?.wind?.speed),
+                                                                " м/с"
+                                                            ]
+                                                        })
+                                                    ]
+                                                })
+                                            ]
+                                        }, index);
+                                    })
+                                })
+                            ]
+                        }, dayIndex)),
+                    !loading && !error && !hasWeatherData && /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                        children: "Данные погоды ещё не загружены. Разрешите браузеру получить вашу локацию."
+                    })
+                ]
+            })
+        ]
+    });
+}
+
 // EXTERNAL MODULE: ./src/components/BuyForWeek/styles.module.scss
 var BuyForWeek_styles_module = __webpack_require__(8023);
 var BuyForWeek_styles_module_default = /*#__PURE__*/__webpack_require__.n(BuyForWeek_styles_module);
@@ -2166,45 +2457,6 @@ function BuyForWeek() {
 // EXTERNAL MODULE: ./src/components/TimeEndBackground/styles.module.scss
 var TimeEndBackground_styles_module = __webpack_require__(3239);
 var TimeEndBackground_styles_module_default = /*#__PURE__*/__webpack_require__.n(TimeEndBackground_styles_module);
-// EXTERNAL MODULE: ./node_modules/@uidotdev/usehooks/index.js
-var usehooks = __webpack_require__(3795);
-;// CONCATENATED MODULE: ./src/components/Geolocation/geolocation.tsx
-
-
-
-const GeoLocation = ()=>{
-    const state = (0,usehooks/* useGeolocation */.ZZ)();
-    //   console.log(state);
-    if (state.loading) {
-        return /*#__PURE__*/ jsx_runtime_.jsx("p", {
-            children: "loading... "
-        }); //(you may need to enable permissions)
-    }
-    if (state.error) {
-        return /*#__PURE__*/ jsx_runtime_.jsx("p", {
-            children: "Enable access about your location"
-        });
-    }
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
-        children: [
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h2", {
-                children: [
-                    "latitude: ",
-                    state.latitude
-                ]
-            }),
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h2", {
-                children: [
-                    "longitude: ",
-                    state.longitude
-                ]
-            })
-        ]
-    });
-};
-const MemoizedLocation = /*#__PURE__*/ react_default().memo(GeoLocation);
-/* harmony default export */ const geolocation = (MemoizedLocation);
-
 ;// CONCATENATED MODULE: ./src/components/TimeEndBackground/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
@@ -2212,9 +2464,9 @@ const MemoizedLocation = /*#__PURE__*/ react_default().memo(GeoLocation);
 
 
 
-
+// import MemoizedLocation from "../Geolocation/geolocation";
 function TimeEndBackground() {
-    const [geo, setGeo] = (0,react_.useState)(false);
+    // const [geo, setGeo] = useState(false);
     const { userChoice, setUserChoice } = (0,react_.useContext)(IngredientsContext.IngredientsContext);
     const [number, setNumber] = (0,react_.useState)(1);
     const [currentTime, setCurrentTime] = (0,react_.useState)(new Date());
@@ -2311,13 +2563,6 @@ function TimeEndBackground() {
                         })
                     ]
                 }),
-                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                    className: (TimeEndBackground_styles_module_default()).geoLocation,
-                    onClick: ()=>setGeo((prevValue)=>!prevValue),
-                    children: geo ? /*#__PURE__*/ jsx_runtime_.jsx(geolocation, {}) : /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                        children: "Geolocation"
-                    })
-                }),
                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                     className: (TimeEndBackground_styles_module_default()).dateTimeFormat,
                     children: [
@@ -2339,6 +2584,7 @@ function TimeEndBackground() {
 
 ;// CONCATENATED MODULE: ./src/components/ShowSevenAndStorage/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
+
 
 
 
@@ -2427,6 +2673,7 @@ function ShowSevenAndStorage() {
                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                             className: (ShowSevenAndStorage_styles_module_default()).column1,
                             children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx(WeatherForecast, {}),
                                 /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                     className: (ShowSevenAndStorage_styles_module_default()).menuGroups1,
                                     children: /*#__PURE__*/ jsx_runtime_.jsx(MenuGroupOpen, {
@@ -2838,6 +3085,42 @@ module.exports = {
 
 /***/ }),
 
+/***/ 6929:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"weatherContainer": "styles_weatherContainer__HOeqm",
+	"container_button": "styles_container_button__jsvYm",
+	"styleButton": "styles_styleButton__cGtjE",
+	"container_top": "styles_container_top__Rwvek",
+	"dayContainer": "styles_dayContainer__qQDHA",
+	"dayTitle": "styles_dayTitle__ccw8E",
+	"hourlyForecasts": "styles_hourlyForecasts__2AG98",
+	"forecastCard": "styles_forecastCard__b3_uj",
+	"time": "styles_time__3fwYA",
+	"rainDrops": "styles_rainDrops__dloPh",
+	"tempRange": "styles_tempRange__NRvvj",
+	"tempMax": "styles_tempMax__qKeNm",
+	"tempMin": "styles_tempMin__Jj1S3",
+	"feelsLike": "styles_feelsLike___7LCy",
+	"weatherIcon": "styles_weatherIcon__byHcZ",
+	"windInfo": "styles_windInfo__nGQ9q",
+	"rainImage": "styles_rainImage__Noqta",
+	"windLow": "styles_windLow__bP7WE",
+	"windMedium": "styles_windMedium__EM72w",
+	"windHigh": "styles_windHigh__UTQrZ",
+	"windVeryHigh": "styles_windVeryHigh__4T9u_",
+	"windExtreme": "styles_windExtreme__FmwMM"
+};
+
+
+/***/ }),
+
 /***/ 331:
 /***/ ((module) => {
 
@@ -3111,7 +3394,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,795,154,245], () => (__webpack_exec__(5827)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,795,537,245], () => (__webpack_exec__(5827)));
 module.exports = __webpack_exports__;
 
 })();

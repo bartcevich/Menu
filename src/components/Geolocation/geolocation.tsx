@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGeolocation } from "@uidotdev/usehooks";
 
-const GeoLocation = () => {
+interface GeoProps {
+  setLatitude: React.Dispatch<React.SetStateAction<number>>;
+  setLongitude: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const GeoLocation: React.FC<GeoProps> = (props) => {
   const state = useGeolocation();
   //   console.log(state);
+  useEffect(() => {
+    if (
+      !state.loading &&
+      !state.error &&
+      state.latitude != null &&
+      state.longitude != null
+    ) {
+      props.setLatitude(state.latitude);
+      props.setLongitude(state.longitude);
+    }
+  }, [state.loading, state.error, state.latitude, state.longitude, props]);
+
   if (state.loading) {
-    return <p>loading... </p>; //(you may need to enable permissions)
+    return <p>загрузка данных... Разрешите браузеру получить вашу локацию.</p>;
   }
 
   if (state.error) {
