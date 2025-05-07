@@ -107,24 +107,27 @@
   .feelsLike {
     font-size: 17px;
     color: #666;
-    margin-bottom: 4px;
+    white-space: nowrap;
   }
   
   .weatherIcon {
     width: 48px;
-    height: 48px;
+    height: 38px;
   }
   
-  .windInfo {
+  .windAndRain {
     font-size: 17px;
     
   }
-  .rainImage{
+  .rainData{
     display: flex;
     span{
       width: 22px;
       font-size: 15px;
     }
+    }
+    .windData{
+      white-space: nowrap;
     }
   // Wind speed background colors
   .windLow {

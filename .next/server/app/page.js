@@ -2248,10 +2248,10 @@ function WeatherForecast() {
                                                     className: (MenuGroupsWeather_styles_module_default()).weatherIcon
                                                 }),
                                                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                                    className: (MenuGroupsWeather_styles_module_default()).windInfo,
+                                                    className: (MenuGroupsWeather_styles_module_default()).windAndRain,
                                                     children: [
                                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
-                                                            className: (MenuGroupsWeather_styles_module_default()).rainImage,
+                                                            className: (MenuGroupsWeather_styles_module_default()).rainData,
                                                             children: [
                                                                 forecast?.rain && /*#__PURE__*/ jsx_runtime_.jsx("span", {
                                                                     children: "\uD83D\uDCA7"
@@ -2260,6 +2260,7 @@ function WeatherForecast() {
                                                             ]
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
+                                                            className: (MenuGroupsWeather_styles_module_default()).windData,
                                                             children: [
                                                                 /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
                                                                     icon: free_solid_svg_icons/* faWind */.DSs
@@ -3109,8 +3110,9 @@ module.exports = {
 	"tempMin": "styles_tempMin__Jj1S3",
 	"feelsLike": "styles_feelsLike___7LCy",
 	"weatherIcon": "styles_weatherIcon__byHcZ",
-	"windInfo": "styles_windInfo__nGQ9q",
-	"rainImage": "styles_rainImage__Noqta",
+	"windAndRain": "styles_windAndRain__hxjhh",
+	"rainData": "styles_rainData__V1X_V",
+	"windData": "styles_windData__7SvDS",
 	"windLow": "styles_windLow__bP7WE",
 	"windMedium": "styles_windMedium__EM72w",
 	"windHigh": "styles_windHigh__UTQrZ",

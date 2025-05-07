@@ -224,8 +224,8 @@ export default function WeatherForecast() {
                         alt={forecast.weather[0].description}
                         className={styles.weatherIcon}
                       />
-                      <div className={styles.windInfo}>
-                        <p className={styles.rainImage}>
+                      <div className={styles.windAndRain}>
+                        <p className={styles.rainData}>
                           {forecast?.rain && <span>💧</span>}
                           {forecast?.rain !== null
                             ? typeof forecast?.rain === "object"
@@ -233,7 +233,7 @@ export default function WeatherForecast() {
                               : ""
                             : ""}
                         </p>
-                        <p>
+                        <p className={styles.windData}>
                           <FontAwesomeIcon icon={faWind} />{" "}
                           {Math.ceil(forecast?.wind?.speed)} м/с
                         </p>
