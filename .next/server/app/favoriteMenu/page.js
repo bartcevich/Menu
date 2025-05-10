@@ -220,7 +220,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 5001:
+/***/ 2064:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -932,7 +932,7 @@ function FavoriteMenuPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,537,245], () => (__webpack_exec__(5001)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,975,245], () => (__webpack_exec__(2064)));
 module.exports = __webpack_exports__;
 
 })();

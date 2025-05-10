@@ -1,0 +1,97 @@
+@import '@/app/variables.scss';
+
+.container_daysShort{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+}
+  
+  .forecastCard {
+    width: 100px;
+    padding: 8px;
+    border-radius: 12px;
+    display: flex;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .time {
+    font-size: 17px;
+    font-weight: 500;
+    margin-right: 5px;
+  }
+  
+  .rainDrops {
+    width: 33px;
+    margin-top: -5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // gap: 2px;
+    span{
+        width: 10px;
+        height: 11px;
+    }
+  }
+    
+  .tempRange {
+    display: flex;
+    flex-flow: column;
+    // gap: 8px;
+  }
+  
+  .tempMax {
+    font-weight: 600;
+    color: #e63946;
+  }
+  
+  .tempMin {
+    font-weight: 500;
+    color: #457b9d;
+  }
+  
+  .feelsLike {
+    font-size: 17px;
+    color: #666;
+    white-space: nowrap;
+  }
+  
+  .weatherIcon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .windAndRain {
+    font-size: 17px;
+    
+  }
+  .rainData{
+    display: flex;
+    span{
+      width: 22px;
+      font-size: 15px;
+    }
+    }
+    .windData{
+      white-space: nowrap;
+    }
+  // Wind speed background colors
+  .windLow {
+    background-color: #ffffff;
+  }
+  
+  .windMedium {
+    background-color: #f0f0f0;
+  }
+  
+  .windHigh {
+    background-color: #a8dadc;
+  }
+  
+  .windVeryHigh {
+    background-color: #ffd166;
+  }
+  
+  .windExtreme {
+    background-color: #ef476f;
+    color: white;
+  }

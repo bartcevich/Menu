@@ -284,11 +284,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 1099:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6556))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2354))
 
 /***/ }),
 
-/***/ 6556:
+/***/ 2354:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1995,9 +1995,9 @@ function MenuGroups_MenuGroups(props) {
     });
 }
 
-// EXTERNAL MODULE: ./src/components/MenuGroupsWeather/styles.module.scss
-var MenuGroupsWeather_styles_module = __webpack_require__(6929);
-var MenuGroupsWeather_styles_module_default = /*#__PURE__*/__webpack_require__.n(MenuGroupsWeather_styles_module);
+// EXTERNAL MODULE: ./src/components/WeatherForecast/styles.module.scss
+var WeatherForecast_styles_module = __webpack_require__(4744);
+var WeatherForecast_styles_module_default = /*#__PURE__*/__webpack_require__.n(WeatherForecast_styles_module);
 // EXTERNAL MODULE: ./node_modules/@uidotdev/usehooks/index.js
 var usehooks = __webpack_require__(3795);
 ;// CONCATENATED MODULE: ./src/components/Geolocation/geolocation.tsx
@@ -2049,8 +2049,77 @@ const GeoLocation = (props)=>{
 const MemoizedLocation = /*#__PURE__*/ react_default().memo(GeoLocation);
 /* harmony default export */ const geolocation = (MemoizedLocation);
 
-;// CONCATENATED MODULE: ./src/components/MenuGroupsWeather/index.tsx
+// EXTERNAL MODULE: ./src/components/WeatherForecastShort/styles.module.scss
+var WeatherForecastShort_styles_module = __webpack_require__(8730);
+var WeatherForecastShort_styles_module_default = /*#__PURE__*/__webpack_require__.n(WeatherForecastShort_styles_module);
+;// CONCATENATED MODULE: ./src/components/WeatherForecastShort/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+const WeatherForecastShort = (props)=>{
+    return /*#__PURE__*/ jsx_runtime_.jsx("div", {
+        className: (WeatherForecastShort_styles_module_default()).container_daysShort,
+        children: props.days.map(([dayName, forecasts], dayIndex)=>{
+            let maxTemp = Number.NEGATIVE_INFINITY;
+            let maxRain = 0;
+            let weatherIcon = "";
+            forecasts.forEach((forecast)=>{
+                if (forecast.main.temp_max > maxTemp) {
+                    maxTemp = forecast.main.temp_max;
+                    weatherIcon = forecast.weather[0].icon;
+                }
+                if (forecast.rain && forecast.rain["3h"] > maxRain) {
+                    maxRain = forecast.rain["3h"];
+                }
+            });
+            const parts = dayName.split(", ");
+            const dayNumberAndMonth = parts.length === 2 ? parts[1] : "Неизвестная дата";
+            return /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                className: (WeatherForecastShort_styles_module_default()).forecastCard,
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: (WeatherForecastShort_styles_module_default()).dailyForecast,
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                            className: (WeatherForecastShort_styles_module_default()).dayTitle,
+                            children: dayNumberAndMonth
+                        }),
+                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: (WeatherForecastShort_styles_module_default()).tempRange,
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                    src: `http://openweathermap.org/img/w/${weatherIcon}.png`,
+                                    alt: "Weather Icon",
+                                    className: (WeatherForecastShort_styles_module_default()).weatherIcon
+                                }),
+                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
+                                    className: (WeatherForecastShort_styles_module_default()).tempMax,
+                                    children: [
+                                        Math.round(maxTemp),
+                                        "\xb0C"
+                                    ]
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (WeatherForecastShort_styles_module_default()).rainData,
+                            children: maxRain > 0 && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
+                                children: [
+                                    "\uD83D\uDCA7",
+                                    maxRain
+                                ]
+                            })
+                        })
+                    ]
+                })
+            }, dayIndex);
+        })
+    });
+};
+/* harmony default export */ const components_WeatherForecastShort = (WeatherForecastShort);
+
+;// CONCATENATED MODULE: ./src/components/WeatherForecast/index.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
 
 
 
@@ -2067,7 +2136,6 @@ function WeatherForecast() {
     const [error, setError] = (0,react_.useState)(null);
     const [hasWeatherData, setHasWeatherData] = (0,react_.useState)(false);
     const [days, setDays] = (0,react_.useState)([]);
-    // console.log(latitude, longitude, weatherData);
     (0,react_.useEffect)(()=>{
         const fetchWeather = async ()=>{
             setLoading(true);
@@ -2081,11 +2149,11 @@ function WeatherForecast() {
                 }
                 const data = await response.json();
                 setWeatherData(data);
-                setHasWeatherData(true);
                 // Группируем данные по дням
                 if (data.list && Array.isArray(data.list)) {
                     const grouped = groupByDay(data.list);
                     setDays(grouped);
+                    setHasWeatherData(true);
                 }
             } catch (err) {
                 if (err instanceof Error) {
@@ -2118,8 +2186,6 @@ function WeatherForecast() {
             daysMap.get(dayKey)?.push(forecast);
         });
         return Array.from(daysMap.entries());
-    // const arrayForRender = Array.from(daysMap.entries());
-    // setDays(arrayForRender)
     }
     // Функция для отображения капель дождя
     function renderRainDrops(pop) {
@@ -2128,7 +2194,7 @@ function WeatherForecast() {
             dropsCount = Math.ceil(pop["3h"]); //Math.min(, 6);
         }
         return dropsCount > 0 ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
-            className: (MenuGroupsWeather_styles_module_default()).rainDrops,
+            className: (WeatherForecast_styles_module_default()).rainDrops,
             children: Array(dropsCount).fill(0).map((_, i)=>/*#__PURE__*/ jsx_runtime_.jsx("span", {
                     children: "\uD83D\uDCA7"
                 }, i))
@@ -2137,39 +2203,34 @@ function WeatherForecast() {
     // Функция для определения цвета фона по скорости ветра
     function getWindBgColor(speed) {
         const roundedSpeed = Math.ceil(speed);
-        if (roundedSpeed <= 2) return (MenuGroupsWeather_styles_module_default()).windLow;
-        if (roundedSpeed <= 4) return (MenuGroupsWeather_styles_module_default()).windMedium;
-        if (roundedSpeed <= 6) return (MenuGroupsWeather_styles_module_default()).windHigh;
-        if (roundedSpeed <= 8) return (MenuGroupsWeather_styles_module_default()).windVeryHigh;
-        return (MenuGroupsWeather_styles_module_default()).windExtreme;
+        if (roundedSpeed <= 2) return (WeatherForecast_styles_module_default()).windLow;
+        if (roundedSpeed <= 4) return (WeatherForecast_styles_module_default()).windMedium;
+        if (roundedSpeed <= 6) return (WeatherForecast_styles_module_default()).windHigh;
+        if (roundedSpeed <= 8) return (WeatherForecast_styles_module_default()).windVeryHigh;
+        return (WeatherForecast_styles_module_default()).windExtreme;
     }
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: (MenuGroupsWeather_styles_module_default()).weatherContainer,
+        className: (WeatherForecast_styles_module_default()).weatherContainer,
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: (MenuGroupsWeather_styles_module_default()).container_button,
+                className: (WeatherForecast_styles_module_default()).container_button,
                 children: [
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx("button", {
                                 type: "button",
-                                className: (MenuGroupsWeather_styles_module_default()).styleButton,
+                                className: (WeatherForecast_styles_module_default()).styleButton,
+                                title: "нажмите для подробного просмотра погоды",
                                 onClick: ()=>setOpenMenu((prevValue)=>!prevValue),
                                 children: openMenu ? "Закрыть просмотр" : "Погода подробно"
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx("button", {
                                 type: "button",
-                                className: (MenuGroupsWeather_styles_module_default()).styleButton,
+                                className: (WeatherForecast_styles_module_default()).styleButton,
                                 onClick: ()=>setGeo((prevValue)=>!prevValue),
                                 children: geo ? "Назад" : "погода для вашей локации"
                             })
                         ]
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("b", {
-                        children: "нажмите для подробного"
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("b", {
-                        children: "просмотра погоды"
                     }),
                     !geo && /*#__PURE__*/ jsx_runtime_.jsx("span", {
                         children: "данные погоды в Pryvol’ny (2000) BY"
@@ -2195,91 +2256,99 @@ function WeatherForecast() {
                     })
                 ]
             }),
-            hasWeatherData && openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: (WeatherForecast_styles_module_default()).container_days,
                 children: [
-                    days.map(([dayName, forecasts], dayIndex)=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                            className: (MenuGroupsWeather_styles_module_default()).dayContainer,
-                            children: [
-                                /*#__PURE__*/ jsx_runtime_.jsx("h3", {
-                                    className: (MenuGroupsWeather_styles_module_default()).dayTitle,
-                                    children: dayIndex === 0 ? "Сегодня" : dayIndex === 1 ? "Завтра" : dayName
-                                }),
-                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                    className: (MenuGroupsWeather_styles_module_default()).hourlyForecasts,
-                                    children: forecasts.map((forecast, index)=>{
-                                        const time = new Date(forecast.dt * 1000).toLocaleTimeString("ru-RU", {
-                                            hour: "2-digit",
-                                            minute: "2-digit"
-                                        }).replace(":", ".");
-                                        return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                            className: `${(MenuGroupsWeather_styles_module_default()).forecastCard} ${getWindBgColor(forecast?.wind?.speed)}`,
-                                            children: [
-                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                                    className: (MenuGroupsWeather_styles_module_default()).time,
+                    hasWeatherData && !openMenu && /*#__PURE__*/ jsx_runtime_.jsx(components_WeatherForecastShort, {
+                        days: days
+                    }),
+                    hasWeatherData && openMenu && /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+                        children: [
+                            days.map(([dayName, forecasts], dayIndex)=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                    className: (WeatherForecast_styles_module_default()).dayContainer,
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                                            className: (WeatherForecast_styles_module_default()).dayTitle,
+                                            children: dayIndex === 0 ? "Сегодня" : dayIndex === 1 ? "Завтра" : dayName
+                                        }),
+                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                            className: (WeatherForecast_styles_module_default()).hourlyForecasts,
+                                            children: forecasts.map((forecast, index)=>{
+                                                const time = new Date(forecast.dt * 1000).toLocaleTimeString("ru-RU", {
+                                                    hour: "2-digit",
+                                                    minute: "2-digit"
+                                                }).replace(":", ".");
+                                                return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                    className: `${(WeatherForecast_styles_module_default()).forecastCard} ${getWindBgColor(forecast?.wind?.speed)}`,
                                                     children: [
-                                                        time,
-                                                        renderRainDrops(forecast?.rain)
-                                                    ]
-                                                }),
-                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                                    className: (MenuGroupsWeather_styles_module_default()).tempRange,
-                                                    children: [
-                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
-                                                            className: (MenuGroupsWeather_styles_module_default()).tempMax,
+                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                            className: (WeatherForecast_styles_module_default()).time,
                                                             children: [
-                                                                Math.round(forecast.main.temp_min),
-                                                                "\xb0C",
-                                                                Math.round(forecast.main.temp_max) !== Math.round(forecast.main.temp_min) ? ` - ${Math.round(forecast.main.temp_max)}°C` : ""
+                                                                time,
+                                                                renderRainDrops(forecast?.rain)
                                                             ]
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                                            className: (MenuGroupsWeather_styles_module_default()).feelsLike,
+                                                            className: (WeatherForecast_styles_module_default()).tempRange,
                                                             children: [
-                                                                "Ощущается: ",
-                                                                Math.round(forecast.main.feels_like),
-                                                                "\xb0"
-                                                            ]
-                                                        })
-                                                    ]
-                                                }),
-                                                /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                                    src: `http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`,
-                                                    alt: forecast.weather[0].description,
-                                                    className: (MenuGroupsWeather_styles_module_default()).weatherIcon
-                                                }),
-                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                                    className: (MenuGroupsWeather_styles_module_default()).windAndRain,
-                                                    children: [
-                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
-                                                            className: (MenuGroupsWeather_styles_module_default()).rainData,
-                                                            children: [
-                                                                forecast?.rain && /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                                    children: "\uD83D\uDCA7"
+                                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
+                                                                    className: (WeatherForecast_styles_module_default()).tempMax,
+                                                                    children: [
+                                                                        Math.round(forecast.main.temp_min),
+                                                                        "\xb0C",
+                                                                        Math.round(forecast.main.temp_max) !== Math.round(forecast.main.temp_min) ? ` - ${Math.round(forecast.main.temp_max)}°C` : ""
+                                                                    ]
                                                                 }),
-                                                                forecast?.rain !== null ? typeof forecast?.rain === "object" ? forecast.rain["3h"] : "" : ""
+                                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                                    className: (WeatherForecast_styles_module_default()).feelsLike,
+                                                                    children: [
+                                                                        "Ощущается: ",
+                                                                        Math.round(forecast.main.feels_like),
+                                                                        "\xb0"
+                                                                    ]
+                                                                })
                                                             ]
                                                         }),
-                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
-                                                            className: (MenuGroupsWeather_styles_module_default()).windData,
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                            src: `http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`,
+                                                            alt: forecast.weather[0].description,
+                                                            className: (WeatherForecast_styles_module_default()).weatherIcon
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                            className: (WeatherForecast_styles_module_default()).windAndRain,
                                                             children: [
-                                                                /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
-                                                                    icon: free_solid_svg_icons/* faWind */.DSs
+                                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
+                                                                    className: (WeatherForecast_styles_module_default()).rainData,
+                                                                    children: [
+                                                                        forecast?.rain && /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                                                            children: "\uD83D\uDCA7"
+                                                                        }),
+                                                                        forecast?.rain !== null ? typeof forecast?.rain === "object" ? forecast.rain["3h"] : "" : ""
+                                                                    ]
                                                                 }),
-                                                                " ",
-                                                                Math.ceil(forecast?.wind?.speed),
-                                                                " м/с"
+                                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
+                                                                    className: (WeatherForecast_styles_module_default()).windData,
+                                                                    children: [
+                                                                        /*#__PURE__*/ jsx_runtime_.jsx(react_fontawesome.FontAwesomeIcon, {
+                                                                            icon: free_solid_svg_icons/* faWind */.DSs
+                                                                        }),
+                                                                        " ",
+                                                                        Math.ceil(forecast?.wind?.speed),
+                                                                        " м/с"
+                                                                    ]
+                                                                })
                                                             ]
                                                         })
                                                     ]
-                                                })
-                                            ]
-                                        }, index);
-                                    })
-                                })
-                            ]
-                        }, dayIndex)),
-                    !loading && !error && !hasWeatherData && /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                        children: "Данные погоды ещё не загружены. Разрешите браузеру получить вашу локацию."
+                                                }, index);
+                                            })
+                                        })
+                                    ]
+                                }, dayIndex)),
+                            !loading && !error && !hasWeatherData && /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                children: "Данные погоды ещё не загружены. Разрешите браузеру получить вашу локацию."
+                            })
+                        ]
                     })
                 ]
             })
@@ -3086,43 +3155,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ 6929:
-/***/ ((module) => {
-
-// Exports
-module.exports = {
-	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
-	"fontBarlow": "Barlow,sans-serif",
-	"colorRedLight": "#ef233c",
-	"colorRedDark": "#d90429",
-	"weatherContainer": "styles_weatherContainer__HOeqm",
-	"container_button": "styles_container_button__jsvYm",
-	"styleButton": "styles_styleButton__cGtjE",
-	"container_top": "styles_container_top__Rwvek",
-	"dayContainer": "styles_dayContainer__qQDHA",
-	"dayTitle": "styles_dayTitle__ccw8E",
-	"hourlyForecasts": "styles_hourlyForecasts__2AG98",
-	"forecastCard": "styles_forecastCard__b3_uj",
-	"time": "styles_time__3fwYA",
-	"rainDrops": "styles_rainDrops__dloPh",
-	"tempRange": "styles_tempRange__NRvvj",
-	"tempMax": "styles_tempMax__qKeNm",
-	"tempMin": "styles_tempMin__Jj1S3",
-	"feelsLike": "styles_feelsLike___7LCy",
-	"weatherIcon": "styles_weatherIcon__byHcZ",
-	"windAndRain": "styles_windAndRain__hxjhh",
-	"rainData": "styles_rainData__V1X_V",
-	"windData": "styles_windData__7SvDS",
-	"windLow": "styles_windLow__bP7WE",
-	"windMedium": "styles_windMedium__EM72w",
-	"windHigh": "styles_windHigh__UTQrZ",
-	"windVeryHigh": "styles_windVeryHigh__4T9u_",
-	"windExtreme": "styles_windExtreme__FmwMM"
-};
-
-
-/***/ }),
-
 /***/ 331:
 /***/ ((module) => {
 
@@ -3343,6 +3375,75 @@ module.exports = {
 
 /***/ }),
 
+/***/ 8730:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"container_daysShort": "styles_container_daysShort__vC160",
+	"forecastCard": "styles_forecastCard__lVaEK",
+	"time": "styles_time__5YfGa",
+	"rainDrops": "styles_rainDrops__HAcey",
+	"tempRange": "styles_tempRange__QerFB",
+	"tempMax": "styles_tempMax__3HVJ1",
+	"tempMin": "styles_tempMin__LyTOA",
+	"feelsLike": "styles_feelsLike__1l9gJ",
+	"weatherIcon": "styles_weatherIcon__R_MXX",
+	"windAndRain": "styles_windAndRain__dvE4a",
+	"rainData": "styles_rainData__PENUW",
+	"windData": "styles_windData__yBLbM",
+	"windLow": "styles_windLow__ejXrX",
+	"windMedium": "styles_windMedium__Ce6TA",
+	"windHigh": "styles_windHigh__EcZkl",
+	"windVeryHigh": "styles_windVeryHigh__LuzVN",
+	"windExtreme": "styles_windExtreme__dM8dV"
+};
+
+
+/***/ }),
+
+/***/ 4744:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
+	"fontBarlow": "Barlow,sans-serif",
+	"colorRedLight": "#ef233c",
+	"colorRedDark": "#d90429",
+	"weatherContainer": "styles_weatherContainer__2ZK6q",
+	"container_button": "styles_container_button__c0nld",
+	"styleButton": "styles_styleButton__cNGrm",
+	"container_top": "styles_container_top__A8fRd",
+	"container_days": "styles_container_days__EJbtw",
+	"dayContainer": "styles_dayContainer__eFP6S",
+	"dayTitle": "styles_dayTitle__zKL3K",
+	"hourlyForecasts": "styles_hourlyForecasts__KMGUk",
+	"forecastCard": "styles_forecastCard__TlrB0",
+	"time": "styles_time__2zLFy",
+	"rainDrops": "styles_rainDrops__7QCJB",
+	"tempRange": "styles_tempRange__NNi3g",
+	"tempMax": "styles_tempMax__kAj59",
+	"tempMin": "styles_tempMin__x4yZ1",
+	"feelsLike": "styles_feelsLike__K_HIQ",
+	"weatherIcon": "styles_weatherIcon__T8i7b",
+	"windAndRain": "styles_windAndRain__5UmAT",
+	"rainData": "styles_rainData__IfeO9",
+	"windData": "styles_windData__ma5v_",
+	"windLow": "styles_windLow__GuuZu",
+	"windMedium": "styles_windMedium__aLJMD",
+	"windHigh": "styles_windHigh__XQXzn",
+	"windVeryHigh": "styles_windVeryHigh__FNDqC",
+	"windExtreme": "styles_windExtreme__kKOXG"
+};
+
+
+/***/ }),
+
 /***/ 6571:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -3396,7 +3497,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,795,537,245], () => (__webpack_exec__(5827)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,795,975,245], () => (__webpack_exec__(5827)));
 module.exports = __webpack_exports__;
 
 })();

@@ -1,8 +1,8 @@
 {
-  "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
+  "/favicon.ico/route": "/favicon.ico",
   "/cookFromAvailable/page": "/cookFromAvailable",
-  "/favoriteMenu/page": "/favoriteMenu",
   "/kids/page": "/kids",
-  "/programs/page": "/programs"
+  "/programs/page": "/programs",
+  "/favoriteMenu/page": "/favoriteMenu"
 }

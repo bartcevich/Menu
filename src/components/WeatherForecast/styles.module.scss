@@ -1,0 +1,157 @@
+@import '@/app/variables.scss';
+
+.weatherContainer {
+  // margin-top: 23px;
+    padding: 7px;
+    display: flex;
+    flex-flow: column;
+  }
+
+.container_button {
+  width: 290px;
+  div{
+    display: flex;
+  }
+  // b{
+  //   display: none;
+  // }
+}
+// @media (hover: hover)  {
+//     .container_button:hover b{
+//         display: block;
+//         @include font(#fff, Inter, 16px, normal, 400, 20px, 0);
+//     }
+// }
+// @media (hover: none)  {
+//     .container_button b{
+//         display: none;
+//     }
+// }
+.styleButton{
+    margin-right: 10px;
+    width: 130px;
+    height: 35px;
+    border: 2px solid #E47611;
+    border-radius: 10px;
+    @include font(#E47611, Inter, 15px, normal, 400, 15px, 0);
+}
+
+.container_top{
+    display: flex;
+    flex-flow: column;
+}
+
+.container_days{
+  display: flex;
+    flex-wrap: wrap;
+}
+  
+  .dayContainer {
+    margin-bottom: 24px;
+    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+  }
+  
+  .dayTitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    // color: #333;
+  }
+  
+  .hourlyForecasts {
+    display: flex;
+    flex-flow: column;
+    // overflow-x: auto;
+    // gap: 12px;
+    padding-bottom: 8px;
+  }
+  
+  .forecastCard {
+    width: 290px;
+    padding: 8px;
+    border-radius: 12px;
+    display: flex;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .time {
+    font-size: 17px;
+    font-weight: 500;
+    margin-right: 5px;
+  }
+  
+  .rainDrops {
+    width: 33px;
+    margin-top: -5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // gap: 2px;
+    span{
+        width: 10px;
+        height: 11px;
+    }
+  }
+    
+  .tempRange {
+    display: flex;
+    flex-flow: column;
+    // gap: 8px;
+  }
+  
+  .tempMax {
+    font-weight: 600;
+    color: #e63946;
+  }
+  
+  .tempMin {
+    font-weight: 500;
+    color: #457b9d;
+  }
+  
+  .feelsLike {
+    font-size: 17px;
+    color: #666;
+    white-space: nowrap;
+  }
+  
+  .weatherIcon {
+    width: 48px;
+    height: 38px;
+  }
+  
+  .windAndRain {
+    font-size: 17px;
+    
+  }
+  .rainData{
+    display: flex;
+    span{
+      width: 22px;
+      font-size: 15px;
+    }
+    }
+    .windData{
+      white-space: nowrap;
+    }
+  // Wind speed background colors
+  .windLow {
+    background-color: #ffffff;
+  }
+  
+  .windMedium {
+    background-color: #f0f0f0;
+  }
+  
+  .windHigh {
+    background-color: #a8dadc;
+  }
+  
+  .windVeryHigh {
+    background-color: #ffd166;
+  }
+  
+  .windExtreme {
+    background-color: #ef476f;
+    color: white;
+  }

@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { IngredientsContext } from "@/context/IngredientsContext";
 import MenuGroupsOpen from "@/components/MenuGroupsOpen";
 import MenuGroups from "@/components/MenuGroups";
-import MenuGroupWeather from "@/components/MenuGroupsWeather/index";
+import WeatherForecast from "@/components/WeatherForecast/index";
 import BuyForWeek from "@/components/BuyForWeek";
 import TimeEndBackground from "@/components/TimeEndBackground";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -102,7 +102,7 @@ export default function ShowSevenAndStorage() {
         <TimeEndBackground />
         <div className={styles.container}>
           <div className={styles.column1}>
-            <MenuGroupWeather />
+            <WeatherForecast />
             <div className={styles.menuGroups1}>
               <MenuGroupsOpen day={"day1"} />
             </div>
