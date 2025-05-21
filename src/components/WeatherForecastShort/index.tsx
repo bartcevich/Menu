@@ -7,6 +7,7 @@ interface WeatherForecastShortProps {
 }
 
 const WeatherForecastShort: React.FC<WeatherForecastShortProps> = (props) => {
+  // console.log("forecast short", props);
   return (
     <div className={styles.container_daysShort}>
       {props.days.map(([dayName, forecasts], dayIndex) => {

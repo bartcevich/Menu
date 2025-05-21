@@ -8,7 +8,7 @@ interface GeoProps {
 
 const GeoLocation: React.FC<GeoProps> = (props) => {
   const state = useGeolocation();
-  //   console.log(state);
+  // console.log("geolocation", props);
   useEffect(() => {
     if (
       !state.loading &&

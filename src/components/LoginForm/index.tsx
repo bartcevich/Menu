@@ -106,20 +106,10 @@ const LoginForm = () => {
     }
   };
 
-  useEffect(() => {
-    // Check if the window object is available
-    if (typeof window !== "undefined") {
-      setScreenHeight(window.innerHeight - 540);
-    }
-  }, []);
-
   return (
     <>
       {!isLoggedIn ? (
-        <div
-          className={styles.wrapper}
-          style={{ marginBottom: `${screenHeight}px` }}
-        >
+        <div className={styles.wrapper}>
           <form
             onSubmit={handleSubmit}
             className={`${styles.containerForm} ${

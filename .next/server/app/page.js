@@ -2006,7 +2006,7 @@ var usehooks = __webpack_require__(3795);
 
 const GeoLocation = (props)=>{
     const state = (0,usehooks/* useGeolocation */.ZZ)();
-    //   console.log(state);
+    // console.log("geolocation", props);
     (0,react_.useEffect)(()=>{
         if (!state.loading && !state.error && state.latitude != null && state.longitude != null) {
             props.setLatitude(state.latitude);
@@ -2057,6 +2057,7 @@ var WeatherForecastShort_styles_module_default = /*#__PURE__*/__webpack_require_
 
 
 const WeatherForecastShort = (props)=>{
+    // console.log("forecast short", props);
     return /*#__PURE__*/ jsx_runtime_.jsx("div", {
         className: (WeatherForecastShort_styles_module_default()).container_daysShort,
         children: props.days.map(([dayName, forecasts], dayIndex)=>{
@@ -2209,6 +2210,7 @@ function WeatherForecast() {
         if (roundedSpeed <= 8) return (WeatherForecast_styles_module_default()).windVeryHigh;
         return (WeatherForecast_styles_module_default()).windExtreme;
     }
+    // console.log("forecast", latitude, longitude, days);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: (WeatherForecast_styles_module_default()).weatherContainer,
         children: [
@@ -2931,16 +2933,9 @@ const LoginForm = ()=>{
             return "Войти";
         }
     };
-    (0,react_.useEffect)(()=>{
-        // Check if the window object is available
-        if (false) {}
-    }, []);
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: !isLoggedIn ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
             className: (styles_module_default()).wrapper,
-            style: {
-                marginBottom: `${screenHeight}px`
-            },
             children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("form", {
                 onSubmit: handleSubmit,
                 className: `${(styles_module_default()).containerForm} ${isLoggedIn ? "animate-slide" : ""}`,
@@ -3120,12 +3115,12 @@ module.exports = {
 	"fontBarlow": "Barlow,sans-serif",
 	"colorRedLight": "#ef233c",
 	"colorRedDark": "#d90429",
+	"wrapper": "styles_wrapper__T8DWD",
 	"animate-slide": "styles_animate-slide__4XcFj",
 	"slideIn": "styles_slideIn__8_QdL",
 	"containerForm": "styles_containerForm__3HubK",
 	"imageTest": "styles_imageTest__Ae7cL",
-	"button": "styles_button__ox83s",
-	"wrapper": "styles_wrapper__T8DWD"
+	"button": "styles_button__ox83s"
 };
 
 
@@ -3497,7 +3492,7 @@ function Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [763,9,795,975,245], () => (__webpack_exec__(5827)));
+var __webpack_exports__ = __webpack_require__.X(0, [763,9,795,772,245], () => (__webpack_exec__(5827)));
 module.exports = __webpack_exports__;
 
 })();

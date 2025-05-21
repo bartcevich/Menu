@@ -135,7 +135,7 @@ export default function WeatherForecast() {
     if (roundedSpeed <= 8) return styles.windVeryHigh;
     return styles.windExtreme;
   }
-
+  // console.log("forecast", latitude, longitude, days);
   return (
     <div className={styles.weatherContainer}>
       <div className={styles.container_button}>
